@@ -3,7 +3,7 @@
  * The main template file
  *
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  *
@@ -12,7 +12,7 @@ get_header();
 ?>
     <div class="container">
         <div class="row">
-            <div id="ef5-content-area" class="<?php overcome_content_css_class();?>">
+            <div id="ef5-content-area" class="<?php ef5frame_content_css_class();?>">
                 <div id="ef5-posts" class="ef5-posts ef5-blogs">
                     <?php
                     if ( have_posts() )
@@ -22,7 +22,7 @@ get_header();
                             the_post();
                             get_template_part( 'template-parts/loop/content', get_post_format() );
                         }
-                        overcome_loop_pagination(['class' => 'justify-content-center']);
+                        ef5frame_loop_pagination(['class' => 'justify-content-center']);
                     }
                     else
                     {
@@ -31,7 +31,7 @@ get_header();
                     ?>
                 </div>
             </div>
-            <?php overcome_sidebar(); ?>
+            <?php ef5frame_sidebar(); ?>
         </div>
     </div>
 <?php

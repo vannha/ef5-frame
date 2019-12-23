@@ -32,7 +32,7 @@
 		margin-right: -11px;
 		a{
 			padding: 0 11px;
-			@include overcome_social_color();
+			@include ef5frame_social_color();
 			&[href*="facebook"]{
 				color: $accent_color;
 			}

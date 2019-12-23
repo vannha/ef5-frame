@@ -72,7 +72,7 @@ $direction: (
 		}
 	}
 }
-@mixin overcome_toggle_plus(
+@mixin ef5frame_toggle_plus(
 		$parent_selector: '.has-toggle', 
 		$selector       : '.ef5-toggle', 
 		$selector_inner : '.ef5-toggle-inner', 
@@ -130,7 +130,7 @@ $direction: (
 		}
 	}
 }
-//@include overcome_toggle_plus();
+//@include ef5frame_toggle_plus();
 
 .ef5-toggle{
 	width: 22px;

@@ -7,10 +7,10 @@
  * Widget Categories
  * Custom HTML output
 */
-if(!function_exists('overcome_widget_categories_args')){
-    add_filter('widget_categories_args', 'overcome_widget_categories_args');
-    function overcome_widget_categories_args($cat_args){
-        $cat_args['walker'] = new OverCome_Categories_Walker;
+if(!function_exists('ef5frame_widget_categories_args')){
+    add_filter('widget_categories_args', 'ef5frame_widget_categories_args');
+    function ef5frame_widget_categories_args($cat_args){
+        $cat_args['walker'] = new EF5Frame_Categories_Walker;
         return $cat_args; 
     }
 }
@@ -20,9 +20,9 @@ if(!function_exists('overcome_widget_categories_args')){
  * This code filters the Archive widget to include the post count inside the link 
  * @since 1.0.0
 */
-if(!function_exists('overcome_get_archives_link_text')){
-    add_filter('get_archives_link', 'overcome_get_archives_link_text', 10, 6);
-    function overcome_get_archives_link_text($link_html, $url, $text, $format, $before, $after ){
+if(!function_exists('ef5frame_get_archives_link_text')){
+    add_filter('get_archives_link', 'ef5frame_get_archives_link_text', 10, 6);
+    function ef5frame_get_archives_link_text($link_html, $url, $text, $format, $before, $after ){
         $text = wptexturize( $text );
         $url  = esc_url( $url );
      
@@ -39,9 +39,9 @@ if(!function_exists('overcome_get_archives_link_text')){
     }
 }
 
-if(!function_exists('overcome_archive_count_span')){
-    add_filter('get_archives_link', 'overcome_archive_count_span');
-    function overcome_archive_count_span($links) {
+if(!function_exists('ef5frame_archive_count_span')){
+    add_filter('get_archives_link', 'ef5frame_archive_count_span');
+    function ef5frame_archive_count_span($links) {
         $links = str_replace('<li>', '<li class="ef5-menu-item">', $links);
         $links = str_replace('</a>&nbsp;(', ' <span class="count">(', $links);
         $links = str_replace(')</li>', ')</span></a></li>', $links);
@@ -53,10 +53,10 @@ if(!function_exists('overcome_archive_count_span')){
  * Widget Page
  * Custom output HTMl
 */
-if(!function_exists('overcome_widget_page_args')){
-    add_filter('widget_pages_args', 'overcome_widget_page_args');
-    function overcome_widget_page_args($page_args){
-        $page_args['walker'] = new OverCome_Page_Walker;
+if(!function_exists('ef5frame_widget_page_args')){
+    add_filter('widget_pages_args', 'ef5frame_widget_page_args');
+    function ef5frame_widget_page_args($page_args){
+        $page_args['walker'] = new EF5Frame_Page_Walker;
         return $page_args; 
     }
 }
@@ -66,10 +66,10 @@ if(!function_exists('overcome_widget_page_args')){
  * Custom HTML Output
  * 
 */
-if(!function_exists('overcome_widget_navigation_menu')){
-    add_filter('widget_nav_menu_args', 'overcome_widget_navigation_menu');
-    function overcome_widget_navigation_menu($nav_menu_args){
-        $nav_menu_args['walker'] = new OverCome_Menu_Walker();
+if(!function_exists('ef5frame_widget_navigation_menu')){
+    add_filter('widget_nav_menu_args', 'ef5frame_widget_navigation_menu');
+    function ef5frame_widget_navigation_menu($nav_menu_args){
+        $nav_menu_args['walker'] = new EF5Frame_Menu_Walker();
         return $nav_menu_args;
     }
 }
@@ -79,9 +79,9 @@ if(!function_exists('overcome_widget_navigation_menu')){
  * Change separator text, font size, ...
  * Hook filter: widget_tag_cloud_args, woocommerce_product_tag_cloud_widget_args
 */
-if(!function_exists('overcome_widget_tag_cloud_args')){
-    add_filter('widget_tag_cloud_args', 'overcome_widget_tag_cloud_args');
-    function overcome_widget_tag_cloud_args($args){
+if(!function_exists('ef5frame_widget_tag_cloud_args')){
+    add_filter('widget_tag_cloud_args', 'ef5frame_widget_tag_cloud_args');
+    function ef5frame_widget_tag_cloud_args($args){
         $_args =[
             'smallest'  => '12',
             'largest'   => '12',
@@ -92,9 +92,9 @@ if(!function_exists('overcome_widget_tag_cloud_args')){
         return $args;
     }
 }
-if(!function_exists('overcome_woocommerce_widget_tag_cloud_args')){
-    add_filter('woocommerce_product_tag_cloud_widget_args', 'overcome_woocommerce_widget_tag_cloud_args');
-    function overcome_woocommerce_widget_tag_cloud_args($args){
+if(!function_exists('ef5frame_woocommerce_widget_tag_cloud_args')){
+    add_filter('woocommerce_product_tag_cloud_widget_args', 'ef5frame_woocommerce_widget_tag_cloud_args');
+    function ef5frame_woocommerce_widget_tag_cloud_args($args){
         $_args =[
             'smallest'  => '12',
             'largest'   => '12',

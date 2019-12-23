@@ -2,9 +2,9 @@
 /**
  * Header Helper Menu 
 */
-if(!function_exists('overcome_header_helper_menu')){
-    function overcome_header_helper_menu($args = []){
-        $header_helper_menu = overcome_get_opts('header_helper_menu','-1');
+if(!function_exists('ef5frame_header_helper_menu')){
+    function ef5frame_header_helper_menu($args = []){
+        $header_helper_menu = ef5frame_get_opts('header_helper_menu','-1');
         if(!is_nav_menu($header_helper_menu)) return;
         $args = wp_parse_args($args,[
             'class'      => 'justify-content-end',

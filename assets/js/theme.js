@@ -3,41 +3,41 @@
 	var resizeTimer;
     // Fire on document ready.
     $( document ).ready( function() {
-        overcome_StickyHeader();
-        overcome_toggle_menu();
-        overcome_touched_side();
-        overcome_open_mobile_menu();
-        overcome_popup();
-        overcome_toggle();
-        overcome_side_nav();
-        overcome_video_size();
-        overcome_vcRow();
-        overcome_inlineCss();
-        overcome_ajax_pagination();
-        overcome_woo_filters();
-        overcome_wc_single_product_gallery();
-        overcome_wooscp_change_text();
+        ef5frame_StickyHeader();
+        ef5frame_toggle_menu();
+        ef5frame_touched_side();
+        ef5frame_open_mobile_menu();
+        ef5frame_popup();
+        ef5frame_toggle();
+        ef5frame_side_nav();
+        ef5frame_video_size();
+        ef5frame_vcRow();
+        ef5frame_inlineCss();
+        ef5frame_ajax_pagination();
+        ef5frame_woo_filters();
+        ef5frame_wc_single_product_gallery();
+        ef5frame_wooscp_change_text();
         // WooCommerce
-        overcome_quantity_plus_minus();
-        overcome_quantity_plus_minus_action();
-        overcome_remove_cart_actions();
+        ef5frame_quantity_plus_minus();
+        ef5frame_quantity_plus_minus_action();
+        ef5frame_remove_cart_actions();
 
-        overcome_svg_color();
-        overcome_smooth_scroll();
+        ef5frame_svg_color();
+        ef5frame_smooth_scroll();
 
-        overcome_tabs();
+        ef5frame_tabs();
     });
 	// On Load 
 	$(window).load(function() {
         "use strict";
-		overcome_page_loading();
-        overcome_vcRow();
-        overcome_woo_price_filter_add_data_title();
-        overcome_wooscp_change_text();
-        overcome_masonry_filter();
-        overcome_vc_animation_callback();
+		ef5frame_page_loading();
+        ef5frame_vcRow();
+        ef5frame_woo_price_filter_add_data_title();
+        ef5frame_wooscp_change_text();
+        ef5frame_masonry_filter();
+        ef5frame_vc_animation_callback();
 
-        overcome_tabs();
+        ef5frame_tabs();
 	});
 	// On scroll
 	$( window ).scroll( function() {
@@ -47,8 +47,8 @@
 	$( window ).resize( function() {
         "use strict";
 		clearTimeout( resizeTimer );
-		overcome_touched_side();
-        overcome_vcRow();
+		ef5frame_touched_side();
+        ef5frame_vcRow();
 	});
 
     // Ajax Complete
@@ -58,28 +58,28 @@
         $( '.woocommerce-ordering' ).on( 'change', 'select.orderby', function() {
             $( this ).closest( 'form' ).submit();
         });
-        overcome_video_size();
-        overcome_popup();
-        overcome_init_price_filter();
-        overcome_masonry_filter();
-        overcome_vc_animation_callback();
-        overcome_remove_cart_actions();
+        ef5frame_video_size();
+        ef5frame_popup();
+        ef5frame_init_price_filter();
+        ef5frame_masonry_filter();
+        ef5frame_vc_animation_callback();
+        ef5frame_remove_cart_actions();
     });
     jQuery( document ).on( 'updated_wc_div', function() {
-        overcome_remove_cart_actions();
+        ef5frame_remove_cart_actions();
     } );
 
 	/**
 	 * Add page loading
 	*/
-	function overcome_page_loading(){
+	function ef5frame_page_loading(){
 		'use strict';
 		$("#ef5-loading").fadeOut("slow");
 	}
     /**
      * Sticky Header 
     */
-    function overcome_StickyHeader(){
+    function ef5frame_StickyHeader(){
         'use strict';
         var c, currentScrollTop = 0,
            navbar = $('.sticky-on'),
@@ -125,7 +125,7 @@
 	/**
 	 * Toggle Menu 
 	*/
-	function overcome_toggle_menu(){ 
+	function ef5frame_toggle_menu(){ 
 		'use strict';
 		$('.ef5-toggle').on('click', function(e){
             e.preventDefault();
@@ -149,7 +149,7 @@
 	 * Menu Back
 	 * Sub menu touched on side left/right
 	*/
-	function overcome_touched_side(){
+	function ef5frame_touched_side(){
         'use strict';
         var $menu = $('.ef5-header-menu');
         if($(window).width() > 1200 ){
@@ -172,7 +172,7 @@
     /**
 	 * Open Mobile Menu 
     */
-    function overcome_open_mobile_menu(){
+    function ef5frame_open_mobile_menu(){
     	'use strict';
         $("#ef5-main-menu-mobile").on('click',function(){
             $(this).toggleClass('opened').find('.btn-nav-mobile').toggleClass('opened');
@@ -182,7 +182,7 @@
     /**
 	 * Popup
     */
-    function overcome_popup(){
+    function ef5frame_popup(){
         'use strict';
     	if(typeof $.magnificPopup != 'undefined'){
             /* ===================
@@ -268,7 +268,7 @@
      * Smooth Scroll
      * https://www.w3schools.com/howto/howto_css_smooth_scroll.asp#section2
     */
-    function overcome_smooth_scroll(){
+    function ef5frame_smooth_scroll(){
         'use strict';
         $('body').on('click', '.ef5-scroll, .is-one-page', function () {
             var target = $(this.hash),
@@ -283,7 +283,7 @@
     /**
 	 * Toggle
     */
-    function overcome_toggle(){
+    function ef5frame_toggle(){
         'use strict';
     	/* ===================
          Search Toggle
@@ -312,7 +312,7 @@
     /**
 	 * Side Nav
     */
-    function overcome_side_nav(){
+    function ef5frame_side_nav(){
         "use strict";
     	/* Widget Nav */
         $("#ef5-main-sidenav .open-menu").on('click',function(){
@@ -332,7 +332,7 @@
      * Youtube, Vimeo, Iframe, Video, Audio.
      * @author Chinh Duong Manh
      */
-    function overcome_video_size() {
+    function ef5frame_video_size() {
         'use strict';
         setTimeout(function(){
 	        $('.ef5-featured iframe , .ef5-featured  video, .ef5-featured .wp-video-shortcode').each(function(){
@@ -344,7 +344,7 @@
 	    }, 100);
     }
     // VC Row 
-    function overcome_vcRow() {
+    function ef5frame_vcRow() {
         'use strict';
         if($(window).width() < 1200 ) return;
         var $site_boxed      = $('.site-boxed [data-vc-full-width="true"]'),
@@ -432,7 +432,7 @@
         }, 0 );
     }
     // Inline CSS to head
-    function overcome_inlineCss(){
+    function ef5frame_inlineCss(){
         'use strict';
         var _inline_css = '<style class="ef5-inline-css">';
         $(document).find('div.ef5-inline-css').each(function () {
@@ -444,7 +444,7 @@
         $('head').append(_inline_css);
     }
     // Unbreak Ajax Pagination
-    function overcome_ajax_pagination(){
+    function ef5frame_ajax_pagination(){
         'use strict';
         $('.ef5-posts').each(function(){
             "use strict";
@@ -467,7 +467,7 @@
         });
     }
     // WooCommerce Filters 
-    function overcome_woo_filters(){
+    function ef5frame_woo_filters(){
         "use strict";
         $('.ef5-main').each(function(){
             var $this = $(this),
@@ -492,7 +492,7 @@
     };
     
     // Re-Run filer by Price
-    function overcome_init_price_filter() {
+    function ef5frame_init_price_filter() {
         "use strict";
         $( 'input#min_price, input#max_price' ).hide();
         $( '.price_slider, .price_label' ).show();
@@ -533,7 +533,7 @@
      * Woocomere filter modify
      * Add data title
     */
-    function overcome_woo_price_filter_add_data_title(){
+    function ef5frame_woo_price_filter_add_data_title(){
         "use strict";
         $('.price_slider_wrapper ').each(function () {
             var _this = $(this);
@@ -573,18 +573,18 @@
      * Single Product
     */
     //quantity number field custom
-    function overcome_quantity_plus_minus(){
+    function ef5frame_quantity_plus_minus(){
         "use strict";
         $( ".quantity input" ).wrap( "<div class='ef5-quantity'></div>" );
         $('<span class="quantity-button quantity-down"></span>').insertBefore('.quantity input');
         $('<span class="quantity-button quantity-up"></span>').insertAfter('.quantity input');
     }
-    function overcome_ajax_quantity_plus_minus(){
+    function ef5frame_ajax_quantity_plus_minus(){
         "use strict";
         $('<span class="quantity-button quantity-down"></span>').insertBefore('.quantity input');
         $('<span class="quantity-button quantity-up"></span>').insertAfter('.quantity input');
     }
-    function overcome_quantity_plus_minus_action(){
+    function ef5frame_quantity_plus_minus_action(){
         "use strict";
         $(document).on('click','.quantity .quantity-button',function () {
             var $this = $(this),
@@ -616,7 +616,7 @@
         });
     }
     // WooCommerce Single Product Gallery 
-    function overcome_wc_single_product_gallery(){
+    function ef5frame_wc_single_product_gallery(){
         'use strict';
         if(typeof $.flexslider != 'undefined'){
 
@@ -677,7 +677,7 @@
     /**
      * Cart Page
     */
-    function overcome_table_move_column(table, selected ,from, to, remove, colspan, colspan_value) {
+    function ef5frame_table_move_column(table, selected ,from, to, remove, colspan, colspan_value) {
         "use strict";
         var rows = jQuery(selected, table);
         var cols;
@@ -694,7 +694,7 @@
             jQuery(this).attr('colspan',colspan_value);
         });
     }
-    function overcome_remove_cart_actions(){
+    function ef5frame_remove_cart_actions(){
         "use strict";
         /** 
          * jQuery('.actions > .coupon').remove();
@@ -703,7 +703,7 @@
     }
 
     // Woo Smart Compare 
-    function overcome_wooscp_change_text(){
+    function ef5frame_wooscp_change_text(){
         'use strict';
         $('.wooscp-btn , .woosw-btn').each(function(){
             "use strict";
@@ -730,7 +730,7 @@
         } );
     }
     /* Masonry */
-    function overcome_masonry_filter(){
+    function ef5frame_masonry_filter(){
         "use strict";
         if(typeof $.fn.masonry != 'undefined'){
             if (jQuery(".ef5-posts-masonry").length) {
@@ -761,7 +761,7 @@
         }
     }
     /* Tabs */
-    function overcome_tabs(){
+    function ef5frame_tabs(){
         'use strict';
         $('.ef5-tabs-nav .filter-item').on('click', function (event) {
             event.preventDefault();
@@ -774,7 +774,7 @@
         $('.ef5-tabs-nav .filter-item:first').trigger('click');
     }
     /* VC Animation */
-    function overcome_vc_animation_callback(){
+    function ef5frame_vc_animation_callback(){
         "use strict";
         if(typeof $.fn.waypoint != 'undefined'){
             jQuery(".wpb_animate_when_almost_visible:not(.wpb_start_animation)").waypoint(function() {
@@ -784,7 +784,7 @@
             })
         }
     }
-    function overcome_svg_color(){
+    function ef5frame_svg_color(){
         "use strict";
         jQuery('img.ef5-svg').each(function(){
             var $img = jQuery(this);
@@ -860,10 +860,10 @@
 
 jQuery(document).ready(function() {
     "use strict";
-    overcome_btt_start();
+    ef5frame_btt_start();
     jQuery(window).scroll(function(e) {
         "use strict";
-        overcome_btt_start();
+        ef5frame_btt_start();
     });
     jQuery('#ef5-btt-circle').on('click', function() {
         "use strict";
@@ -873,7 +873,7 @@ jQuery(document).ready(function() {
     });
 });
 
-function overcome_btt_start() {
+function ef5frame_btt_start() {
     "use strict";
     var scrollTop = jQuery(window).scrollTop();
     var docHeight = jQuery(document).height();
@@ -888,15 +888,15 @@ function overcome_btt_start() {
     } else {
         jQuery('#ef5-btt-btn').removeClass('show');
     }
-    overcome_btt_btn(scrollPercentRounded);
+    ef5frame_btt_btn(scrollPercentRounded);
 };
 
-function overcome_btt_btn(i) {
+function ef5frame_btt_btn(i) {
     "use strict";
     var prec = i * 3.6;
     jQuery('#ef5-btt-prec').html(i + '%');
-    var borderColor = overcome_ajax_opts.primary_color,
-        borderActiveColor = overcome_ajax_opts.accent_color;
+    var borderColor = ef5frame_ajax_opts.primary_color,
+        borderActiveColor = ef5frame_ajax_opts.accent_color;
     if (prec <= 180) {
         jQuery('#ef5-btt-border').css('background-image', 'linear-gradient(' + (prec + 90) + 'deg, transparent 50%, ' + borderColor + ' 50%),linear-gradient(90deg, ' + borderColor + ' 50%, transparent 50%)');
     } else {

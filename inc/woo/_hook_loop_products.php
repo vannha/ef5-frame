@@ -18,16 +18,16 @@ remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add
 /**
  * rewrite html  output
 */
-if(!function_exists('overcome_woocommerce_shop_loop_products')){
-	add_action('woocommerce_before_shop_loop_item','overcome_woocommerce_shop_loop_products', 0);
-	function overcome_woocommerce_shop_loop_products(){
+if(!function_exists('ef5frame_woocommerce_shop_loop_products')){
+	add_action('woocommerce_before_shop_loop_item','ef5frame_woocommerce_shop_loop_products', 0);
+	function ef5frame_woocommerce_shop_loop_products(){
 	?>
 		<div class="ef5-loop-products ef5-box-shadow transition hoverdir-wrap push text-center">
-			<?php do_action('overcome_woocommerce_before_shop_loop_products_inner') ?>
+			<?php do_action('ef5frame_woocommerce_before_shop_loop_products_inner') ?>
 			<div class="ef5-loop-products-inner">
-				<?php do_action('overcome_woocommerce_shop_loop_products'); ?>
+				<?php do_action('ef5frame_woocommerce_shop_loop_products'); ?>
 			</div>
-			<?php do_action('overcome_woocommerce_after_shop_loop_products_inner') ?>
+			<?php do_action('ef5frame_woocommerce_after_shop_loop_products_inner') ?>
 		</div>
 	<?php
 	}
@@ -39,9 +39,9 @@ if(!function_exists('overcome_woocommerce_shop_loop_products')){
  * animate style: push, slide,slide-top, fade-in
  *
 */
-if(!function_exists('overcome_woocommerce_loop_product_thumbnail')){
-	add_action('overcome_woocommerce_shop_loop_products','overcome_woocommerce_loop_product_thumbnail',1);
-	function overcome_woocommerce_loop_product_thumbnail(){
+if(!function_exists('ef5frame_woocommerce_loop_product_thumbnail')){
+	add_action('ef5frame_woocommerce_shop_loop_products','ef5frame_woocommerce_loop_product_thumbnail',1);
+	function ef5frame_woocommerce_loop_product_thumbnail(){
 		global $product;
 		$image_size = apply_filters( 'single_product_archive_thumbnail_size', 'woocommerce_thumbnail' );
         $gallery   = get_post_meta( $product->get_id(), '_product_image_gallery', true );
@@ -56,14 +56,14 @@ if(!function_exists('overcome_woocommerce_loop_product_thumbnail')){
         }
 	?>
 		<div class="ef5-wc-loop-images">
-			<div class="ef5-wc-loop-before-img"><?php do_action('overcome_before_woocommerce_loop_product_thumbnail'); ?></div>
+			<div class="ef5-wc-loop-before-img"><?php do_action('ef5frame_before_woocommerce_loop_product_thumbnail'); ?></div>
 			<div class="ef5-wc-loop-img">
 				<?php 
 					echo '<div class="static-content">'.woocommerce_get_product_thumbnail().'</div>';
-					echo '<div class="hover-content no-padding">'.overcome_html($hover_img).'</div>';
+					echo '<div class="hover-content no-padding">'.ef5frame_html($hover_img).'</div>';
 				?>
 			</div>
-			<div class="ef5-wc-loop-after-img"><?php do_action('overcome_after_woocommerce_loop_product_thumbnail'); ?></div>
+			<div class="ef5-wc-loop-after-img"><?php do_action('ef5frame_after_woocommerce_loop_product_thumbnail'); ?></div>
 		</div>
 	<?php
 	}
@@ -71,13 +71,13 @@ if(!function_exists('overcome_woocommerce_loop_product_thumbnail')){
 /**
  * Loop Product Rating
 */
-add_action('overcome_woocommerce_shop_loop_products','woocommerce_template_loop_rating',2);
+add_action('ef5frame_woocommerce_shop_loop_products','woocommerce_template_loop_rating',2);
 
 /**
  * Change loop Product title
 */
 if ( ! function_exists( 'woocommerce_template_loop_product_title' ) ) {
-	add_action('overcome_woocommerce_shop_loop_products', 'woocommerce_template_loop_product_title', 3);
+	add_action('ef5frame_woocommerce_shop_loop_products', 'woocommerce_template_loop_product_title', 3);
 	/**
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
@@ -89,9 +89,9 @@ if ( ! function_exists( 'woocommerce_template_loop_product_title' ) ) {
 /**
  * Loop Product Price
 */
-if(!function_exists('overcome_woocommerce_template_loop_price')){
-	add_action('overcome_woocommerce_shop_loop_products','overcome_woocommerce_template_loop_price',4);
-	function overcome_woocommerce_template_loop_price(){
+if(!function_exists('ef5frame_woocommerce_template_loop_price')){
+	add_action('ef5frame_woocommerce_shop_loop_products','ef5frame_woocommerce_template_loop_price',4);
+	function ef5frame_woocommerce_template_loop_price(){
 	?>
 		<div class="ef5-loop-products-price ef5-heading font-style-700 text-accent"><?php
 			global $product;
@@ -105,13 +105,13 @@ if(!function_exists('overcome_woocommerce_template_loop_price')){
 /**
  * Loop Product Add to cart
 */
-if(!function_exists('overcome_woocommerce_loop_product_add_to_cart')){
-	add_action('overcome_woocommerce_shop_loop_products','overcome_woocommerce_loop_product_add_to_cart',99);
-	add_action('overcome_woocommerce_loop_product_add_to_cart', 'woocommerce_template_loop_add_to_cart');
-	function overcome_woocommerce_loop_product_add_to_cart(){
+if(!function_exists('ef5frame_woocommerce_loop_product_add_to_cart')){
+	add_action('ef5frame_woocommerce_shop_loop_products','ef5frame_woocommerce_loop_product_add_to_cart',99);
+	add_action('ef5frame_woocommerce_loop_product_add_to_cart', 'woocommerce_template_loop_add_to_cart');
+	function ef5frame_woocommerce_loop_product_add_to_cart(){
 		?>
 		<div class="ef5-loop-product-add-to-cart">
-			<?php do_action('overcome_woocommerce_loop_product_add_to_cart'); ?>
+			<?php do_action('ef5frame_woocommerce_loop_product_add_to_cart'); ?>
 		</div>
 		<?php
 	}
@@ -133,9 +133,9 @@ function filter_woocommerce_loop_add_to_cart_args( $args, $product ) {
 /**
  * Filter change html output structure
  * Just add span tag
- * @example add_filter('woocommerce_loop_add_to_cart_link', 'overcome_woocommerce_loop_add_to_cart_link', 10, 3);
+ * @example add_filter('woocommerce_loop_add_to_cart_link', 'ef5frame_woocommerce_loop_add_to_cart_link', 10, 3);
 */
-function overcome_woocommerce_loop_add_to_cart_link( $html, $product, $args=[]){
+function ef5frame_woocommerce_loop_add_to_cart_link( $html, $product, $args=[]){
 	$args = wp_parse_args($args, [
         'attributes'=>[]
     ]);
@@ -151,10 +151,10 @@ function overcome_woocommerce_loop_add_to_cart_link( $html, $product, $args=[]){
 
 /**
  * Override loop template and show quantities next to add to cart buttons
- * @example add_filter( 'woocommerce_loop_add_to_cart_link', 'overcome_quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
+ * @example add_filter( 'woocommerce_loop_add_to_cart_link', 'ef5frame_quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
  */
 
-function overcome_quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
+function ef5frame_quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
 	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
 		$html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart" method="post" enctype="multipart/form-data">';
 		$html .= woocommerce_quantity_input( array(), $product, false );

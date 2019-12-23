@@ -5,9 +5,9 @@
  *
  * @return string
  */
-function overcome_get_theme_opt_name()
+function ef5frame_get_theme_opt_name()
 {
-    return apply_filters('overcome_theme_opt_name', 'ef5_theme_options');
+    return apply_filters('ef5frame_theme_opt_name', 'ef5_theme_options');
 }
 
 /**
@@ -18,8 +18,8 @@ function overcome_get_theme_opt_name()
  *                         If not set, false will be used
  * @return mixed
  */
-function overcome_get_theme_opt($opt_id, $default = false){
-    $opt_name      = overcome_get_theme_opt_name();
+function ef5frame_get_theme_opt($opt_id, $default = false){
+    $opt_name      = ef5frame_get_theme_opt_name();
     if (empty($opt_name)) {
         return $default;
     }
@@ -45,9 +45,9 @@ function overcome_get_theme_opt($opt_id, $default = false){
  *
  * @return string
  */
-function overcome_get_page_opt_name()
+function ef5frame_get_page_opt_name()
 {
-    return apply_filters('overcome_page_opt_name', 'ef5_page_options');
+    return apply_filters('ef5frame_page_opt_name', 'ef5_page_options');
 }
 /**
  * Get theme option based on its id.
@@ -57,9 +57,9 @@ function overcome_get_page_opt_name()
  *                         If not set, false will be used
  * @return mixed
  */
-function overcome_get_page_opt($opt_id, $default = false)
+function ef5frame_get_page_opt($opt_id, $default = false)
 {
-    $page_opt_name = overcome_get_page_opt_name();
+    $page_opt_name = ef5frame_get_page_opt_name();
     if (empty($page_opt_name)) {
         return $default;
     }
@@ -99,9 +99,9 @@ function overcome_get_page_opt($opt_id, $default = false)
  *                         If not set, false will be used
  * @return mixed
  */
-function overcome_get_opts($opt_id, $default = false){
-    $theme_opt = overcome_get_theme_opt($opt_id, $default);
-    $page_opt  = overcome_get_page_opt($opt_id, $theme_opt);
+function ef5frame_get_opts($opt_id, $default = false){
+    $theme_opt = ef5frame_get_theme_opt($opt_id, $default);
+    $page_opt  = ef5frame_get_page_opt($opt_id, $theme_opt);
     if($page_opt !== NULL && $page_opt !== '' && $page_opt !== '-1'){
         if(is_array($page_opt) && is_array($theme_opt)){
             foreach ($page_opt as $key => $value) {
@@ -124,7 +124,7 @@ function overcome_get_opts($opt_id, $default = false){
  * @param bool $default
  * @return bool|mixed
  */
-function overcome_get_post_format_value($post_format_key, $default = '')
+function ef5frame_get_post_format_value($post_format_key, $default = '')
 {
     global $post;
     return $value = (!empty($post->ID) && '' !== get_post_meta($post->ID, $post_format_key, true) ) ? get_post_meta($post->ID, $post_format_key, true) : $default;

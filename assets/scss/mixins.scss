@@ -407,7 +407,7 @@ $social-colors: (
 );
 //'sharethis'  : $accent_color
 // loop, to style social media links
-@mixin overcome_social_color($tag : color, $priority : ''){
+@mixin ef5frame_social_color($tag : color, $priority : ''){
     @each $name, $color in $social-colors {
         &[class*='#{$name}'],
         &[href*='#{$name}']{
@@ -557,7 +557,7 @@ $social-colors: (
 }
 
 @mixin wg-list-arrow(){
-    font-family: $FontOverCome;
+    font-family: $FontEF5Frame;
     color: $accent_color;
     content: $wg-list-icon;
     padding-right: 15px;

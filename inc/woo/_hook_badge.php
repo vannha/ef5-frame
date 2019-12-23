@@ -4,13 +4,13 @@
  * Like: Hot, New, Sale, ...
  * Use: Product Attributes
 */
-if(!function_exists('overcome_woocommerce_loop_attributes')){
-	add_action('overcome_woocommerce_before_shop_loop_products_inner', 'overcome_woocommerce_loop_attributes', 0);
-	function overcome_woocommerce_loop_attributes(){
+if(!function_exists('ef5frame_woocommerce_loop_attributes')){
+	add_action('ef5frame_woocommerce_before_shop_loop_products_inner', 'ef5frame_woocommerce_loop_attributes', 0);
+	function ef5frame_woocommerce_loop_attributes(){
 		?>
 		<div class="ef5-loop-atts row justify-content-between">
-			<div class="ef5-loop-badge col-auto"><?php do_action('overcome_woocommerce_loop_attributes_left'); ?></div>
-			<div class="col-auto"><?php do_action('overcome_woocommerce_loop_attributes_right'); ?></div>
+			<div class="ef5-loop-badge col-auto"><?php do_action('ef5frame_woocommerce_loop_attributes_left'); ?></div>
+			<div class="col-auto"><?php do_action('ef5frame_woocommerce_loop_attributes_right'); ?></div>
 		</div>
 		<?php
 	}
@@ -18,9 +18,9 @@ if(!function_exists('overcome_woocommerce_loop_attributes')){
 /**
  * Loop Loop product sale
 */
-if(!function_exists('overcome_woocommerce_sale')){
-    add_action('overcome_woocommerce_before_shop_loop_products_inner','overcome_woocommerce_sale',0);
-    function overcome_woocommerce_sale(){
+if(!function_exists('ef5frame_woocommerce_sale')){
+    add_action('ef5frame_woocommerce_before_shop_loop_products_inner','ef5frame_woocommerce_sale',0);
+    function ef5frame_woocommerce_sale(){
         global $product;
         if(!$product->is_on_sale()) return;
         if($product->get_type() == 'variable'){
@@ -41,9 +41,9 @@ if(!function_exists('overcome_woocommerce_sale')){
     }
 }
 /* Loop Product Badge Attributes */ 
-if(!function_exists('overcome_woocommerce_show_product_loop_badges')){
-	add_action('overcome_woocommerce_before_shop_loop_products_inner', 'overcome_woocommerce_show_product_loop_badges', 1);
-    function overcome_woocommerce_show_product_loop_badges(){
+if(!function_exists('ef5frame_woocommerce_show_product_loop_badges')){
+	add_action('ef5frame_woocommerce_before_shop_loop_products_inner', 'ef5frame_woocommerce_show_product_loop_badges', 1);
+    function ef5frame_woocommerce_show_product_loop_badges(){
         global $post, $product;
         $terms = get_the_terms($product->get_id(), 'pa_badge');
 

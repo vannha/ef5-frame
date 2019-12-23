@@ -2,12 +2,12 @@
 /**
  * Change cart item thumbnail size 
 */
-if(!function_exists('overcome_woocommerce_cart_item_thumbnail')){
-	add_filter('woocommerce_cart_item_thumbnail','overcome_woocommerce_cart_item_thumbnail', 10, 3);
-	function  overcome_woocommerce_cart_item_thumbnail($thumbnail, $cart_item, $cart_item_key){
+if(!function_exists('ef5frame_woocommerce_cart_item_thumbnail')){
+	add_filter('woocommerce_cart_item_thumbnail','ef5frame_woocommerce_cart_item_thumbnail', 10, 3);
+	function  ef5frame_woocommerce_cart_item_thumbnail($thumbnail, $cart_item, $cart_item_key){
 		$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 		$thumbnail_id = get_post_thumbnail_id($product_id);
-		$thumbnail = overcome_image_by_size(['id' => $thumbnail_id, 'size' => apply_filters('overcome_woocommerce_cart_item_thumbnail_size', '100x100'),'echo'   => false]);
+		$thumbnail = ef5frame_image_by_size(['id' => $thumbnail_id, 'size' => apply_filters('ef5frame_woocommerce_cart_item_thumbnail_size', '100x100'),'echo'   => false]);
 		return $thumbnail;
 	}
 }
@@ -19,9 +19,9 @@ if(!function_exists('overcome_woocommerce_cart_item_thumbnail')){
  * Filter: woocommerce_cart_item_name
 */
 
-if(!function_exists('overcome_woocommerce_cart_item_name')){
-	add_filter('woocommerce_cart_item_name','overcome_woocommerce_cart_item_name', 10, 3);
-	function overcome_woocommerce_cart_item_name($name, $cart_item, $cart_item_key){
+if(!function_exists('ef5frame_woocommerce_cart_item_name')){
+	add_filter('woocommerce_cart_item_name','ef5frame_woocommerce_cart_item_name', 10, 3);
+	function ef5frame_woocommerce_cart_item_name($name, $cart_item, $cart_item_key){
 		$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 		$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 		$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
@@ -57,17 +57,17 @@ if(!function_exists('overcome_woocommerce_cart_item_name')){
 /**
  * Custom Cart Actions Layout
 */
-if(!function_exists('overcome_woocommerce_cart_actions')){
-	add_filter('woocommerce_cart_actions','overcome_woocommerce_cart_actions', 10);
+if(!function_exists('ef5frame_woocommerce_cart_actions')){
+	add_filter('woocommerce_cart_actions','ef5frame_woocommerce_cart_actions', 10);
 	remove_action('woocommerce_cart_collaterals','woocommerce_cart_totals',10);
-	function overcome_woocommerce_cart_actions(){
+	function ef5frame_woocommerce_cart_actions(){
 		?>
 		<div class="ef5-cart-actions-wrap row">
 			<div class="col-lg-6">
 				<?php if ( wc_coupons_enabled() ) { ?>
 					<div class="ef5-cart-coupon coupon">
-						<input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'overcome' ); ?>" />
-						<button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'overcome' ); ?>"><?php esc_attr_e( 'Apply coupon', 'overcome' ); ?></button>
+						<input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'ef5-frame' ); ?>" />
+						<button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'ef5-frame' ); ?>"><?php esc_attr_e( 'Apply coupon', 'ef5-frame' ); ?></button>
 						<?php do_action( 'woocommerce_cart_coupon' ); ?>
 					</div>
 				<?php } ?>
@@ -90,23 +90,23 @@ if(!function_exists('overcome_woocommerce_cart_actions')){
  * Add Process to Checkout button
  *
 */
-if(!function_exists('overcome_woocommerce_after_cart_table')){
-	add_action('woocommerce_after_cart_table','overcome_woocommerce_after_cart_table', 1);
+if(!function_exists('ef5frame_woocommerce_after_cart_table')){
+	add_action('woocommerce_after_cart_table','ef5frame_woocommerce_after_cart_table', 1);
 	/**
 	 * Change proceed to checkout button position
 	*/
 	remove_action('woocommerce_proceed_to_checkout','woocommerce_button_proceed_to_checkout', 20);
 
-	function overcome_woocommerce_after_cart_table(){
+	function ef5frame_woocommerce_after_cart_table(){
 	?>
 	<div class="ef5-after-cart-table row justify-content-between gutters-30">
 		<div class="col-lg-6 col-left align-items-center d-md-flex justify-content-lg-start justify-content-center text-center">
-			<?php do_action('overcome_woocommerce_after_cart_table_left'); ?>
+			<?php do_action('ef5frame_woocommerce_after_cart_table_left'); ?>
 		</div>
 		<div class="col-lg-6 col-right align-items-center d-md-flex justify-content-lg-end justify-content-center">
-			<button type="submit" class="btn button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'overcome' ); ?>"><span class="fa fa-refresh">&nbsp;&nbsp;</span><span><?php esc_html_e( 'Update cart', 'overcome' ); ?></span></button>
+			<button type="submit" class="btn button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'ef5-frame' ); ?>"><span class="fa fa-refresh">&nbsp;&nbsp;</span><span><?php esc_html_e( 'Update cart', 'ef5-frame' ); ?></span></button>
 			<a href="<?php echo esc_url( wc_get_checkout_url() );?>" class="checkout-button ef5-btn accent outline ef5-btn-lg">
-				<span class="far fa-plus">&nbsp;&nbsp;</span><span><?php esc_html_e( 'Order Now', 'overcome' ); ?></span>
+				<span class="far fa-plus">&nbsp;&nbsp;</span><span><?php esc_html_e( 'Order Now', 'ef5-frame' ); ?></span>
 			</a>
 		</div>
 	</div>
@@ -114,33 +114,33 @@ if(!function_exists('overcome_woocommerce_after_cart_table')){
 	}
 }
 /* Return Shop Button */
-if(!function_exists('overcome_woocommerce_return_shop')){
-	add_action('overcome_woocommerce_after_cart_table_left', 'overcome_woocommerce_return_shop');
-	function overcome_woocommerce_return_shop(){
+if(!function_exists('ef5frame_woocommerce_return_shop')){
+	add_action('ef5frame_woocommerce_after_cart_table_left', 'ef5frame_woocommerce_return_shop');
+	function ef5frame_woocommerce_return_shop(){
 		if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
 			<a class="ef5-btn accent fill ef5-btn-lg" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
-				<span class="far fa-shopping-basket">&nbsp;&nbsp;</span><span><?php esc_html_e( 'Continue Shopping', 'overcome' ); ?></a>
+				<span class="far fa-shopping-basket">&nbsp;&nbsp;</span><span><?php esc_html_e( 'Continue Shopping', 'ef5-frame' ); ?></a>
 			</a>
 		<?php endif; 
 	}
 }
 
 // check for empty-cart get param to clear the cart
-if(!function_exists('overcome_woocommerce_clear_cart_url')){
-	add_action( 'init', 'overcome_woocommerce_clear_cart_url' );
-	function overcome_woocommerce_clear_cart_url() {
+if(!function_exists('ef5frame_woocommerce_clear_cart_url')){
+	add_action( 'init', 'ef5frame_woocommerce_clear_cart_url' );
+	function ef5frame_woocommerce_clear_cart_url() {
 		if ( isset( $_GET['empty-cart'] ) ) {
 			WC()->cart->empty_cart();
 		}
 	}
 }
-if(!function_exists('overcome_woocommerce_clear_cart_button')){
-	add_action('overcome_woocommerce_after_cart_table_left', 'overcome_woocommerce_clear_cart_button');
-	function overcome_woocommerce_clear_cart_button(){
+if(!function_exists('ef5frame_woocommerce_clear_cart_button')){
+	add_action('ef5frame_woocommerce_after_cart_table_left', 'ef5frame_woocommerce_clear_cart_button');
+	function ef5frame_woocommerce_clear_cart_button(){
 		$link = wc_get_cart_url();
         $link = add_query_arg( 'empty-cart', '', $link );
 		?>
-			<a class="ef5-btn red outline ef5-btn-lg" href="<?php echo esc_url($link);?>"><span class="far fa-times">&nbsp;&nbsp;</span><span><?php esc_html_e( 'Clear Shopping Cart', 'overcome' ); ?></span></a>
+			<a class="ef5-btn red outline ef5-btn-lg" href="<?php echo esc_url($link);?>"><span class="far fa-times">&nbsp;&nbsp;</span><span><?php esc_html_e( 'Clear Shopping Cart', 'ef5-frame' ); ?></span></a>
 		<?php
 	}
 }
@@ -149,5 +149,5 @@ if(!function_exists('overcome_woocommerce_clear_cart_button')){
  * Custom Cross Sells Columns and Limit
  * 
 */
-add_filter('woocommerce_cross_sells_columns', function() { return apply_filters('overcome_woocommerce_cross_sells_columns', '4');});
-add_filter('woocommerce_cross_sells_total', function() { return apply_filters('overcome_woocommerce_cross_sells_columns', '4');});
+add_filter('woocommerce_cross_sells_columns', function() { return apply_filters('ef5frame_woocommerce_cross_sells_columns', '4');});
+add_filter('woocommerce_cross_sells_total', function() { return apply_filters('ef5frame_woocommerce_cross_sells_columns', '4');});

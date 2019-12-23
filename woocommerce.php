@@ -12,12 +12,12 @@ get_header();
 ?>
     <div class="container">
         <div class="row">
-            <div id="ef5-content-area" class="<?php overcome_content_css_class();?>">
+            <div id="ef5-content-area" class="<?php ef5frame_content_css_class();?>">
                 <div id="ef5-posts" class="ef5-posts ef5-blogs">
                     <?php woocommerce_content(); ?>
                 </div>
             </div>
-            <?php overcome_sidebar(); ?>
+            <?php ef5frame_sidebar(); ?>
         </div>
     </div>
 <?php

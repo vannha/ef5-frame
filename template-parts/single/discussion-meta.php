@@ -4,14 +4,14 @@
  */
 
 /* Get data from current discussion on post. */
-$discussion    = overcome_get_discussion_data();
+$discussion    = ef5frame_get_discussion_data();
 $has_responses = $discussion->responses > 0;
 
 if ( $has_responses ) {
 	/* translators: %1(X comments)$s */
-	$meta_label = sprintf( _n( '%d Comment', '%d Comments', $discussion->responses, 'overcome' ), $discussion->responses );
+	$meta_label = sprintf( _n( '%d Comment', '%d Comments', $discussion->responses, 'ef5-frame' ), $discussion->responses );
 } else {
-	$meta_label = __( 'No comments', 'overcome' );
+	$meta_label = __( 'No comments', 'ef5-frame' );
 }
 
 ?>

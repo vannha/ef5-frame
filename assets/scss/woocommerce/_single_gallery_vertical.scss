@@ -1,6 +1,6 @@
-$thumbnail_large_w: $overcome_product_single_image_w;
-$thumbnail_w : $overcome_product_gallery_thumbnail_w;
-$gallery_w: calc(100% - #{$thumbnail_large_w + $thumbnail_w + $overcome_product_gallery_thumbnail_space}px);
+$thumbnail_large_w: $ef5frame_product_single_image_w;
+$thumbnail_w : $ef5frame_product_gallery_thumbnail_w;
+$gallery_w: calc(100% - #{$thumbnail_large_w + $thumbnail_w + $ef5frame_product_gallery_thumbnail_space}px);
 
 .ef5-wc-img-summary.thumbnail_v{
 	.ef5-product-gallery-wrap{
@@ -12,8 +12,8 @@ $gallery_w: calc(100% - #{$thumbnail_large_w + $thumbnail_w + $overcome_product_
 	}
 	.ef5-product-gallery-inner{
 		@include d-flex();
-		margin-left: #{$overcome_product_gallery_thumbnail_space/-2}px;
-		margin-right: #{$overcome_product_gallery_thumbnail_space /-2}px;
+		margin-left: #{$ef5frame_product_gallery_thumbnail_space/-2}px;
+		margin-right: #{$ef5frame_product_gallery_thumbnail_space /-2}px;
 	}
 	.ef5-single-product-gallery-wraps-inner{
 		position: relative;
@@ -21,8 +21,8 @@ $gallery_w: calc(100% - #{$thumbnail_large_w + $thumbnail_w + $overcome_product_
 	}
 	.ef5-single-product-gallery-wraps,
 	.wc-gallery-sync{
-		padding-left: #{$overcome_product_gallery_thumbnail_space /2}px;
-		padding-right: #{$overcome_product_gallery_thumbnail_space /2}px;
+		padding-left: #{$ef5frame_product_gallery_thumbnail_space /2}px;
+		padding-right: #{$ef5frame_product_gallery_thumbnail_space /2}px;
 	}
 	.ef5-single-product-gallery-wraps{
 		flex: 0 0 78.3333333%;

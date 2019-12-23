@@ -3,10 +3,10 @@
  * Display Widget area
  *
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  *
 */
-$sidebar  = overcome_get_sidebar(false);
+$sidebar  = ef5frame_get_sidebar(false);
 dynamic_sidebar($sidebar);

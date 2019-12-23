@@ -8,7 +8,7 @@
  * different template.
  *
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  *
@@ -17,7 +17,7 @@ get_header();
 ?>
     <div class="container">
         <div class="row">
-            <div id="ef5-content-area" class="<?php overcome_content_css_class();?>">
+            <div id="ef5-content-area" class="<?php ef5frame_content_css_class();?>">
                 <div class="ef5-blogs">
                 <?php
                     /* Start the Loop */
@@ -25,18 +25,18 @@ get_header();
                         the_post();
                         get_template_part( 'template-parts/single/content', get_post_format() );
                         // Post Navigation
-                        overcome_post_navigation();
+                        ef5frame_post_navigation();
                         // About Author
-                        overcome_post_author();
+                        ef5frame_post_author();
                         // Related
-                        overcome_post_related();
+                        ef5frame_post_related();
                         // Comment
-                        overcome_comment();
+                        ef5frame_comment();
                     endwhile; // End of the loop.
                 ?>
                 </div>
             </div>
-            <?php overcome_sidebar(); ?>
+            <?php ef5frame_sidebar(); ?>
         </div>
     </div>
 <?php

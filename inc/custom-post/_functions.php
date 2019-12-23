@@ -2,8 +2,8 @@
 /**
  * Check post type have post or not 
 */
-if(!function_exists('overcome_have_post')){
-	function overcome_have_post($post_type){
+if(!function_exists('ef5frame_have_post')){
+	function ef5frame_have_post($post_type){
 		if(!post_type_exists($post_type))
 			return false;
 		$count_posts = wp_count_posts($post_type);

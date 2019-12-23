@@ -3,7 +3,7 @@
  * Breadcrumb class for the theme.
  * 
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  */
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) )
     die();
 }
 
-class OverCome_Breadcrumb
+class EF5Frame_Breadcrumb
 {
     /**
      * Array of breadcrumb entries. Each one contains title, url, text
@@ -49,9 +49,9 @@ class OverCome_Breadcrumb
     function __construct( $args = array() )
     {
         $args = wp_parse_args( $args, array(
-            'home_label'            => esc_html__( 'Home', 'overcome' ),
-            '404_label'             => esc_html__( '404', 'overcome' ),
-            'search_results_label'  => esc_html__( 'Search Results', 'overcome' ),
+            'home_label'            => esc_html__( 'Home', 'ef5-frame' ),
+            '404_label'             => esc_html__( '404', 'ef5-frame' ),
+            'search_results_label'  => esc_html__( 'Search Results', 'ef5-frame' ),
             'entry_max_length'      => 7,
             'entry_max_length_type' => 'words',
             'more_indicator'        => '&hellip;'
@@ -322,7 +322,7 @@ class OverCome_Breadcrumb
     {
         $queried_object = $GLOBALS['wp_query']->get_queried_object();
         $this->add_entry(
-            esc_html__( 'Tag:', 'overcome' ).' '.single_tag_title( '', false ) ).' '.get_tag_link( $queried_object->term_id
+            esc_html__( 'Tag:', 'ef5-frame' ).' '.single_tag_title( '', false ) ).' '.get_tag_link( $queried_object->term_id
         );
     }
 
@@ -338,7 +338,7 @@ class OverCome_Breadcrumb
         global $author;
         $userdata = get_userdata( $author );
         $this->add_entry(
-            esc_html__( 'Author:', 'overcome' ).' '.$userdata->display_name
+            esc_html__( 'Author:', 'ef5-frame' ).' '.$userdata->display_name
         );
     }
 
@@ -416,7 +416,7 @@ class OverCome_Breadcrumb
          * @var array  $entries   Each entry needs to be an array with 'label' and 'url' keys.
          * @var object $this_term Current taxonomy term object
          */
-        $entries = apply_filters( 'overcome_breadcrumb_taxonomy', $entries, $this_term );
+        $entries = apply_filters( 'ef5frame_breadcrumb_taxonomy', $entries, $this_term );
 
         foreach ( $entries as $entry )
         {
@@ -453,7 +453,7 @@ class OverCome_Breadcrumb
         if ( $page > 1 )
         {
             $this->add_entry(
-                apply_filters( 'overcome_breadcrumb_paged', sprintf( 'Page %s', $page ) ),
+                apply_filters( 'ef5frame_breadcrumb_paged', sprintf( 'Page %s', $page ) ),
                 ''
             );
         }
@@ -554,7 +554,7 @@ class OverCome_Breadcrumb
          * @var array  $entries Each entry needs to be an array with 'label' and 'url' keys.
          * @var object $post    Current post object
          */
-        $entries = apply_filters( 'overcome_breadcrumb_single', $entries, $post );
+        $entries = apply_filters( 'ef5frame_breadcrumb_single', $entries, $post );
 
         foreach ( $entries as $entry )
         {

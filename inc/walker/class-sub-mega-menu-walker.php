@@ -1,6 +1,6 @@
 <?php
 /**
- * OverCome_SubMenu_MegaMenu_Walker
+ * EF5Frame_SubMenu_MegaMenu_Walker
  *
  * @version 1.0
  * @package EF5 Theme
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) )
     die();
 }
 
-class OverCome_SubMenu_MegaMenu_Walker extends Walker_Nav_Menu {
+class EF5Frame_SubMenu_MegaMenu_Walker extends Walker_Nav_Menu {
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
 			$t = '';
@@ -66,11 +66,11 @@ class OverCome_SubMenu_MegaMenu_Walker extends Walker_Nav_Menu {
 		}
 
 		$title = $item->title;
-		if(empty($title)) $title = sprintf( __( '#%d (no title)', 'overcome' ), $item->ID );
+		if(empty($title)) $title = sprintf( __( '#%d (no title)', 'ef5-frame' ), $item->ID );
 		/* add expander */
 		$item_expander = '';
 		$is_parent = in_array('menu-item-has-children', $classes);
-		if($is_parent === true) $item_expander = overcome_widget_expander();
+		if($is_parent === true) $item_expander = ef5frame_widget_expander();
 
 		$item_output = $args->before;
 		$item_output .= '<a'. $attributes .'>';

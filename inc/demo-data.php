@@ -2,9 +2,9 @@
 /**
  * Enable Export Sample Data 
 */
-if(!function_exists('overcome_enable_export_mode')){
-	add_filter('ef5_ie_export_mode', 'overcome_enable_export_mode');
-	function overcome_enable_export_mode() {
+if(!function_exists('ef5frame_enable_export_mode')){
+	add_filter('ef5_ie_export_mode', 'ef5frame_enable_export_mode');
+	function ef5frame_enable_export_mode() {
 	    return false;
 	}
 }
@@ -12,8 +12,8 @@ if(!function_exists('overcome_enable_export_mode')){
  * Define theme option name
  * Required!!!
 */
-add_filter('ef5_ie_options_name', 'overcome_options_name');
-function overcome_options_name()
+add_filter('ef5_ie_options_name', 'ef5frame_options_name');
+function ef5frame_options_name()
 {
     //Example name of theme option is "cms_theme_options"
     return 'ef5_theme_options';
@@ -22,28 +22,28 @@ function overcome_options_name()
  * Remove default post / page / extra page from required plugin
  * like :  Hello Word, Sample Page, Privacy Policy, Newsletter, Wishlist, ...
 */
-add_action('ef5-ie-import-start', 'overcome_move_trash', 1);
-if(!function_exists('overcome_move_trash')){
-    function overcome_move_trash(){
+add_action('ef5-ie-import-start', 'ef5frame_move_trash', 1);
+if(!function_exists('ef5frame_move_trash')){
+    function ef5frame_move_trash(){
         wp_trash_post(1);
         wp_trash_post(2);
         wp_trash_post(3);
-        wp_trash_post(overcome_get_id_by_title('Privacy Policy'));
-        wp_trash_post(overcome_get_id_by_title('Shop'));
-        wp_trash_post(overcome_get_id_by_title('Cart'));
-        wp_trash_post(overcome_get_id_by_title('Checkout'));
-        wp_trash_post(overcome_get_id_by_title('My account'));
-        wp_trash_post(overcome_get_id_by_title('Terms and Conditions'));
-        wp_trash_post(overcome_get_id_by_title('Wishlist'));
-        wp_trash_post(overcome_get_id_by_title('Newsletter'));
+        wp_trash_post(ef5frame_get_id_by_title('Privacy Policy'));
+        wp_trash_post(ef5frame_get_id_by_title('Shop'));
+        wp_trash_post(ef5frame_get_id_by_title('Cart'));
+        wp_trash_post(ef5frame_get_id_by_title('Checkout'));
+        wp_trash_post(ef5frame_get_id_by_title('My account'));
+        wp_trash_post(ef5frame_get_id_by_title('Terms and Conditions'));
+        wp_trash_post(ef5frame_get_id_by_title('Wishlist'));
+        wp_trash_post(ef5frame_get_id_by_title('Newsletter'));
     }
 }
 /**
  * Remove default widgets after install WordPress
  * like : Search, Recent Posts, Recent Comments, Archives, Categories, Meta
 */
-add_action('ef5-ie-import-start','overcome_removed_default_wp_widgets', 10, 2);
-function overcome_removed_default_wp_widgets(){
+add_action('ef5-ie-import-start','ef5frame_removed_default_wp_widgets', 10, 2);
+function ef5frame_removed_default_wp_widgets(){
     global $wp_registered_sidebars;
     $widgets = get_option('sidebars_widgets');
     foreach ($wp_registered_sidebars as $sidebar => $value) {
@@ -57,7 +57,7 @@ function overcome_removed_default_wp_widgets(){
  * get array page title and update options.
  *
  */
-function overcome_set_default_page(){
+function ef5frame_set_default_page(){
     $pages = array(
         'page_on_front'                 => 'Home',
         'page_for_posts'                => 'Blog',
@@ -76,15 +76,15 @@ function overcome_set_default_page(){
         update_option($key, $page->ID);
     }
 }
-add_action('ef5-ie-import-finish', 'overcome_set_default_page');
+add_action('ef5-ie-import-finish', 'ef5frame_set_default_page');
 
 /**
  * Extra option 
  * Update option for Extensions option like: WooCommerce, Newsletter, ...
  *
 */
-add_filter('ef5_ie_extra_options', 'overcome_extra_options_name');
-function overcome_extra_options_name($extra_options)
+add_filter('ef5_ie_extra_options', 'ef5frame_extra_options_name');
+function ef5frame_extra_options_name($extra_options)
 {
     $theme_extra_options = [
         'blogname',

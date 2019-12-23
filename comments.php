@@ -8,7 +8,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  *
@@ -34,22 +34,22 @@ if ( post_password_required() ) {
 						'%1$s %3$s',
 						$comments_number,
 						'comments title',
-						'overcome'
+						'ef5-frame'
 					),
 					number_format_i18n( $comments_number ),
-					esc_html__('Comment','overcome'),
-					esc_html__('Comments','overcome')
+					esc_html__('Comment','ef5-frame'),
+					esc_html__('Comments','ef5-frame')
 				);
 			?></div>
 			<ol class="commentlist">
 				<?php
 					wp_list_comments(
-						overcome_wp_list_comments_args()
+						ef5frame_wp_list_comments_args()
 					);
 				?>
 			</ol>
 			<?php
-				overcome_comment_pagination_loadmore();
+				ef5frame_comment_pagination_loadmore();
 			?>
 		</div>
 	<?php
@@ -58,7 +58,7 @@ if ( post_password_required() ) {
 	if ( comments_open() ) :
 		?>
 		<div class="ef5-comment-form-flex">
-			<?php overcome_comment_form(); ?>
+			<?php ef5frame_comment_form(); ?>
 		</div>
 		<?php
 	endif;	
@@ -66,7 +66,7 @@ if ( post_password_required() ) {
 	if ( ! comments_open() ) :
 		?>
 		<div class="ef5-no-comments required">
-			<?php esc_html_e( 'Comments are closed.', 'overcome' ); ?>
+			<?php esc_html_e( 'Comments are closed.', 'ef5-frame' ); ?>
 		</div>
 		<?php
 	endif; 

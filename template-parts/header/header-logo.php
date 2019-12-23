@@ -4,22 +4,22 @@
  *
 */
 // Default Logo
-$logo             = overcome_get_opts( 'logo', array( 'url' => '', 'id' => '' ) );
-$logo_size        = overcome_get_opts( 'logo_size', array( 'width' => overcome_configs('logo_width'), 'height' => overcome_configs('logo_height'), 'units' => overcome_configs('logo_units') ) );
+$logo             = ef5frame_get_opts( 'logo', array( 'url' => '', 'id' => '' ) );
+$logo_size        = ef5frame_get_opts( 'logo_size', array( 'width' => ef5frame_configs('logo_width'), 'height' => ef5frame_configs('logo_height'), 'units' => ef5frame_configs('logo_units') ) );
 
-$logo_size_w      = overcome_extract_numbers($logo_size['width']) ? overcome_extract_numbers($logo_size['width']) : overcome_configs('logo_width') ;
-$logo_size_h      = overcome_extract_numbers($logo_size['height']) ? overcome_extract_numbers($logo_size['height']): overcome_configs('logo_height');
+$logo_size_w      = ef5frame_extract_numbers($logo_size['width']) ? ef5frame_extract_numbers($logo_size['width']) : ef5frame_configs('logo_width') ;
+$logo_size_h      = ef5frame_extract_numbers($logo_size['height']) ? ef5frame_extract_numbers($logo_size['height']): ef5frame_configs('logo_height');
 $logo_size_retina = ($logo_size_w*2).'x'.($logo_size_h*2);
 $logo_url         = get_template_directory_uri() . '/assets/images/logo/logo.png';
 $logo_url_retina  = get_template_directory_uri() . '/assets/images/logo/logo-retina.png';
 if ( !empty($logo['id']) ) {
     $logo_mime_type  = get_post_mime_type($logo['id']);
     if($logo_mime_type !== 'image/svg+xml'){
-        $logo_url        =  overcome_get_image_url_by_size( [
+        $logo_url        =  ef5frame_get_image_url_by_size( [
             'id'   => $logo['id'], 
             'size' => $logo_size_w.'x'.$logo_size_h
         ]);
-        $logo_url_retina =  overcome_get_image_url_by_size( [
+        $logo_url_retina =  ef5frame_get_image_url_by_size( [
             'id'   => $logo['id'], 
             'size' => $logo_size_retina
         ]);
@@ -29,22 +29,22 @@ if ( !empty($logo['id']) ) {
     }
 }
 // On Top Logo
-$header_ontop           = overcome_get_opts('header_ontop','0');
-$ontop_logo             = overcome_get_opts( 'ontop_logo', array( 'url' => '', 'id' => '' ) );
-$ontop_logo_size        = overcome_get_opts( 'ontop_logo_maxh', array( 'width' => overcome_configs('logo_width'), 'height' => overcome_configs('logo_height'), 'units' => overcome_configs('logo_units') ) );
-$ontop_logo_size_w      = overcome_extract_numbers($ontop_logo_size['width']) ?  overcome_extract_numbers($ontop_logo_size['width']) : overcome_configs('logo_width');
-$ontop_logo_size_h      = overcome_extract_numbers($ontop_logo_size['height']) ? overcome_extract_numbers($ontop_logo_size['height']) : overcome_configs('logo_height');
+$header_ontop           = ef5frame_get_opts('header_ontop','0');
+$ontop_logo             = ef5frame_get_opts( 'ontop_logo', array( 'url' => '', 'id' => '' ) );
+$ontop_logo_size        = ef5frame_get_opts( 'ontop_logo_maxh', array( 'width' => ef5frame_configs('logo_width'), 'height' => ef5frame_configs('logo_height'), 'units' => ef5frame_configs('logo_units') ) );
+$ontop_logo_size_w      = ef5frame_extract_numbers($ontop_logo_size['width']) ?  ef5frame_extract_numbers($ontop_logo_size['width']) : ef5frame_configs('logo_width');
+$ontop_logo_size_h      = ef5frame_extract_numbers($ontop_logo_size['height']) ? ef5frame_extract_numbers($ontop_logo_size['height']) : ef5frame_configs('logo_height');
 $ontop_logo_size_retina = ($ontop_logo_size_w*2).'x'.($ontop_logo_size_h*2);
 $ontop_logo_url         = get_template_directory_uri() . '/assets/images/logo/logo-ontop.png';
 $ontop_logo_url_retina  = get_template_directory_uri() . '/assets/images/logo/logo-ontop-retina.png';
 if ( !empty($ontop_logo['id']) ) {
     $logo_mime_type  = get_post_mime_type($ontop_logo['id']);
     if($logo_mime_type !== 'image/svg+xml'){
-        $ontop_logo_url        =  overcome_get_image_url_by_size( [
+        $ontop_logo_url        =  ef5frame_get_image_url_by_size( [
             'id'   => $ontop_logo['id'], 
             'size' => $ontop_logo_size_w.'x'.$ontop_logo_size_h
         ]);
-        $ontop_logo_url_retina = overcome_get_image_url_by_size( [
+        $ontop_logo_url_retina = ef5frame_get_image_url_by_size( [
             'id'   => $ontop_logo['id'], 
             'size' => $ontop_logo_size_retina 
         ]);
@@ -55,12 +55,12 @@ if ( !empty($ontop_logo['id']) ) {
 }
 
 // Sticky Logo 
-$header_sticky           = overcome_get_opts('header_sticky','0');
-$sticky_logo             = overcome_get_opts( 'sticky_logo', array( 'url' => '', 'id' => '' ) );
+$header_sticky           = ef5frame_get_opts('header_sticky','0');
+$sticky_logo             = ef5frame_get_opts( 'sticky_logo', array( 'url' => '', 'id' => '' ) );
 
-$sticky_logo_size        = overcome_get_opts( 'sticky_logo_maxh', array( 'width' => overcome_configs('logo_width'), 'height' => overcome_configs('logo_height'), 'units' => overcome_configs('logo_units') ) );
-$sticky_logo_size_w      = overcome_extract_numbers($sticky_logo_size['width']) ? overcome_extract_numbers($sticky_logo_size['width']) : overcome_configs('logo_width');
-$sticky_logo_size_h      = overcome_extract_numbers($sticky_logo_size['height']) ? overcome_extract_numbers($sticky_logo_size['height']) : overcome_configs('logo_height');
+$sticky_logo_size        = ef5frame_get_opts( 'sticky_logo_maxh', array( 'width' => ef5frame_configs('logo_width'), 'height' => ef5frame_configs('logo_height'), 'units' => ef5frame_configs('logo_units') ) );
+$sticky_logo_size_w      = ef5frame_extract_numbers($sticky_logo_size['width']) ? ef5frame_extract_numbers($sticky_logo_size['width']) : ef5frame_configs('logo_width');
+$sticky_logo_size_h      = ef5frame_extract_numbers($sticky_logo_size['height']) ? ef5frame_extract_numbers($sticky_logo_size['height']) : ef5frame_configs('logo_height');
 $sticky_logo_size_retina = ($sticky_logo_size_w*2).'x'.($sticky_logo_size_h*2);
 
 $sticky_logo_url         = get_template_directory_uri() . '/assets/images/logo/logo-ontop.png';
@@ -74,11 +74,11 @@ if ( !empty($sticky_logo['id'] ))
 {
     $logo_mime_type  = get_post_mime_type($sticky_logo['id']);
     if($logo_mime_type !== 'image/svg+xml'){
-        $sticky_logo_url        = overcome_get_image_url_by_size( [
+        $sticky_logo_url        = ef5frame_get_image_url_by_size( [
             'id'   => $sticky_logo['id'], 
             'size' => $sticky_logo_size_w.'x'.$sticky_logo_size_h
         ]);
-        $sticky_logo_url_retina    = overcome_get_image_url_by_size( [
+        $sticky_logo_url_retina    = ef5frame_get_image_url_by_size( [
             'id'   => $sticky_logo['id'], 
             'size' => $sticky_logo_size_retina 
         ]);

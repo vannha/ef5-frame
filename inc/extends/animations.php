@@ -1,5 +1,5 @@
 <?php
-function overcome_html_animation($args = []){
+function ef5frame_html_animation($args = []){
 	$args = wp_parse_args($args, [
 		'anim'     => 'wave1',
 		'echo'     => false,
@@ -49,7 +49,7 @@ function overcome_html_animation($args = []){
 			break;
 	}
 	if($args['echo'])
-		echo overcome_html($html);
+		echo ef5frame_html($html);
 	else 
 		return $html;
 }

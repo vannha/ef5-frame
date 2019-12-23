@@ -3,13 +3,13 @@
  * Template part for displaying posts in loop
  *
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  */
 ?>
 
 <div <?php post_class('related-item'); ?>>
     <?php 
-        overcome_post_media();
-        overcome_post_header(['heading_tag' => 'h3'])
+        ef5frame_post_media();
+        ef5frame_post_header(['heading_tag' => 'h3'])
     ?>
 </div>

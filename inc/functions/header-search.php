@@ -3,15 +3,15 @@
  * Header Search Icon
  * @since 1.0.0 
 */
-if(!function_exists('overcome_header_search')){
-	function overcome_header_search($args = []){
+if(!function_exists('ef5frame_header_search')){
+	function ef5frame_header_search($args = []){
 		$args = wp_parse_args($args, [
 			'before' => '',
 			'after'  => '',
 			'icon'	 => 'flaticon-magnifying-glass',
 			'type'	 => ''
 		]);
-		$show_search = overcome_get_opts('header_search', '0');
+		$show_search = ef5frame_get_opts('header_search', '0');
 		if('0' === $show_search) return;
 		wp_enqueue_script( 'magnific-popup' );
  		wp_enqueue_style( 'magnific-popup' );
@@ -31,9 +31,9 @@ if(!function_exists('overcome_header_search')){
 	}
 }
 
-if(!function_exists('overcome_header_search_popup_html')){
-	function overcome_header_search_popup_html($args = []){
-		$show_search = overcome_get_opts('header_search', '0');
+if(!function_exists('ef5frame_header_search_popup_html')){
+	function ef5frame_header_search_popup_html($args = []){
+		$show_search = ef5frame_get_opts('header_search', '0');
 		if('0' === $show_search) return;
 		$form_classes = ['ef5-searchform'];
 		$args = wp_parse_args($args, [
@@ -55,4 +55,4 @@ if(!function_exists('overcome_header_search_popup_html')){
 	<?php
 	}
 }
-add_action('wp_footer','overcome_header_search_popup_html');
+add_action('wp_footer','ef5frame_header_search_popup_html');

@@ -2,7 +2,7 @@
 /**
  * Loop Page 
 */
-function overcome_is_loop(){
+function ef5frame_is_loop(){
     if(is_home() || is_archive() || is_author() || is_category() || is_post_type_archive() || is_tag() || is_tax() || is_search())
         return true;
     else 
@@ -14,8 +14,8 @@ function overcome_is_loop(){
  *
  * @since 1.0.0
 */
-if(!function_exists('overcome_get_post_taxonomies')){
-    function overcome_get_post_taxonomies($taxo = 'cat') {
+if(!function_exists('ef5frame_get_post_taxonomies')){
+    function ef5frame_get_post_taxonomies($taxo = 'cat') {
 		$post      = get_post();
 		$tax_names = get_object_taxonomies($post);
 		$result    = false;

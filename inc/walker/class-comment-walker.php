@@ -3,7 +3,7 @@
  * Custom comment walker for this theme
  *
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  *
@@ -14,7 +14,7 @@
  *
  * @since 1.0.0
  */
-class OverCome_Walker_Comment extends Walker_Comment {
+class EF5Frame_Walker_Comment extends Walker_Comment {
 
 	/**
 	 * Outputs a comment in the HTML5 format.
@@ -48,14 +48,14 @@ class OverCome_Walker_Comment extends Walker_Comment {
 									} 
 								?>
 							</div>
-							<?php $this->overcome_comment_author_info(['class' => 'col'], $comment , $comment_author ); ?>
+							<?php $this->ef5frame_comment_author_info(['class' => 'col'], $comment , $comment_author ); ?>
 						</div>
 					</div>
 					<?php } ?>
 					<div class="comment-info col">
-						<?php $this->overcome_comment_author_info([], $comment , $comment_author ); ?>
+						<?php $this->ef5frame_comment_author_info([], $comment , $comment_author ); ?>
 						<?php if ( '0' == $comment->comment_approved ) : ?>
-							<div class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'overcome' ); ?></div>
+							<div class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'ef5-frame' ); ?></div>
 						<?php endif; ?>
 						<div class="comment-content">
 							<?php comment_text(); ?>
@@ -63,8 +63,8 @@ class OverCome_Walker_Comment extends Walker_Comment {
 						<div class="comment-metadata">
 							<span class="comment-time meta-color"><?php
 									/* translators: 1: comment date, 2: comment time */
-									$comment_timestamp = sprintf( __( '%1$s at %2$s', 'overcome' ), get_comment_date( '', $comment ), get_comment_time() );
-								echo overcome_html($comment_timestamp); 
+									$comment_timestamp = sprintf( __( '%1$s at %2$s', 'ef5-frame' ), get_comment_date( '', $comment ), get_comment_time() );
+								echo ef5frame_html($comment_timestamp); 
 							?></span>
 							<?php
 								comment_reply_link(
@@ -79,7 +79,7 @@ class OverCome_Walker_Comment extends Walker_Comment {
 										)
 									)
 								);
-								edit_comment_link(esc_html__('Edit','overcome'));
+								edit_comment_link(esc_html__('Edit','ef5-frame'));
 							?>
 						</div>
 					</div>
@@ -92,18 +92,18 @@ class OverCome_Walker_Comment extends Walker_Comment {
 	?>
 		<<?php echo esc_html($tag); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( '', $comment ); ?>>
 			<div class="comment-body">
-				<?php _e( 'Pingback:', 'overcome' ); ?> 
+				<?php _e( 'Pingback:', 'ef5-frame' ); ?> 
 				<div class="h5"><?php comment_author_link( $comment ); ?></div>
 				<?php if(current_user_can( 'edit_comment', $comment->comment_ID )){ ?>
 				<div class="comment-links"><?php 
-					echo '<span class="edit-edit"><a href="'.esc_url(get_edit_comment_link()).'" class="edit-link"><span class="edit-icon fa fa-edit"></span>&nbsp;&nbsp;'.esc_html__('Edit','overcome').'</a></span>'; 
+					echo '<span class="edit-edit"><a href="'.esc_url(get_edit_comment_link()).'" class="edit-link"><span class="edit-icon fa fa-edit"></span>&nbsp;&nbsp;'.esc_html__('Edit','ef5-frame').'</a></span>'; 
 				?></div>
 				<?php } ?>
 			</div>
 	<?php
 		}
 
-	public function overcome_comment_author_info($args = '', $comment , $comment_author ){
+	public function ef5frame_comment_author_info($args = '', $comment , $comment_author ){
 		$args = wp_parse_args($args, [
 			'class' => ''
 		]);
@@ -116,14 +116,14 @@ class OverCome_Walker_Comment extends Walker_Comment {
 				 * fill color to the inner check shape when in circle form.
 				*/
 				$author_badge = '';
-				if ( overcome_is_comment_by_post_author( $comment ) ) {
+				if ( ef5frame_is_comment_by_post_author( $comment ) ) {
 					/* translators: %s: SVG Icon */
 					$author_badge = sprintf( '<span class="post-author-badge">%s</span>', '<span class="far fa-user"></span>' );
 				}
 
 				printf(
 					/* translators: %s: comment author link */
-					esc_html__( '%s', 'overcome' ),
+					esc_html__( '%s', 'ef5-frame' ),
 					sprintf( '<div class="author-name h5">%1$s %2$s</div>',$author_badge, $comment_author )
 				);
 			?>

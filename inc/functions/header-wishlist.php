@@ -9,14 +9,14 @@
  * get the wishlist URL
  * echo WPcleverWoosw::get_url();
 */
-if(!function_exists('overcome_header_wishlist')){
-	function overcome_header_wishlist($args = []){
+if(!function_exists('ef5frame_header_wishlist')){
+	function ef5frame_header_wishlist($args = []){
 		$args = wp_parse_args($args, [
 			'before' => '',
 			'after'  => '', 
 			'icon'	 => 'fal fa-heart'
 		]);
-		$show_wishlist = overcome_get_opts('header_wishlist', '0');
+		$show_wishlist = ef5frame_get_opts('header_wishlist', '0');
 		if(!class_exists( 'WooCommerce' ) || !class_exists('WPcleverWoosw') || '0' === $show_wishlist) return;
 		echo wp_kses_post($args['before']);
 	?>

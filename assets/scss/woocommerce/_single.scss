@@ -1,8 +1,8 @@
-$single_gallery_large_w: $overcome_product_single_image_w;
+$single_gallery_large_w: $ef5frame_product_single_image_w;
 $container_w: 1200;
 $single_gallery_default_width: #{(($single_gallery_large_w+30)/$container_w)*100%};
 $summary_w: calc(100% - #{$single_gallery_default_width});
-$gallery_thumbnail_space : #{$overcome_product_gallery_thumbnail_space}px;
+$gallery_thumbnail_space : #{$ef5frame_product_gallery_thumbnail_space}px;
 
 @import "single_gallery";
 @import "single_gallery_horizontal";

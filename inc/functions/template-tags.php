@@ -1,21 +1,21 @@
 <?php
 /**
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
 */
 
-if ( ! function_exists( 'overcome_posted_by' ) ) :
+if ( ! function_exists( 'ef5frame_posted_by' ) ) :
     /**
      * Prints HTML with meta information for the current post author.
      */
-    function overcome_posted_by($args=[]){
+    function ef5frame_posted_by($args=[]){
         global $post;
         $author_id   = $post->post_author;
         $args = wp_parse_args($args, [
             'class'              => '',
-            'hint'               => esc_html__( 'Posted by', 'overcome' ),
+            'hint'               => esc_html__( 'Posted by', 'ef5-frame' ),
             'icon'               => 'fa fa-user',
             'icon_class'         => '',
             'author_avatar'      => false,
@@ -64,16 +64,16 @@ if ( ! function_exists( 'overcome_posted_by' ) ) :
     }
 endif;
 
-if ( ! function_exists( 'overcome_posted_on' ) ) :
+if ( ! function_exists( 'ef5frame_posted_on' ) ) :
     /**
      * Prints HTML with meta information for the current post-date/time.
      */
-    function overcome_posted_on($args=[])
+    function ef5frame_posted_on($args=[])
     {
         $args = wp_parse_args($args,[
             'class'       => '',
-            'hint'        => esc_html__( 'Published on', 'overcome' ),
-            'hint_update' => esc_html__( 'Updated on', 'overcome' ),
+            'hint'        => esc_html__( 'Published on', 'ef5-frame' ),
+            'hint_update' => esc_html__( 'Updated on', 'ef5-frame' ),
             'icon'        => 'fa fa-calendar',
             'icon_class'  => '',
             'icon_update' => '',
@@ -135,14 +135,14 @@ if ( ! function_exists( 'overcome_posted_on' ) ) :
 endif;
 
 
-if ( ! function_exists( 'overcome_posted_in' ) ) :
+if ( ! function_exists( 'ef5frame_posted_in' ) ) :
     /**
      * Prints HTML with meta information for the current post-date/time.
      */
-    function overcome_posted_in($args = []){
+    function ef5frame_posted_in($args = []){
         $args = wp_parse_args($args, [
             'class'           => '',
-            'hint'            => esc_html__( 'Posted in', 'overcome' ),
+            'hint'            => esc_html__( 'Posted in', 'ef5-frame' ),
             'icon'            => 'fa fa-folder',
             'icon_class'      => '',
             'before'          => '',
@@ -157,7 +157,7 @@ if ( ! function_exists( 'overcome_posted_in' ) ) :
         if($args['show_cat'] !== '1') return;
 
         $classes = ['ef5-posted-in', 'hint--top', $args['class']];
-        $taxo = overcome_get_post_taxonomies();
+        $taxo = ef5frame_get_post_taxonomies();
         $terms = get_the_term_list( get_the_ID(), $taxo, '', $args['sep'], '' );
         ob_start();
             if ( !empty($terms))
@@ -185,27 +185,27 @@ if ( ! function_exists( 'overcome_posted_in' ) ) :
 endif;
 
 
-if ( ! function_exists( 'overcome_tagged_in' ) ) :
+if ( ! function_exists( 'ef5frame_tagged_in' ) ) :
     /**
      * Prints HTML with meta information for the current post-date/time.
      */
-    function overcome_tagged_in($args = []){
+    function ef5frame_tagged_in($args = []){
         $args = wp_parse_args($args, [
             'class'      => '',
-            'hint'       => esc_html__( 'Tagged in', 'overcome' ),
+            'hint'       => esc_html__( 'Tagged in', 'ef5-frame' ),
             'icon'       => '',
             'icon_class' => '',
             'before'     => '',
             'after'      => '',
-            'before_tag' => '<span class="ef5-heading text-uppercase font-style-500">'.esc_html__('Tags:','overcome').'</span>',
+            'before_tag' => '<span class="ef5-heading text-uppercase font-style-500">'.esc_html__('Tags:','ef5-frame').'</span>',
             'after_tag'  => '',
             'sep'        => ', ',
-            'show_tag'   => is_single() ? overcome_get_theme_opt( 'post_tags_on', '1' ) : overcome_get_theme_opt( 'archive_tags_on', '1' ),
+            'show_tag'   => is_single() ? ef5frame_get_theme_opt( 'post_tags_on', '1' ) : ef5frame_get_theme_opt( 'archive_tags_on', '1' ),
             'echo'       => true
         ]);
         if('1' !== $args['show_tag']) return;
         $classes = ['ef5-tagged-in hint--top', $args['class']];
-        $tags_list = get_the_term_list( get_the_ID(), overcome_get_post_taxonomies('tag'), '', $args['sep'], '' );
+        $tags_list = get_the_term_list( get_the_ID(), ef5frame_get_post_taxonomies('tag'), '', $args['sep'], '' );
         ob_start();
             if ( $tags_list)
             {
@@ -234,8 +234,8 @@ endif;
 /**
  * Prints comments count with link to single post comment form.
  */
-if ( ! function_exists( 'overcome_comments_popup_link' ) ) {
-    function overcome_comments_popup_link($args = [])
+if ( ! function_exists( 'ef5frame_comments_popup_link' ) ) {
+    function ef5frame_comments_popup_link($args = [])
     {
         $args = wp_parse_args($args, [
             'class'     => '',
@@ -259,15 +259,15 @@ if ( ! function_exists( 'overcome_comments_popup_link' ) ) {
             printf ('%s' , $args['before']);
             if(!$args['show_text']){
                 comments_popup_link(
-                    sprintf('<span class="hint--top" data-hint="%s">%s %s</span>',esc_html__('Be the first to comment','overcome'), $args['icon'], $number),
-                    sprintf('<span class="hint--top" data-hint="%s">%s %s</span>',esc_html__('Post a comment','overcome'), $args['icon'], $number),
-                    sprintf('<span class="hint--top" data-hint="%s">%s %s</span>',esc_html__('Post a comment','overcome'), $args['icon'], $number)
+                    sprintf('<span class="hint--top" data-hint="%s">%s %s</span>',esc_html__('Be the first to comment','ef5-frame'), $args['icon'], $number),
+                    sprintf('<span class="hint--top" data-hint="%s">%s %s</span>',esc_html__('Post a comment','ef5-frame'), $args['icon'], $number),
+                    sprintf('<span class="hint--top" data-hint="%s">%s %s</span>',esc_html__('Post a comment','ef5-frame'), $args['icon'], $number)
                 );
             } else {
                 comments_popup_link(
-                    sprintf('<span class="hint--top" data-hint="%s">%s %s %s</span>',esc_html__('Be the first to comment','overcome'), $args['icon'], $number, esc_html__('Comments','overcome')),
-                    sprintf('<span class="hint--top" data-hint="%s">%s %s %s</span>',esc_html__('Post a comment','overcome'), $args['icon'], $number, esc_html__('Comment','overcome')),
-                    sprintf('<span class="hint--top" data-hint="%s">%s %s %s</span>',esc_html__('Post a comment','overcome'), $args['icon'], $number, esc_html__('Comments','overcome'))
+                    sprintf('<span class="hint--top" data-hint="%s">%s %s %s</span>',esc_html__('Be the first to comment','ef5-frame'), $args['icon'], $number, esc_html__('Comments','ef5-frame')),
+                    sprintf('<span class="hint--top" data-hint="%s">%s %s %s</span>',esc_html__('Post a comment','ef5-frame'), $args['icon'], $number, esc_html__('Comment','ef5-frame')),
+                    sprintf('<span class="hint--top" data-hint="%s">%s %s %s</span>',esc_html__('Post a comment','ef5-frame'), $args['icon'], $number, esc_html__('Comments','ef5-frame'))
                 );
             }
             printf ('%s' , $args['after']);
@@ -284,7 +284,7 @@ if ( ! function_exists( 'overcome_comments_popup_link' ) ) {
  * Count views
  * Show count of viewed 
 */
-function overcome_post_count_view($args=[]){
+function ef5frame_post_count_view($args=[]){
     $args = wp_parse_args($args, [
         'show_view' => '1',
         'class'     => '',
@@ -308,11 +308,11 @@ function overcome_post_count_view($args=[]){
                         '%1$s %3$s',
                         $view_number,
                         'view title',
-                        'overcome'
+                        'ef5-frame'
                     ),
                     number_format_i18n( $view_number ),
-                    $args['show_text'] ? esc_html__('View','overcome') : '',
-                    $args['show_text'] ? esc_html__('Views','overcome') : ''
+                    $args['show_text'] ? esc_html__('View','ef5-frame') : '',
+                    $args['show_text'] ? esc_html__('Views','ef5-frame') : ''
                 );
             printf ('%s' , $args['after']);
         echo '</div>';
@@ -327,7 +327,7 @@ function overcome_post_count_view($args=[]){
  * Count Like
  * Show count of viewed 
 */
-function overcome_post_count_like($args=[]){
+function ef5frame_post_count_like($args=[]){
     $args = wp_parse_args($args, [
         'show_like' => '1',
         'class'     => '',
@@ -351,11 +351,11 @@ function overcome_post_count_like($args=[]){
                         '%1$s %3$s',
                         $like_number,
                         'view title',
-                        'overcome'
+                        'ef5-frame'
                     ),
                     number_format_i18n( $like_number ),
-                    $args['show_text'] ? esc_html__('Like','overcome') : '',
-                    $args['show_text'] ? esc_html__('Likes','overcome') : ''
+                    $args['show_text'] ? esc_html__('Like','ef5-frame') : '',
+                    $args['show_text'] ? esc_html__('Likes','ef5-frame') : ''
                 );
             printf ('%s' , $args['after']);
         echo '</div>';
@@ -369,13 +369,13 @@ function overcome_post_count_like($args=[]){
 /**
  * Prints post edit link when applicable
  */
-function overcome_edit_link($args = [])
+function ef5frame_edit_link($args = [])
 {
     $args = wp_parse_args($args, [
         'class'     => '',
         'icon'      => 'far fa-edit',
-        'title'     => esc_html('Edit', 'overcome'),
-        'hint'      => esc_html('Edit', 'overcome'),
+        'title'     => esc_html('Edit', 'ef5-frame'),
+        'hint'      => esc_html('Edit', 'ef5-frame'),
         'before'    => '',
         'after'     => '',
         'show_edit' => false,
@@ -396,14 +396,14 @@ function overcome_edit_link($args = [])
     }
 }
 
-function overcome_link_pages($args = [])
+function ef5frame_link_pages($args = [])
 {
     $args = wp_parse_args($args, [
         'class' => ''
     ]);
     $classes = trim(implode(' ', [$args['class'],'page-links','clearfix']));
     wp_link_pages( array(
-        'before'      => sprintf( '<div class="'.$classes.'"><span class="ef5-heading">%s</span>', esc_html__( 'Pages:', 'overcome' ) ),
+        'before'      => sprintf( '<div class="'.$classes.'"><span class="ef5-heading">%s</span>', esc_html__( 'Pages:', 'ef5-frame' ) ),
         'after'       => '</div>',
         'link_before' => '<span class="page-link-number">', 
         'link_after'  => '</span>'
@@ -413,16 +413,16 @@ function overcome_link_pages($args = [])
 /**
  * Post Share
 */
-if(!function_exists('overcome_post_share')){
-    function overcome_post_share($args = array()){
+if(!function_exists('ef5frame_post_share')){
+    function ef5frame_post_share($args = array()){
         wp_enqueue_script('sharethis');
         global $post;
         $defaults = array(
-            'show_share'  => is_single() ? overcome_get_theme_opt( 'post_share_on', '0' ) : overcome_get_theme_opt( 'archive_share_on', '0' ),
+            'show_share'  => is_single() ? ef5frame_get_theme_opt( 'post_share_on', '0' ) : ef5frame_get_theme_opt( 'archive_share_on', '0' ),
             'class'       => '',
             'row_class'       => '',
             'show_title'  => true,
-            'title'       => esc_html__('Share this article','overcome'),
+            'title'       => esc_html__('Share this article','ef5-frame'),
             'social_args' => [],
             'echo'        => true,
             'show_all'    => ''
@@ -430,34 +430,34 @@ if(!function_exists('overcome_post_share')){
         $args = wp_parse_args($args, $defaults);
         extract($args);
         if($show_share !== '1') return;
-        $social_classes = overcome_optimize_css_class(trim(implode(' ', ['ef5-social', isset($social_args['class']) ? $social_args['class'] : '', isset($social_args['size']) ? 'size-'.$social_args['size'] : ''] )));
+        $social_classes = ef5frame_optimize_css_class(trim(implode(' ', ['ef5-social', isset($social_args['class']) ? $social_args['class'] : '', isset($social_args['size']) ? 'size-'.$social_args['size'] : ''] )));
         $classes   = array('ef5-shares');
         $classes[] = $class;
-        $classes[] = overcome_is_loop() ? 'loop': 'single';        
+        $classes[] = ef5frame_is_loop() ? 'loop': 'single';        
         
-        $row_class = overcome_optimize_css_class(trim(implode(' ', ['row align-items-center', $args['row_class']])));
+        $row_class = ef5frame_optimize_css_class(trim(implode(' ', ['row align-items-center', $args['row_class']])));
 
         $url   = get_the_permalink();
         $image = get_the_post_thumbnail_url($post->ID);
         $title = get_the_title();
 
         if(is_singular()){
-            $show_fb    = overcome_get_theme_opt( 'post_share_fb', '1' );
-            $show_tw    = overcome_get_theme_opt( 'post_share_tw', '1' );
-            $show_gplus = overcome_get_theme_opt( 'post_share_gplus', '1' );
-            $show_pin   = overcome_get_theme_opt( 'post_share_pin', '1' );
-            $show_all   = overcome_get_theme_opt( 'post_share_all', '1' );
+            $show_fb    = ef5frame_get_theme_opt( 'post_share_fb', '1' );
+            $show_tw    = ef5frame_get_theme_opt( 'post_share_tw', '1' );
+            $show_gplus = ef5frame_get_theme_opt( 'post_share_gplus', '1' );
+            $show_pin   = ef5frame_get_theme_opt( 'post_share_pin', '1' );
+            $show_all   = ef5frame_get_theme_opt( 'post_share_all', '1' );
         } else {
-            $show_fb    = overcome_get_theme_opt( 'archive_share_fb', '1' );
-            $show_tw    = overcome_get_theme_opt( 'archive_share_tw', '1' );
-            $show_gplus = overcome_get_theme_opt( 'archive_share_gplus', '1' );
-            $show_pin   = overcome_get_theme_opt( 'archive_share_pin', '1' );
-            $show_all   = $args['show_all'] != '' ? $args['show_all'] : overcome_get_theme_opt( 'archive_share_all', '1' );
+            $show_fb    = ef5frame_get_theme_opt( 'archive_share_fb', '1' );
+            $show_tw    = ef5frame_get_theme_opt( 'archive_share_tw', '1' );
+            $show_gplus = ef5frame_get_theme_opt( 'archive_share_gplus', '1' );
+            $show_pin   = ef5frame_get_theme_opt( 'archive_share_pin', '1' );
+            $show_all   = $args['show_all'] != '' ? $args['show_all'] : ef5frame_get_theme_opt( 'archive_share_all', '1' );
         }
         ob_start();
         if($show_fb == '1' || $show_tw == '1' || $show_gplus == '1' || $show_pin == '1' || $show_all == '1') {
         ?>
-        <div class="<?php echo overcome_optimize_css_class(trim(implode(' ', $classes))); ?>">
+        <div class="<?php echo ef5frame_optimize_css_class(trim(implode(' ', $classes))); ?>">
             <?php if($show_title): ?>
                 <div class="<?php echo esc_attr($row_class);?>">
                     <div class="col-auto share-title">
@@ -467,19 +467,19 @@ if(!function_exists('overcome_post_share')){
             <?php endif; ?>
                     <div class="<?php echo esc_attr($social_classes);?>">
                         <?php if($show_fb == '1'): ?>
-                        <a data-hint="<?php esc_attr_e('Share this post to Facebook','overcome'); ?>" data-toggle="tooltip" href="javascript:void(0);" data-network="facebook" data-url="<?php echo esc_url($url);?>" data-short-url="<?php echo esc_url($url);?>" data-title="<?php echo esc_attr($title);?>" data-image="<?php echo esc_url($image); ?>" data-description="<?php echo get_the_excerpt(); ?>" data-username="" data-message="<?php echo bloginfo(); ?>" class="hint--top hint--bounce facebook st-custom-button"><span class="fab fa-facebook-f"></span></a>
+                        <a data-hint="<?php esc_attr_e('Share this post to Facebook','ef5-frame'); ?>" data-toggle="tooltip" href="javascript:void(0);" data-network="facebook" data-url="<?php echo esc_url($url);?>" data-short-url="<?php echo esc_url($url);?>" data-title="<?php echo esc_attr($title);?>" data-image="<?php echo esc_url($image); ?>" data-description="<?php echo get_the_excerpt(); ?>" data-username="" data-message="<?php echo bloginfo(); ?>" class="hint--top hint--bounce facebook st-custom-button"><span class="fab fa-facebook-f"></span></a>
                         <?php endif;
                         if($show_tw == '1'): ?>
-                        <a data-hint="<?php esc_attr_e('Share this post to Twitter','overcome'); ?>" data-toggle="tooltip" href="javascript:void(0);" data-network="twitter" data-url="<?php echo esc_url($url);?>" data-short-url="<?php echo esc_url($url);?>" data-title="<?php echo esc_attr($title);?>" data-image="<?php echo esc_url($image); ?>" data-description="<?php echo get_the_excerpt(); ?>" data-username="" data-message="<?php echo bloginfo(); ?>" class="hint--top hint--bounce twitter st-custom-button"><span class="fab fa-twitter"></span></a>
+                        <a data-hint="<?php esc_attr_e('Share this post to Twitter','ef5-frame'); ?>" data-toggle="tooltip" href="javascript:void(0);" data-network="twitter" data-url="<?php echo esc_url($url);?>" data-short-url="<?php echo esc_url($url);?>" data-title="<?php echo esc_attr($title);?>" data-image="<?php echo esc_url($image); ?>" data-description="<?php echo get_the_excerpt(); ?>" data-username="" data-message="<?php echo bloginfo(); ?>" class="hint--top hint--bounce twitter st-custom-button"><span class="fab fa-twitter"></span></a>
                         <?php endif;
                         if($show_gplus == '1'): ?>
-                        <a data-hint="<?php esc_attr_e('Share this post to Google Plus','overcome'); ?>" data-toggle="tooltip" href="javascript:void(0);" data-network="googleplus" data-url="<?php echo esc_url($url);?>" data-short-url="<?php echo esc_url($url);?>" data-title="<?php echo esc_attr($title);?>" data-image="<?php echo esc_url($image); ?>" data-description="<?php echo get_the_excerpt(); ?>" data-username="" data-message="<?php echo bloginfo(); ?>" class="hint--top hint--bounce googleplus st-custom-button"><span class="fab fa-google-plus"></span></a>
+                        <a data-hint="<?php esc_attr_e('Share this post to Google Plus','ef5-frame'); ?>" data-toggle="tooltip" href="javascript:void(0);" data-network="googleplus" data-url="<?php echo esc_url($url);?>" data-short-url="<?php echo esc_url($url);?>" data-title="<?php echo esc_attr($title);?>" data-image="<?php echo esc_url($image); ?>" data-description="<?php echo get_the_excerpt(); ?>" data-username="" data-message="<?php echo bloginfo(); ?>" class="hint--top hint--bounce googleplus st-custom-button"><span class="fab fa-google-plus"></span></a>
                         <?php endif;
                         if($show_pin == '1'): ?>
-                        <a data-hint="<?php esc_attr_e('Share this post to Pinterest','overcome'); ?>" data-toggle="tooltip" href="javascript:void(0);" data-network="pinterest" data-url="<?php echo esc_url($url);?>" data-short-url="<?php echo esc_url($url);?>" data-title="<?php echo esc_attr($title);?>" data-image="<?php echo esc_url($image); ?>" data-description="<?php echo get_the_excerpt(); ?>" data-username="" data-message="<?php echo bloginfo(); ?>" class="hint--top hint--bounce pinterest st-custom-button"><span class="fab fa-pinterest"></span></a>
+                        <a data-hint="<?php esc_attr_e('Share this post to Pinterest','ef5-frame'); ?>" data-toggle="tooltip" href="javascript:void(0);" data-network="pinterest" data-url="<?php echo esc_url($url);?>" data-short-url="<?php echo esc_url($url);?>" data-title="<?php echo esc_attr($title);?>" data-image="<?php echo esc_url($image); ?>" data-description="<?php echo get_the_excerpt(); ?>" data-username="" data-message="<?php echo bloginfo(); ?>" class="hint--top hint--bounce pinterest st-custom-button"><span class="fab fa-pinterest"></span></a>
                         <?php endif;
                         if($show_all == '1'): ?>
-                        <a data-hint="<?php esc_attr_e('Share this post to','overcome'); ?>" data-toggle="tooltip" href="javascript:void(0);" data-network="sharethis" data-url="<?php echo esc_url($url);?>" data-short-url="<?php echo esc_url($url);?>" data-title="<?php echo esc_attr($title);?>" data-image="<?php echo esc_url($image); ?>" data-description="<?php echo get_the_excerpt(); ?>" data-username="" data-message="<?php echo bloginfo(); ?>" class="hint--top hint--bounce sharethis st-custom-button"><span class="fa fa-share-alt"></span></a>
+                        <a data-hint="<?php esc_attr_e('Share this post to','ef5-frame'); ?>" data-toggle="tooltip" href="javascript:void(0);" data-network="sharethis" data-url="<?php echo esc_url($url);?>" data-short-url="<?php echo esc_url($url);?>" data-title="<?php echo esc_attr($title);?>" data-image="<?php echo esc_url($image); ?>" data-description="<?php echo get_the_excerpt(); ?>" data-username="" data-message="<?php echo bloginfo(); ?>" class="hint--top hint--bounce sharethis st-custom-button"><span class="fa fa-share-alt"></span></a>
                         <?php endif; ?>
                     </div>
             <?php if($show_title): ?>
@@ -499,19 +499,19 @@ if(!function_exists('overcome_post_share')){
 /**
  * Post Read more Button 
 */
-if ( ! function_exists( 'overcome_post_read_more' ) ) {
+if ( ! function_exists( 'ef5frame_post_read_more' ) ) {
     /**
      * Prints post read more link
      */
-    function overcome_post_read_more($args = [])
+    function ef5frame_post_read_more($args = [])
     {
         $args = wp_parse_args($args,[
             'class'          => '',
             'icon_left'      => '',
             'icon_right'     => '',
-            'title'          => esc_html__('Read More','overcome'),
+            'title'          => esc_html__('Read More','ef5-frame'),
             'readmore_class' => 'ef5-btn accent fill transition ef5-scroll',
-            'show_readmore'  => overcome_get_theme_opt( 'archive_readmore', '1' ),
+            'show_readmore'  => ef5frame_get_theme_opt( 'archive_readmore', '1' ),
             'before'         => '',
             'after'          => '',
             'echo'           => true
@@ -540,8 +540,8 @@ if ( ! function_exists( 'overcome_post_read_more' ) ) {
  * Post Read more Circle 
  * Prints post read more link
 */
-if ( ! function_exists( 'overcome_post_read_more_circle' ) ) {
-    function overcome_post_read_more_circle($args = [])
+if ( ! function_exists( 'ef5frame_post_read_more_circle' ) ) {
+    function ef5frame_post_read_more_circle($args = [])
     {
         $args = wp_parse_args($args,[
             'class'          => '',
@@ -549,7 +549,7 @@ if ( ! function_exists( 'overcome_post_read_more_circle' ) ) {
             'size'           => '60',
             'shape'          => 'circle',
             'icon'           => 'flaticon-add',
-            'title'          => esc_html__('Read More','overcome'),
+            'title'          => esc_html__('Read More','ef5-frame'),
             'readmore_class' => '',
             'show_readmore'  => '1',
             'before'         => '',

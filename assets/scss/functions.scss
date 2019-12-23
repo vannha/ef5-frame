@@ -1,5 +1,5 @@
 // Return CSS Variables
-@function overcome_scss_css_variable($var, $fallback: null) {
+@function ef5frame_scss_css_variable($var, $fallback: null) {
   @if($fallback) {
     @return var(--#{$var}, #{$fallback});
   }
@@ -7,7 +7,7 @@
 }
 
 // Get number from string
-@function overcome_string_to_number($value) {
+@function ef5frame_string_to_number($value) {
   @if type-of($value) == 'number' {
     @return $value;
   } @else if type-of($value) != 'string' {
@@ -41,7 +41,7 @@
 }
 
 // Strip number from string
-@function overcome_strip_unit($number) {
+@function ef5frame_strip_unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }

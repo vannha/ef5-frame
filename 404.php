@@ -5,7 +5,7 @@
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  * 
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  *
@@ -18,14 +18,14 @@ get_header();
 				<img src="<?php echo get_template_directory_uri();?>/assets/images/404.png" alt="404" />
 			</div>
 			<div class="font-style-700 text-uppercase err-msg-large">
-				<?php esc_html_e('Oops!','overcome') ?>
+				<?php esc_html_e('Oops!','ef5-frame') ?>
 			</div>
 			<div class="text-large font-style-700 err-msg-small">
-				<?php esc_html_e( 'The page you requested could not be found', 'overcome' ); ?>
+				<?php esc_html_e( 'The page you requested could not be found', 'ef5-frame' ); ?>
 			</div>
 
 			<div class="page-content">
-				<a href="<?php echo esc_url(home_url('/'));?>" class="ef5-btn ef5-btn-df ef5-btn-xlg accent fill"><?php esc_html_e('Back to Home','overcome'); ?></a>
+				<a href="<?php echo esc_url(home_url('/'));?>" class="ef5-btn ef5-btn-df ef5-btn-xlg accent fill"><?php esc_html_e('Back to Home','ef5-frame'); ?></a>
 			</div>
 		</div>
 	</div>

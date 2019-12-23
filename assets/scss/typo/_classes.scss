@@ -75,7 +75,7 @@ $font-styles: (
 
 @each $name , $style in $font-styles {
     .font-style-#{$name}{
-        font-weight: overcome_string_to_number($name);
+        font-weight: ef5frame_string_to_number($name);
         @if $style != '' {
             font-style: $style;
         }

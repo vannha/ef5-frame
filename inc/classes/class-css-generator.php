@@ -4,7 +4,7 @@ if ( ! class_exists( 'ReduxFrameworkInstances' ) )
     return;
 }
 
-class OverCome_CSS_Generator
+class EF5Frame_CSS_Generator
 {
     /**
      * Compiler class instance
@@ -46,7 +46,7 @@ class OverCome_CSS_Generator
      */
     function __construct()
     {
-        $this->opt_name = overcome_get_theme_opt_name();
+        $this->opt_name = ef5frame_get_theme_opt_name();
 
         if ( empty( $this->opt_name ) )
         {
@@ -71,7 +71,7 @@ class OverCome_CSS_Generator
         {
             return;
         }
-        $this->dev_mode = overcome_get_theme_opt('dev_mode', false);
+        $this->dev_mode = ef5frame_get_theme_opt('dev_mode', false);
 
         if ( $this->dev_mode )
         {
@@ -266,10 +266,10 @@ class OverCome_CSS_Generator
         printf('$thirdary_color:%s;',$thirdary_color);
         printf('$fourth_color:%s;',$fourth_color);
         printf('$fourth_color_07:%s;',$fourth_color_07);
-        printf('$invalid_color:%s;',overcome_configs('invalid_color'));
-        printf('$color_red:%s;',overcome_configs('color_red'));
-        printf('$color_green:%s;',overcome_configs('color_green'));
-        printf('$white:%s;',overcome_configs('white'));
+        printf('$invalid_color:%s;',ef5frame_configs('invalid_color'));
+        printf('$color_red:%s;',ef5frame_configs('color_red'));
+        printf('$color_green:%s;',ef5frame_configs('color_green'));
+        printf('$white:%s;',ef5frame_configs('white'));
         
         // Theme Color 
         printf('$ef5-colors:(%s);',ef5systems_colors_option_for_scss());
@@ -282,41 +282,41 @@ class OverCome_CSS_Generator
         // Theme Gutters
         printf('$ef5-gutters:(%s);',ef5systems_gutter_option_for_scss());
         // Typography 
-        printf( '$BodyBG: %s;', overcome_configs('body_bg'));
-        printf( '$BodyFont: %s;', overcome_configs('body_font'));
-        printf( '$BodyFontSize: %s;', overcome_configs('body_font_size'));
-        printf( '$BodyLineHeight: %s;',overcome_configs('body_line_height'));
-        printf( '$BodyFontSizeL: %s;', overcome_configs('body_font_size_large'));
-        printf( '$BodyFontSizeM: %s;', overcome_configs('body_font_size_medium'));
-        printf( '$BodyFontSizeS: %s;', overcome_configs('body_font_size_small'));
-        printf( '$BodyFontSizeXS: %s;', overcome_configs('body_font_size_xsmall'));
-        printf( '$BodyFontSizeXXS: %s;', overcome_configs('body_font_size_xxsmall'));
-        printf( '$BodyColor: %s;', overcome_configs('body_font_color'));
-        printf( '$H1Size: %s;', overcome_configs('h1_size'));
-        printf( '$H2Size: %s;', overcome_configs('h2_size'));
-        printf( '$H3Size: %s;', overcome_configs('h3_size'));
-        printf( '$H4Size: %s;', overcome_configs('h4_size'));
-        printf( '$H5Size: %s;', overcome_configs('h5_size'));
-        printf( '$H6Size: %s;', overcome_configs('h6_size'));
-        printf( '$HeadingFont: %s;', overcome_configs('heading_font'));
-        printf( '$HeadingColor: %s;', overcome_configs('heading_color'));
-        printf( '$HeadingColorHover: %s;', overcome_configs('heading_color_hover'));
-        printf( '$HeadingFontW: %s;', overcome_configs('heading_font_weight'));
-        printf( '$MetaFont : %s;', overcome_configs('meta_font'));
-        printf( '$MetaColor: %s;', overcome_configs('meta_color'));
-        printf( '$MetaColorHover: %s;', overcome_configs('meta_color_hover'));
+        printf( '$BodyBG: %s;', ef5frame_configs('body_bg'));
+        printf( '$BodyFont: %s;', ef5frame_configs('body_font'));
+        printf( '$BodyFontSize: %s;', ef5frame_configs('body_font_size'));
+        printf( '$BodyLineHeight: %s;',ef5frame_configs('body_line_height'));
+        printf( '$BodyFontSizeL: %s;', ef5frame_configs('body_font_size_large'));
+        printf( '$BodyFontSizeM: %s;', ef5frame_configs('body_font_size_medium'));
+        printf( '$BodyFontSizeS: %s;', ef5frame_configs('body_font_size_small'));
+        printf( '$BodyFontSizeXS: %s;', ef5frame_configs('body_font_size_xsmall'));
+        printf( '$BodyFontSizeXXS: %s;', ef5frame_configs('body_font_size_xxsmall'));
+        printf( '$BodyColor: %s;', ef5frame_configs('body_font_color'));
+        printf( '$H1Size: %s;', ef5frame_configs('h1_size'));
+        printf( '$H2Size: %s;', ef5frame_configs('h2_size'));
+        printf( '$H3Size: %s;', ef5frame_configs('h3_size'));
+        printf( '$H4Size: %s;', ef5frame_configs('h4_size'));
+        printf( '$H5Size: %s;', ef5frame_configs('h5_size'));
+        printf( '$H6Size: %s;', ef5frame_configs('h6_size'));
+        printf( '$HeadingFont: %s;', ef5frame_configs('heading_font'));
+        printf( '$HeadingColor: %s;', ef5frame_configs('heading_color'));
+        printf( '$HeadingColorHover: %s;', ef5frame_configs('heading_color_hover'));
+        printf( '$HeadingFontW: %s;', ef5frame_configs('heading_font_weight'));
+        printf( '$MetaFont : %s;', ef5frame_configs('meta_font'));
+        printf( '$MetaColor: %s;', ef5frame_configs('meta_color'));
+        printf( '$MetaColorHover: %s;', ef5frame_configs('meta_color_hover'));
         // Border
-        printf( '$MainBorder: %s;', overcome_configs('main_border'));
-        printf( '$MainBorder2: %s;', overcome_configs('main_border2'));
-        printf( '$MainBorderColor: %s;', overcome_configs('main_border_color'));
+        printf( '$MainBorder: %s;', ef5frame_configs('main_border'));
+        printf( '$MainBorder2: %s;', ef5frame_configs('main_border2'));
+        printf( '$MainBorderColor: %s;', ef5frame_configs('main_border_color'));
         // Comments
-        printf( '$cmt_avatar_size: %s;', overcome_configs('cmt_avatar_size'));
-        printf( '$cmt_border: %s;', overcome_configs('cmt_border'));
+        printf( '$cmt_avatar_size: %s;', ef5frame_configs('cmt_avatar_size'));
+        printf( '$cmt_border: %s;', ef5frame_configs('cmt_border'));
         /* Main Menu Height */
         printf('$main_menu_height:%s;', 'var(--main-menu-height)');
         
         /* Header side width */
-        $header_sidewidth = overcome_get_theme_opt('header_sidewidth',['width' => apply_filters('overcome_header_sidewidth',overcome_configs('header_sidewidth'))]);
+        $header_sidewidth = ef5frame_get_theme_opt('header_sidewidth',['width' => apply_filters('ef5frame_header_sidewidth',ef5frame_configs('header_sidewidth'))]);
         printf('$header_sidewidth: %s;', esc_attr($header_sidewidth['width']));
 
         /* Default Header Color */
@@ -337,7 +337,7 @@ class OverCome_CSS_Generator
 
         /* Dropdown && Mobile */
         printf('$dropdown_bg: %s;', 'var(--dropdown_bg)');
-        $dropdown_link_colors = overcome_get_theme_opt('dropdown_link_colors', apply_filters('overcome_dropdown_link_colors',['regular' => overcome_configs('dropdown_regular'), 'hover' => overcome_configs('dropdown_hover'), 'active' => overcome_configs('dropdown_active')]) );
+        $dropdown_link_colors = ef5frame_get_theme_opt('dropdown_link_colors', apply_filters('ef5frame_dropdown_link_colors',['regular' => ef5frame_configs('dropdown_regular'), 'hover' => ef5frame_configs('dropdown_hover'), 'active' => ef5frame_configs('dropdown_active')]) );
         printf( '$dropdown_regular: %s;', 'var(--dropdown_regular)' );
         printf( '$dropdown_hover: %s;', 'var(--dropdown_hover)') ;
         printf( '$dropdown_active: %s;', 'var(--dropdown_active)'  );
@@ -345,22 +345,22 @@ class OverCome_CSS_Generator
         /* Side Header Width */
 
         /* WooCommerce */
-        printf( '$overcome_product_single_image_w: %s;', overcome_configs('overcome_product_single_image_w') );
-        printf( '$overcome_product_single_image_h: %s;', overcome_configs('overcome_product_single_image_h') );
+        printf( '$ef5frame_product_single_image_w: %s;', ef5frame_configs('ef5frame_product_single_image_w') );
+        printf( '$ef5frame_product_single_image_h: %s;', ef5frame_configs('ef5frame_product_single_image_h') );
         
-        printf( '$overcome_product_loop_image_w: %s;', overcome_configs('overcome_product_loop_image_w') );
-        printf( '$overcome_product_loop_image_h: %s;', overcome_configs('overcome_product_loop_image_h') );
+        printf( '$ef5frame_product_loop_image_w: %s;', ef5frame_configs('ef5frame_product_loop_image_w') );
+        printf( '$ef5frame_product_loop_image_h: %s;', ef5frame_configs('ef5frame_product_loop_image_h') );
 
-        printf( '$overcome_product_gallery_thumbnail_w: %s;', overcome_configs('overcome_product_gallery_thumbnail_w') );
-        printf( '$overcome_product_gallery_thumbnail_h: %s;', overcome_configs('overcome_product_gallery_thumbnail_h') );
+        printf( '$ef5frame_product_gallery_thumbnail_w: %s;', ef5frame_configs('ef5frame_product_gallery_thumbnail_w') );
+        printf( '$ef5frame_product_gallery_thumbnail_h: %s;', ef5frame_configs('ef5frame_product_gallery_thumbnail_h') );
 
-        printf( '$overcome_product_gallery_thumbnail_v_w: %s;', overcome_configs('overcome_product_gallery_thumbnail_v_w') );
-        printf( '$overcome_product_gallery_thumbnail_v_h: %s;', overcome_configs('overcome_product_gallery_thumbnail_v_h') );
+        printf( '$ef5frame_product_gallery_thumbnail_v_w: %s;', ef5frame_configs('ef5frame_product_gallery_thumbnail_v_w') );
+        printf( '$ef5frame_product_gallery_thumbnail_v_h: %s;', ef5frame_configs('ef5frame_product_gallery_thumbnail_v_h') );
 
-        printf( '$overcome_product_gallery_thumbnail_h_w: %s;', overcome_configs('overcome_product_gallery_thumbnail_h_w') );
-        printf( '$overcome_product_gallery_thumbnail_h_h: %s;', overcome_configs('overcome_product_gallery_thumbnail_h_h') );
+        printf( '$ef5frame_product_gallery_thumbnail_h_w: %s;', ef5frame_configs('ef5frame_product_gallery_thumbnail_h_w') );
+        printf( '$ef5frame_product_gallery_thumbnail_h_h: %s;', ef5frame_configs('ef5frame_product_gallery_thumbnail_h_h') );
 
-        printf( '$overcome_product_gallery_thumbnail_space: %s;', overcome_configs('overcome_product_gallery_thumbnail_space') );
+        printf( '$ef5frame_product_gallery_thumbnail_space: %s;', ef5frame_configs('ef5frame_product_gallery_thumbnail_space') );
 
 
         return ob_get_clean();
@@ -376,7 +376,7 @@ class OverCome_CSS_Generator
 
         if ( $css )
         {
-            wp_add_inline_style( 'overcome', $css );
+            wp_add_inline_style( 'ef5-frame', $css );
         }
     }
 
@@ -390,8 +390,8 @@ class OverCome_CSS_Generator
          * Header side menu 
          *
         */
-        $header_sidewidth = overcome_get_theme_opt('header_sidewidth', ['width' => ''] );
-        $header_sidewidth_page = overcome_get_page_opt('header_sidewidth', ['width' => ''] );
+        $header_sidewidth = ef5frame_get_theme_opt('header_sidewidth', ['width' => ''] );
+        $header_sidewidth_page = ef5frame_get_page_opt('header_sidewidth', ['width' => ''] );
         if($header_sidewidth_page['width'] !== 'px' && $header_sidewidth_page['width'] !== $header_sidewidth['width']){
             $header_sidewidth['width'] = $header_sidewidth_page['width'];
         }
@@ -400,7 +400,7 @@ class OverCome_CSS_Generator
                 printf(
                     'body.header-3:not(.side-header-ontop){
                         padding-%s: %s !important;
-                    }', overcome_align(), esc_attr($header_sidewidth['width'])
+                    }', ef5frame_align(), esc_attr($header_sidewidth['width'])
                 );
                 //  Header side menu width
                 printf(
@@ -412,15 +412,15 @@ class OverCome_CSS_Generator
                 printf(
                     'body.header-3 #ef5-loading{
                         margin-%s: calc(%s / -2) !important;
-                    }', overcome_align(), esc_attr($header_sidewidth['width'])
+                    }', ef5frame_align(), esc_attr($header_sidewidth['width'])
                 );
             echo '}';
         }
         /**
          * Site Bordered
         */
-        $site_layout = overcome_get_opts('site_layout', '');
-        $site_bordered = overcome_get_opts('site_bordered_w',['padding-top'=>'30px','padding-right'=>'30px','padding-bottom'=>'30px','padding-left'=>'30px','units'=>'px']);
+        $site_layout = ef5frame_get_opts('site_layout', '');
+        $site_bordered = ef5frame_get_opts('site_bordered_w',['padding-top'=>'30px','padding-right'=>'30px','padding-bottom'=>'30px','padding-left'=>'30px','units'=>'px']);
         $_site_bordered = $site_bordered['padding-top'].' '.$site_bordered['padding-right'].' '.$site_bordered['padding-bottom'].' '.$site_bordered['padding-left'];
         if($site_layout === 'bordered'){
             echo '@media (min-width: 1200px){';
@@ -436,4 +436,4 @@ class OverCome_CSS_Generator
     }
 }
 
-new OverCome_CSS_Generator();
+new EF5Frame_CSS_Generator();

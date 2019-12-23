@@ -1,5 +1,5 @@
 <?php
-function overcome_iconpicker_overcome_icons(){
+function ef5frame_iconpicker_ef5frame_icons(){
 	// add your icon here
 	// struct ['icon-class-name' => 'icon name']
 	$default_icons = [
@@ -70,10 +70,10 @@ function overcome_iconpicker_overcome_icons(){
 		['flaticon-remove'                              => esc_html('flaticon remove')],
 		['flaticon-remove-1'                            => esc_html('flaticon remove 1')],
 	];
-	return array_merge($default_icons, apply_filters('overcome_iconpicker_overcome_icons', []));
+	return array_merge($default_icons, apply_filters('ef5frame_iconpicker_ef5frame_icons', []));
 }
-add_filter( 'vc_iconpicker-type-overcome', 'overcome_vc_iconpicker_type_overcome_icons' );
-function overcome_vc_iconpicker_type_overcome_icons( $icons ) {
-	$overcome_icons = overcome_iconpicker_overcome_icons();
-	return array_merge( $icons, $overcome_icons );
+add_filter( 'vc_iconpicker-type-overcome', 'ef5frame_vc_iconpicker_type_ef5frame_icons' );
+function ef5frame_vc_iconpicker_type_ef5frame_icons( $icons ) {
+	$ef5frame_icons = ef5frame_iconpicker_ef5frame_icons();
+	return array_merge( $icons, $ef5frame_icons );
 }

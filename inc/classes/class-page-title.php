@@ -3,7 +3,7 @@
  * Page title class for the theme.
  * 
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  */
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) )
  *
  * @return array Contains 'title' and 'desc'
  */
-function overcome_get_page_titles()
+function ef5frame_get_page_titles()
 {
     $title = $desc = '';
     // Default titles
@@ -52,12 +52,12 @@ function overcome_get_page_titles()
         } 
         // 404
         elseif (is_404()) {
-            $title = overcome_get_opts('ptitle_404_title', esc_html__('Error 404', 'overcome'));
+            $title = ef5frame_get_opts('ptitle_404_title', esc_html__('Error 404', 'ef5-frame'));
         } 
         // Search result
         elseif (is_search()) {
-            $title = esc_html__('Search results', 'overcome');
-            $desc = esc_html__('You searched for:','overcome').' "'. get_search_query(). '" ';
+            $title = esc_html__('Search results', 'ef5-frame');
+            $desc = esc_html__('You searched for:','ef5-frame').' "'. get_search_query(). '" ';
         } 
         // Anything else
         else {

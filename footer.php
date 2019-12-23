@@ -4,14 +4,14 @@
  * Contains the closing of the #content div and all content after.
  *
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  *
  */
 ?>
     </div>
-    <?php overcome_footer(); ?> 
+    <?php ef5frame_footer(); ?> 
 </div>
 <?php wp_footer(); ?>
 </body>

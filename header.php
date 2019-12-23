@@ -4,7 +4,7 @@
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  *
@@ -18,13 +18,13 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>> 
-    <?php overcome_page_loading(); ?>
-    <div id="ef5-page" class="<?php overcome_page_css_class();?>">
-    <?php overcome_header_top(); ?>
+    <?php ef5frame_page_loading(); ?>
+    <div id="ef5-page" class="<?php ef5frame_page_css_class();?>">
+    <?php ef5frame_header_top(); ?>
     <div id="ef5-header-wrap">
         <?php
-            overcome_header_main(); 
-            overcome_page_title();
+            ef5frame_header_main(); 
+            ef5frame_page_title();
         ?>
     </div>
     <div id="ef5-main" class="ef5-main">

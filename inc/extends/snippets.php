@@ -2,7 +2,7 @@
 /*
  * get page ID by Slug
 */
-function overcome_get_id_by_slug($slug, $post_type){
+function ef5frame_get_id_by_slug($slug, $post_type){
     if(empty($slug)) return '';
     $content = get_page_by_path($slug, OBJECT, $post_type);
     if(is_object($content)) 
@@ -11,7 +11,7 @@ function overcome_get_id_by_slug($slug, $post_type){
         return;
 }
 
-function overcome_get_link_by_slug($slug, $post_type = 'post'){
+function ef5frame_get_link_by_slug($slug, $post_type = 'post'){
     // Initialize the permalink value
     $permalink = null;
 
@@ -39,7 +39,7 @@ function overcome_get_link_by_slug($slug, $post_type = 'post'){
 /**
  * get content by slug
 **/
-function overcome_get_content_by_slug($slug, $post_type){
+function ef5frame_get_content_by_slug($slug, $post_type){
     $content = get_posts(
         array(
             'name'      => $slug,
@@ -56,8 +56,8 @@ function overcome_get_content_by_slug($slug, $post_type){
  * Show content
  * Show content by post ID
 **/
-if(!function_exists('overcome_content')){
-    function overcome_content($id){
+if(!function_exists('ef5frame_content')){
+    function ef5frame_content($id){
         $post_data = get_post($id);
         if ($post_data) {
             $content = $post_data->post_content;
@@ -76,10 +76,10 @@ if(!function_exists('overcome_content')){
 /**
  * Show content by slug
 **/
-if(!function_exists('overcome_content_by_slug')){
-    function overcome_content_by_slug($slug, $post_type){
-        $content = overcome_get_content_by_slug($slug, $post_type);
-        $id = overcome_get_id_by_slug($slug, $post_type);
+if(!function_exists('ef5frame_content_by_slug')){
+    function ef5frame_content_by_slug($slug, $post_type){
+        $content = ef5frame_get_content_by_slug($slug, $post_type);
+        $id = ef5frame_get_id_by_slug($slug, $post_type);
         $shortcodes_custom_css = get_post_meta( $id, '_wpb_shortcodes_custom_css', true );
         if ( ! empty( $shortcodes_custom_css ) ) {
             $shortcodes_custom_css = strip_tags( $shortcodes_custom_css );
@@ -96,12 +96,12 @@ if(!function_exists('overcome_content_by_slug')){
  * @return string / bool
  *
 */
-function overcome_get_content_link( $args = []){
+function ef5frame_get_content_link( $args = []){
     $args = wp_parse_args($args, [
         'content' => '',
         'class'   => 'content-link btn btn-pri',
         'target'  => '_blank',
-        'prefix'  => esc_html__('Visit','overcome'),
+        'prefix'  => esc_html__('Visit','ef5-frame'),
         'echo'    => true
     ]);
     $link = $title = '';
@@ -126,7 +126,7 @@ function overcome_get_content_link( $args = []){
  * @return string / false
  *
 */
-function overcome_get_content_image( $args = []){
+function ef5frame_get_content_image( $args = []){
     $args = wp_parse_args($args, [
         'content' => '',
         'class'   => 'content-image',
@@ -143,14 +143,14 @@ function overcome_get_content_image( $args = []){
     if( preg_match( '/<img\s[^>]*?srcset=([\'"])(.+?)\1/is', $args['content'], $_srcset )) { 
         $srcset = isset($_srcset[2]) ? $_srcset[2] : ''; 
     } else {
-        $img_id = overcome_get_attachment_id_from_url($src);
+        $img_id = ef5frame_get_attachment_id_from_url($src);
         $srcset = wp_get_attachment_image_srcset($img_id, 'large');
     }
     // sizes
     if( preg_match( '/<img\s[^>]*?sizes=([\'"])(.+?)\1/is', $args['content'], $_sizes )) { 
         $sizes = isset($_sizes[2]) ? $_sizes[2] : get_the_title(); 
     } else {
-        $img_id = overcome_get_attachment_id_from_url($src);
+        $img_id = ef5frame_get_attachment_id_from_url($src);
         $sizes = wp_get_attachment_image_sizes($img_id);
     }
     // title  
@@ -180,9 +180,9 @@ function overcome_get_content_image( $args = []){
  *
  * @return boolean|integer
  */
-if ( ! function_exists( 'overcome_get_attachment_id_from_url' ) ) {
+if ( ! function_exists( 'ef5frame_get_attachment_id_from_url' ) ) {
     
-    function overcome_get_attachment_id_from_url( $url ) {
+    function ef5frame_get_attachment_id_from_url( $url ) {
 
         $dir = wp_upload_dir();
 
@@ -248,7 +248,7 @@ if ( ! function_exists( 'overcome_get_attachment_id_from_url' ) ) {
  * @return boolean|integer
  * 
 */
-function overcome_extract_numbers($string,$pos=0)
+function ef5frame_extract_numbers($string,$pos=0)
 {
     if(preg_match_all('/([\d]+)/', $string, $match)){
         if(isset($match[0][$pos]))
@@ -263,7 +263,7 @@ function overcome_extract_numbers($string,$pos=0)
  * Get post ID by Title 
  * @return ID
 */
-function overcome_get_id_by_title($post_title, $post_type = 'page'){
+function ef5frame_get_id_by_title($post_title, $post_type = 'page'){
     $page = get_page_by_title( $post_title, OBJECT , $post_type );
     if(isset($page->ID))
         return $page->ID;
@@ -274,8 +274,8 @@ function overcome_get_id_by_title($post_title, $post_type = 'page'){
 /**
  * Output html
 */
-if(!function_exists('overcome_html')){
-    function overcome_html($html){
+if(!function_exists('ef5frame_html')){
+    function ef5frame_html($html){
         return $html;
     }
 }
@@ -285,8 +285,8 @@ if(!function_exists('overcome_html')){
  *
  * @since 1.0.0
 */
-if(!function_exists('overcome_get_custom_post_taxonomies')){
-    function overcome_get_custom_post_taxonomies($post_type, $key)
+if(!function_exists('ef5frame_get_custom_post_taxonomies')){
+    function ef5frame_get_custom_post_taxonomies($post_type, $key)
     {
         $tax_names = get_object_taxonomies($post_type);
         $result    = '';
@@ -307,8 +307,8 @@ if(!function_exists('overcome_get_custom_post_taxonomies')){
  *
  * @since 1.0.0
 */
-if(!function_exists('overcome_get_custom_post_cat_taxonomy')){
-    function overcome_get_custom_post_cat_taxonomy()
+if(!function_exists('ef5frame_get_custom_post_cat_taxonomy')){
+    function ef5frame_get_custom_post_cat_taxonomy()
     {
         $post = get_post();
         $tax_names = get_object_taxonomies($post);
@@ -331,8 +331,8 @@ if(!function_exists('overcome_get_custom_post_cat_taxonomy')){
  *
  * @since 1.0.0
 */
-if(!function_exists('overcome_get_custom_post_tag_taxonomy')){
-    function overcome_get_custom_post_tag_taxonomy()
+if(!function_exists('ef5frame_get_custom_post_tag_taxonomy')){
+    function ef5frame_get_custom_post_tag_taxonomy()
     {
         $post = get_post();
         $tax_names = get_object_taxonomies($post);
@@ -353,7 +353,7 @@ if(!function_exists('overcome_get_custom_post_tag_taxonomy')){
 /**
  * Get post type taxonomies list
 */
-function overcome_get_taxo_slug_as_css_class($args = [])
+function ef5frame_get_taxo_slug_as_css_class($args = [])
 {
     $args = wp_parse_args($args, ['id' => null, 'taxo' => 'category']);
     $post = get_post( $args['id'] );
@@ -379,7 +379,7 @@ function overcome_get_taxo_slug_as_css_class($args = [])
 /**
  * Terms List
 */
-function overcome_terms($args=[]){
+function ef5frame_terms($args=[]){
     $args = wp_parse_args($args, [
         'id'    => null,
         'link'  => true,
@@ -401,7 +401,7 @@ function overcome_terms($args=[]){
         $terms_string = $args['before'].join($args['sep'], wp_list_pluck($term_obj_list, 'name')).$args['after'];
     }
 
-    echo apply_filters('overcome_terms', $terms_string);
+    echo apply_filters('ef5frame_terms', $terms_string);
 }
 
 /**
@@ -412,12 +412,12 @@ function overcome_terms($args=[]){
  * @return array
  *
 */
-function overcome_get_term_id_by_slug($post_type, $taxo_key, $term_slugs){
+function ef5frame_get_term_id_by_slug($post_type, $taxo_key, $term_slugs){
     if(empty($term_slugs)) return;
     $term_slugs = explode(',', $term_slugs);
     $term_ids = [];
     foreach ($term_slugs as $slug) {
-        $term = get_term_by('slug', $slug, overcome_get_custom_post_taxonomies( $post_type , $taxo_key));
+        $term = get_term_by('slug', $slug, ef5frame_get_custom_post_taxonomies( $post_type , $taxo_key));
         if(isset($term->term_id)) $term_ids[] = $term->term_id;
     }
     return $term_ids;
@@ -427,7 +427,7 @@ function overcome_get_term_id_by_slug($post_type, $taxo_key, $term_slugs){
  * Get taxonomy query for post query
  *
 */
-function overcome_tax_query($post_type, $taxonomies, $taxonomies_exclude ){
+function ef5frame_tax_query($post_type, $taxonomies, $taxonomies_exclude ){
     $tax_query = array();    
     if(!empty($taxonomies) || !empty($taxonomies_exclude)) {
         $terms              = get_object_taxonomies( $post_type );
@@ -436,8 +436,8 @@ function overcome_tax_query($post_type, $taxonomies, $taxonomies_exclude ){
         }
         foreach ($terms as $term) {
             $real_terms_args = [
-                'taxonomy' => overcome_get_custom_post_taxonomies( $post_type , $term), 
-                'exclude'  => overcome_get_term_id_by_slug($post_type, $term, $taxonomies_exclude)
+                'taxonomy' => ef5frame_get_custom_post_taxonomies( $post_type , $term), 
+                'exclude'  => ef5frame_get_term_id_by_slug($post_type, $term, $taxonomies_exclude)
             ];
             if(!empty($taxonomies))  $real_terms_args['slug'] = explode(',', $taxonomies);
             $_real_terms = get_terms($real_terms_args);
@@ -460,7 +460,7 @@ function overcome_tax_query($post_type, $taxonomies, $taxonomies_exclude ){
 
 /* Convert hexdec color string to rgb(a) string */
  
-function overcome_hex2rgba($color, $opacity = false) {
+function ef5frame_hex2rgba($color, $opacity = false) {
  
     $default = 'rgb(0,0,0)';
  

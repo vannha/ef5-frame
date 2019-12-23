@@ -1,7 +1,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: OverCome\n"
+"Project-Id-Version: EF5Frame\n"
 "POT-Creation-Date: 2019-08-28 11:12+0700\n"
 "PO-Revision-Date: 2019-08-28 11:12+0700\n"
 "Last-Translator: \n"
@@ -556,27 +556,27 @@ msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #: inc/custom-post/core.php:16
-msgid "OverCome Header Top"
+msgid "EF5Frame Header Top"
 msgstr ""
 
 #: inc/custom-post/core.php:17
-msgid "OverCome Headers Top"
+msgid "EF5Frame Headers Top"
 msgstr ""
 
 #: inc/custom-post/core.php:57
-msgid "OverCome Footer"
+msgid "EF5Frame Footer"
 msgstr ""
 
 #: inc/custom-post/core.php:58
-msgid "OverCome Footers"
+msgid "EF5Frame Footers"
 msgstr ""
 
 #: inc/custom-post/portfolio.php:16
-msgid "OverCome Projects"
+msgid "EF5Frame Projects"
 msgstr ""
 
 #: inc/custom-post/portfolio.php:17
-msgid "OverCome Project"
+msgid "EF5Frame Project"
 msgstr ""
 
 #: inc/custom-post/portfolio.php:35
@@ -596,11 +596,11 @@ msgid "Project Tags"
 msgstr ""
 
 #: inc/custom-post/service.php:13
-msgid "OverCome Services"
+msgid "EF5Frame Services"
 msgstr ""
 
 #: inc/custom-post/service.php:14
-msgid "OverCome Service"
+msgid "EF5Frame Service"
 msgstr ""
 
 #: inc/custom-post/service.php:32
@@ -906,11 +906,11 @@ msgid "EF5 Systems"
 msgstr ""
 
 #: inc/functions/_user_role.php:10
-msgid "OverCome Support Manager"
+msgid "EF5Frame Support Manager"
 msgstr ""
 
 #: inc/functions/avatar.php:15
-msgid "OverCome Avatar"
+msgid "EF5Frame Avatar"
 msgstr ""
 
 #: inc/functions/comments.php:182
@@ -2910,7 +2910,7 @@ msgid "Hide widget title"
 msgstr ""
 
 #: inc/widgets/widget-featured-post.php:21
-msgid "[OverCome] Featured Posts"
+msgid "[EF5Frame] Featured Posts"
 msgstr ""
 
 #: inc/widgets/widget-featured-post.php:23
@@ -2952,7 +2952,7 @@ msgid "Layout 3"
 msgstr ""
 
 #: inc/widgets/widget-recent-post.php:21
-msgid "[OverCome] Recent Posts"
+msgid "[EF5Frame] Recent Posts"
 msgstr ""
 
 #: inc/widgets/widget-recent-post.php:23
@@ -3280,7 +3280,7 @@ msgstr ""
 #: vc_elements/ef5_team.php:6 vc_elements/ef5_testimonial.php:6
 #: vc_elements/ef5_translate_top.php:6 vc_elements/ef5_video.php:6
 #: vc_elements/ef5_wp_login.php:5 vc_elements/ef5_wp_menu.php:16
-msgid "OverCome"
+msgid "EF5Frame"
 msgstr ""
 
 #: vc_elements/ef5_awards_certificate.php:7
@@ -3432,7 +3432,7 @@ msgid "Layout Settings"
 msgstr ""
 
 #: vc_elements/ef5_buttons.php:6
-msgid "OverCome button style"
+msgid "EF5Frame button style"
 msgstr ""
 
 #: vc_elements/ef5_buttons.php:13 vc_elements/ef5_newsletter.php:83
@@ -3672,7 +3672,7 @@ msgid "Choose time format you want!"
 msgstr ""
 
 #: vc_elements/ef5_counter.php:4
-msgid "OverCome Counter"
+msgid "EF5Frame Counter"
 msgstr ""
 
 #: vc_elements/ef5_counter.php:8
@@ -7044,7 +7044,7 @@ msgid "https://dev.joomexp.com/wordpress72/overcome"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "OverCome WordPress Theme"
+msgid "EF5Frame WordPress Theme"
 msgstr ""
 
 #. Author of the plugin/theme

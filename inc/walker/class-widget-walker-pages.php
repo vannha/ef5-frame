@@ -1,6 +1,6 @@
 <?php
 /**
- * OverCome_Page_Walker
+ * EF5Frame_Page_Walker
  *
  * @version 1.0
  * @package EF5 Theme
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) )
 {
     die();
 }
-class OverCome_Page_Walker extends Walker_Page {
+class EF5Frame_Page_Walker extends Walker_Page {
 	/**
      * Outputs the beginning of the current element in the tree.
      *
@@ -77,7 +77,7 @@ class OverCome_Page_Walker extends Walker_Page {
  
         if ( '' === $page->post_title ) {
             /* translators: %d: ID of a post */
-            $page->post_title = sprintf( __( '#%d (no title)', 'overcome' ), $page->ID );
+            $page->post_title = sprintf( __( '#%d (no title)', 'ef5-frame' ), $page->ID );
         }
  
         $args['link_before'] = empty( $args['link_before'] ) ? '' : $args['link_before'];
@@ -132,7 +132,7 @@ class OverCome_Page_Walker extends Walker_Page {
         }
 
         if ( isset( $args['pages_with_children'][ $page->ID ] ) ) {
-            $output .= overcome_widget_expander();
+            $output .= ef5frame_widget_expander();
         }
 
         $output .= '</a>'.$args['link_after'];

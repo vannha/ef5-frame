@@ -1,8 +1,8 @@
 <?php
 /**
- * OverCome_Main_Menu_Walker
- * OverCome_Side_Main_Menu_Walker
- * OverCome_Mega_Menu_Walker
+ * EF5Frame_Main_Menu_Walker
+ * EF5Frame_Side_Main_Menu_Walker
+ * EF5Frame_Mega_Menu_Walker
  *
  * @package EF5 Theme
  *
@@ -13,10 +13,10 @@ if ( ! defined( 'ABSPATH' ) )
     die();
 }
 
-class OverCome_Main_Menu_Walker extends Walker_Nav_Menu{
+class EF5Frame_Main_Menu_Walker extends Walker_Nav_Menu{
     public function start_lvl( &$output, $depth = 0, $args = array() ) {
         $indent = str_repeat("\t", $depth);
-        $header_layout = overcome_get_opts('header_layout');
+        $header_layout = ef5frame_get_opts('header_layout');
         switch ($header_layout) {
             case '3':
                 $output .= "\n$indent<ul class=\"ef5-submenu ef5-toggle-menu ef5-side-submenu ef5-side-submenu-base\">\n";
@@ -83,11 +83,11 @@ class OverCome_Main_Menu_Walker extends Walker_Nav_Menu{
         $title = apply_filters( 'the_title', $item->title, $item->ID );
 
         $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
-        if(empty($title)) $title = sprintf( __( '#%d (no title)', 'overcome' ), $item->ID );
+        if(empty($title)) $title = sprintf( __( '#%d (no title)', 'ef5-frame' ), $item->ID );
         /* add expander */
         $item_expander = '';
         $is_parent = in_array('menu-item-has-children', $classes);
-        if($is_parent === true) $item_expander =  overcome_widget_expander();
+        if($is_parent === true) $item_expander =  ef5frame_widget_expander();
 
         $item_output = $args->before;
         $item_output .= '<a'. $attributes .'>';
@@ -100,7 +100,7 @@ class OverCome_Main_Menu_Walker extends Walker_Nav_Menu{
     }
 } 
 
-class OverCome_Side_Main_Menu_Walker extends Walker_Nav_Menu{
+class EF5Frame_Side_Main_Menu_Walker extends Walker_Nav_Menu{
     public function start_lvl( &$output, $depth = 0, $args = array() ) {
         $indent = str_repeat("\t", $depth);
         $output .= "\n$indent<ul class=\"ef5-submenu ef5-toggle-menu ef5-side-submenu ef5-side-submenu-base\">\n";
@@ -111,15 +111,15 @@ class OverCome_Side_Main_Menu_Walker extends Walker_Nav_Menu{
  * Add support Mega Menu
  * @return boolean
 */
-if(!function_exists('overcome_enable_megamenu')){
-	add_filter('ef5_enable_megamenu', 'overcome_enable_megamenu');
-	function overcome_enable_megamenu(){
+if(!function_exists('ef5frame_enable_megamenu')){
+	add_filter('ef5_enable_megamenu', 'ef5frame_enable_megamenu');
+	function ef5frame_enable_megamenu(){
 	    return true;
 	}
 }
-if(!function_exists('overcome_megamenu_locations')){
-    add_filter('ef5_locations','overcome_megamenu_locations');
-    function overcome_megamenu_locations(){
+if(!function_exists('ef5frame_megamenu_locations')){
+    add_filter('ef5_locations','ef5frame_megamenu_locations');
+    function ef5frame_megamenu_locations(){
         return array('ef5-primary');
     }
 }

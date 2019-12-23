@@ -6,15 +6,15 @@
  * This custom post used for build Header Top section
  *
 */
-add_filter('ef5_extra_post_types', 'overcome_cpts_header_top', 10 , 1);
-function overcome_cpts_header_top($post_types)
+add_filter('ef5_extra_post_types', 'ef5frame_cpts_header_top', 10 , 1);
+function ef5frame_cpts_header_top($post_types)
 {
-    $header_top = apply_filters('overcome_cpts_header_top', false);
+    $header_top = apply_filters('ef5frame_cpts_header_top', false);
     if($header_top) {
         $post_types['ef5_header_top'] = array(
             'status'        => true,
-            'name'          => esc_html__('OverCome Header Top', 'overcome'),
-            'singular_name' => esc_html__('OverCome Headers Top', 'overcome'),
+            'name'          => esc_html__('EF5Frame Header Top', 'ef5-frame'),
+            'singular_name' => esc_html__('EF5Frame Headers Top', 'ef5-frame'),
             'args'          => array(
                 'description'         => 'Add custom Header Top Layout ',
                 'public'              => true,
@@ -48,14 +48,14 @@ function overcome_cpts_header_top($post_types)
  * This custom post used for build Footer Top section
  *
  */
-add_filter('ef5_extra_post_types', 'overcome_cpts_footer', 10 , 1);
-function overcome_cpts_footer($post_types) {
-    $enable_footer = apply_filters('overcome_cpts_footer', false);
+add_filter('ef5_extra_post_types', 'ef5frame_cpts_footer', 10 , 1);
+function ef5frame_cpts_footer($post_types) {
+    $enable_footer = apply_filters('ef5frame_cpts_footer', false);
     if($enable_footer) {
         $post_types['ef5_footer'] = array(
             'status'        => true,
-            'name'          => esc_html__('OverCome Footer', 'overcome'),
-            'singular_name' => esc_html__('OverCome Footers', 'overcome'),
+            'name'          => esc_html__('EF5Frame Footer', 'ef5-frame'),
+            'singular_name' => esc_html__('EF5Frame Footers', 'ef5-frame'),
             'args'          => array(
                 'description'         => 'Add custom Footer Layout ',
                 'public'              => true,

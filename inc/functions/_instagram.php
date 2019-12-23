@@ -1,41 +1,41 @@
 <?php
 // Enable Instagram Widget
 if (!function_exists('enable_instagram_widget')) {
-    add_filter('enable_instagram_widget', 'overcome_instagram');
-    function overcome_instagram()
+    add_filter('enable_instagram_widget', 'ef5frame_instagram');
+    function ef5frame_instagram()
     {
         return true;
     }
 }
 // Update Instagrame username from theme options to widget
-if (!function_exists('overcome_instagram_api_username')) {
-    add_filter('ef5systems_instagram_api_username', 'overcome_instagram_api_username');
-    function overcome_instagram_api_username()
+if (!function_exists('ef5frame_instagram_api_username')) {
+    add_filter('ef5systems_instagram_api_username', 'ef5frame_instagram_api_username');
+    function ef5frame_instagram_api_username()
     {
-        return overcome_get_theme_opt('instagram_api_username', '');
+        return ef5frame_get_theme_opt('instagram_api_username', '');
     }
 }
 
 // Update Instagrame api key from theme options to widget
-if (!function_exists('overcome_instagram_api_key')) {
-    add_filter('ef5systems_instagram_api_key', 'overcome_instagram_api_key');
-    function overcome_instagram_api_key()
+if (!function_exists('ef5frame_instagram_api_key')) {
+    add_filter('ef5systems_instagram_api_key', 'ef5frame_instagram_api_key');
+    function ef5frame_instagram_api_key()
     {
-        return overcome_get_theme_opt('instagram_api_key', '');
+        return ef5frame_get_theme_opt('instagram_api_key', '');
     }
 }
 
 /**
  * Add data sample
- * add_filter('ef5systems_default_ins_data','overcome_instagram_custom_layout');
+ * add_filter('ef5systems_default_ins_data','ef5frame_instagram_custom_layout');
  */
-if(!function_exists('overcome_default_ins_data')){
-    add_filter('ef5systems_default_ins_data', 'overcome_default_ins_data');
-    function overcome_default_ins_data(){
+if(!function_exists('ef5frame_default_ins_data')){
+    add_filter('ef5systems_default_ins_data', 'ef5frame_default_ins_data');
+    function ef5frame_default_ins_data(){
         $default = [
             'user' => [
-                'username'    => 'overcome',
-                'display_name' => 'OverCome',
+                'username'    => 'ef5-frame',
+                'display_name' => 'EF5Frame',
                 'avatar'       => get_template_directory_uri().'/assets/images/instagram/avatar.png',
                 'follower'     => '100',
                 'following'    => '10'
@@ -121,23 +121,23 @@ if(!function_exists('overcome_default_ins_data')){
 
 /**
  * Custom layout 
- * add_filter('ef5systems_instagram_custom_layout','overcome_instagram_custom_layout');
+ * add_filter('ef5systems_instagram_custom_layout','ef5frame_instagram_custom_layout');
  */
-if (!function_exists('overcome_instagram_custom_layout')) {
-    function overcome_instagram_custom_layout()
+if (!function_exists('ef5frame_instagram_custom_layout')) {
+    function ef5frame_instagram_custom_layout()
     {
         return [
-            '1' => esc_html__('Layout 1', 'overcome'),
-            '2' => esc_html__('Layout 2', 'overcome'),
-            '3' => esc_html__('Layout 3', 'overcome'),
+            '1' => esc_html__('Layout 1', 'ef5-frame'),
+            '2' => esc_html__('Layout 2', 'ef5-frame'),
+            '3' => esc_html__('Layout 3', 'ef5-frame'),
         ];
     }
 }
 
 // Output HTML 
-if (!function_exists('overcome_instagram_html_output')) {
-    add_filter('ef5systems_instagram_output_html', 'overcome_instagram_html_output', 10, 1);
-    function overcome_instagram_html_output($args = []){
+if (!function_exists('ef5frame_instagram_html_output')) {
+    add_filter('ef5systems_instagram_output_html', 'ef5frame_instagram_html_output', 10, 1);
+    function ef5frame_instagram_html_output($args = []){
         $args = wp_parse_args($args, [
             'layout_mode'   => 'default',
             'span'          => '4',
@@ -178,8 +178,8 @@ if (!function_exists('overcome_instagram_html_output')) {
                                 ?>
                             </a>
                             <div class="user-follow">
-                                <span class="follower"><?php echo esc_attr($follower)?> <?php echo esc_html__('Followers','overcome')?></span>
-                                <span class="following"><?php echo esc_attr($following)?> <?php echo esc_html__('Following','overcome')?></span>
+                                <span class="follower"><?php echo esc_attr($follower)?> <?php echo esc_html__('Followers','ef5-frame')?></span>
+                                <span class="following"><?php echo esc_attr($following)?> <?php echo esc_html__('Following','ef5-frame')?></span>
                             </div>
                         </div>
                     </div>

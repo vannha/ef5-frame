@@ -1,6 +1,6 @@
 <?php
 /**
- * OverCome_Categories_Walker
+ * EF5Frame_Categories_Walker
  *
  * @version 1.0
  * @package EF5 Theme
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) )
 {
     die();
 }
-class OverCome_Categories_Walker extends Walker_Category {
+class EF5Frame_Categories_Walker extends Walker_Category {
     /**
      * Starts the element output.
      *
@@ -60,7 +60,7 @@ class OverCome_Categories_Walker extends Walker_Category {
                     $link .= ' <span class="count">' . number_format_i18n( $category->count ) . '</span>';
                 }
             $link .= '</span>';
-            $link .= overcome_widget_expander();
+            $link .= ef5frame_widget_expander();
         } else {
             $link .= '<span class="title">'.$cat_name.'</span>';
             if ( ! empty( $args['show_count'] ) ) {
@@ -80,7 +80,7 @@ class OverCome_Categories_Walker extends Walker_Category {
             $link .= '<a href="' . esc_url( get_term_feed_link( $category->term_id, $category->taxonomy, $args['feed_type'] ) ) . '"';
  
             if ( empty( $args['feed'] ) ) {
-                $alt = ' alt="' . sprintf(__( 'Feed for all posts filed under %s','overcome' ), $cat_name ) . '"';
+                $alt = ' alt="' . sprintf(__( 'Feed for all posts filed under %s','ef5-frame' ), $cat_name ) . '"';
             } else {
                 $alt = ' alt="' . $args['feed'] . '"';
                 $name = $args['feed'];

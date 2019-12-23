@@ -1,6 +1,6 @@
 <?php
 /* get custom user profile */
-function overcome_user_social($args = []){
+function ef5frame_user_social($args = []){
     if(!class_exists('EF5Systems')) return;
     $args = wp_parse_args($args, [
         'author_id' => null,
@@ -20,7 +20,7 @@ function overcome_user_social($args = []){
 
     $extend_social = ef5_user_info($author_id, 'extend_social');
     ob_start();
-        echo '<div class="'.overcome_optimize_css_class(implode(' ', $classes)).'">';
+        echo '<div class="'.ef5frame_optimize_css_class(implode(' ', $classes)).'">';
         foreach ($extend_social as $social) {
             if(!empty($social)){
                 if(!empty($social['font'])) wp_enqueue_style('font-'.$social['font']);

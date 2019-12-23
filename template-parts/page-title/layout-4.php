@@ -7,9 +7,9 @@ if(isset($args)){
     $show_breadcrumb = $args['show_breadcrumb'];
     $ptitle_layout = $args['ptitle_layout'];
 } else {
-   $titles = overcome_get_page_titles();
-   $show_breadcrumb = overcome_get_opts( 'breadcrumb_on', '1' );
-   $ptitle_layout = overcome_get_opts('ptitle_layout','1');
+   $titles = ef5frame_get_page_titles();
+   $show_breadcrumb = ef5frame_get_opts( 'breadcrumb_on', '1' );
+   $ptitle_layout = ef5frame_get_opts('ptitle_layout','1');
 }
 
 
@@ -47,15 +47,15 @@ if ( ! $titles_html )
 ?>
 <div class="ef5-pagetitle-wrap">
     <div class="<?php echo implode(' ', $pt_cls);?>">
-        <?php overcome_ptitle_parallax_image(); ?>
-        <div class="<?php overcome_ptitle_inner_class();?>">
+        <?php ef5frame_ptitle_parallax_image(); ?>
+        <div class="<?php ef5frame_ptitle_inner_class();?>">
             <div class="row align-items-center">
                 <div class="<?php echo trim(implode(' ', $title_css_class));?>">
                     <?php printf( '%s', $titles_html); ?>
                 </div>
                 <?php if($show_breadcrumb && (!is_home() || !is_front_page())) { ?>
                 <div class="ef5-breadcrumb col-lg-6 text-lg-end">
-                    <?php overcome_breadcrumb(['class'=>'h5', 'separator' => '<span class="accent-color">/</span>']); ?>
+                    <?php ef5frame_breadcrumb(['class'=>'h5', 'separator' => '<span class="accent-color">/</span>']); ?>
                 </div>
                 <?php } ?>
             </div>

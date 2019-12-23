@@ -1,5 +1,5 @@
 /**
-Theme Name: OverCome
+Theme Name: EF5Frame
 
 Adding support for languages written in a Right To Left (RTL) direction is easy,
 it's just a matter of overwriting all the horizontal positioning attributes
@@ -8,7 +8,7 @@ of your CSS stylesheet in a separate stylesheet file named rtl.css.
 https://codex.wordpress.org/Right-to-Left_Language_Support
 
 ==== IMPORTANT NOTE ====
-OverCome using SASS to build style. All RTL style is build-in SASS
+EF5Frame using SASS to build style. All RTL style is build-in SASS
 
 *
 */

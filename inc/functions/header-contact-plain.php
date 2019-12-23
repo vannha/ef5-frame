@@ -3,8 +3,8 @@
  * Header Contact Button
  * @since 1.0.0 
 */
-if(!function_exists('overcome_header_contact_plain_text')){
-	function overcome_header_contact_plain_text($args = []){
+if(!function_exists('ef5frame_header_contact_plain_text')){
+	function ef5frame_header_contact_plain_text($args = []){
 		$args = wp_parse_args($args, [
 			'before'      => '',
 			'after'       => '',
@@ -25,26 +25,26 @@ if(!function_exists('overcome_header_contact_plain_text')){
 				break;
 		}
 
-		$header_contact_plain = overcome_get_opts('header_contact_plain', '0');
+		$header_contact_plain = ef5frame_get_opts('header_contact_plain', '0');
 		if($header_contact_plain !== '1') return;
 
-		$header_contact_plain_icon1 = overcome_get_opts('header_contact_plain_icon1', '');
-		$header_contact_plain_icon2 = overcome_get_opts('header_contact_plain_icon2', '');
-		$header_contact_plain_icon3 = overcome_get_opts('header_contact_plain_icon3', '');
+		$header_contact_plain_icon1 = ef5frame_get_opts('header_contact_plain_icon1', '');
+		$header_contact_plain_icon2 = ef5frame_get_opts('header_contact_plain_icon2', '');
+		$header_contact_plain_icon3 = ef5frame_get_opts('header_contact_plain_icon3', '');
 
-		$header_contact_plain_text1 = overcome_get_opts('header_contact_plain_text1', '');
-		$header_contact_plain_sub_text1 = overcome_get_opts('header_contact_plain_sub_text1', '');
-		$header_contact_plain_text2 = overcome_get_opts('header_contact_plain_text2', '');
-		$header_contact_plain_sub_text2 = overcome_get_opts('header_contact_plain_sub_text2', '');
-		$header_contact_plain_text3 = overcome_get_opts('header_contact_plain_text3', '');
-		$header_contact_plain_sub_text3 = overcome_get_opts('header_contact_plain_sub_text3', '');
+		$header_contact_plain_text1 = ef5frame_get_opts('header_contact_plain_text1', '');
+		$header_contact_plain_sub_text1 = ef5frame_get_opts('header_contact_plain_sub_text1', '');
+		$header_contact_plain_text2 = ef5frame_get_opts('header_contact_plain_text2', '');
+		$header_contact_plain_sub_text2 = ef5frame_get_opts('header_contact_plain_sub_text2', '');
+		$header_contact_plain_text3 = ef5frame_get_opts('header_contact_plain_text3', '');
+		$header_contact_plain_sub_text3 = ef5frame_get_opts('header_contact_plain_sub_text3', '');
 
-		$header_contact_plain_subtext1 = overcome_get_opts('header_contact_plain_subtext1', '');
-		$header_contact_plain_sub_subtext1 = overcome_get_opts('header_contact_plain_sub_subtext1', '');
-		$header_contact_plain_subtext2 = overcome_get_opts('header_contact_plain_subtext2', '');
-		$header_contact_plain_sub_subtext2 = overcome_get_opts('header_contact_plain_sub_subtext2', '');
-		$header_contact_plain_subtext3 = overcome_get_opts('header_contact_plain_subtext3', '');
-		$header_contact_plain_sub_subtext3 = overcome_get_opts('header_contact_plain_sub_subtext3', '');
+		$header_contact_plain_subtext1 = ef5frame_get_opts('header_contact_plain_subtext1', '');
+		$header_contact_plain_sub_subtext1 = ef5frame_get_opts('header_contact_plain_sub_subtext1', '');
+		$header_contact_plain_subtext2 = ef5frame_get_opts('header_contact_plain_subtext2', '');
+		$header_contact_plain_sub_subtext2 = ef5frame_get_opts('header_contact_plain_sub_subtext2', '');
+		$header_contact_plain_subtext3 = ef5frame_get_opts('header_contact_plain_subtext3', '');
+		$header_contact_plain_sub_subtext3 = ef5frame_get_opts('header_contact_plain_sub_subtext3', '');
 
 		printf('%1$s<div class="ef5-qc ef5-qc-%2$s row %3$s">', $args['before'], $args['layout'], $args['class']);
 		for ($i=1; $i < 4 ; $i++) {
@@ -107,13 +107,13 @@ if(!function_exists('overcome_header_contact_plain_text')){
 	}
 }
 
-function overcome_header_contact_plain_icon($args = []){
+function ef5frame_header_contact_plain_icon($args = []){
 	$args = wp_parse_args($args, [
 		'before' => '',
 		'after'  => '',
 		'icon'	 => 'flaticon-telephone'
 	]);
-	$show_contact = overcome_get_opts('header_contact_plain', '0');
+	$show_contact = ef5frame_get_opts('header_contact_plain', '0');
 	if($show_contact !== '1') return;
 
 	printf('%s', $args['before']);
@@ -123,12 +123,12 @@ function overcome_header_contact_plain_icon($args = []){
 	printf('%s', $args['after']);
 }
 
-function overcome_header_contact_plain_popup_html(){
-	$show_contact = overcome_get_opts('header_contact_plain', '0');
+function ef5frame_header_contact_plain_popup_html(){
+	$show_contact = ef5frame_get_opts('header_contact_plain', '0');
 	if($show_contact !== '1') return;
 ?>
 	<div id="ef5-header-contact-plain" class="mfp-hide container"><div class="row justify-content-center"><div class="col-auto">
-		<?php overcome_header_contact_plain_text([
+		<?php ef5frame_header_contact_plain_text([
 			'layout'      => '1', 
 			'class'       => 'gutters-80', 
 			'inner_class' => 'row gutters-20 align-items-center',
@@ -136,4 +136,4 @@ function overcome_header_contact_plain_popup_html(){
 	</div></div></div>
 <?php
 }
-add_action('wp_footer','overcome_header_contact_plain_popup_html');
+add_action('wp_footer','ef5frame_header_contact_plain_popup_html');

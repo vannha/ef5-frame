@@ -1,15 +1,15 @@
 <?php
 /**
- * OverCome functions and definitions
+ * EF5Frame functions and definitions
  *
  * @package EF5 Theme
- * @subpackage OverCome
+ * @subpackage EF5Frame
  * @since 1.0.0
  * @author EF5 Team
  *
 */
-if(!function_exists('overcome_configs')){
-    function overcome_configs($value){
+if(!function_exists('ef5frame_configs')){
+    function ef5frame_configs($value){
         $configs = [
             'primary_color'         => '#303030',
             'accent_color'          => '#f5b91b',
@@ -62,8 +62,8 @@ if(!function_exists('overcome_configs')){
             'thumbnail_size_h'               => 80,
             'post_thumbnail_size_w'          => 1170,
             'post_thumbnail_size_h'          => 500,
-            'overcome_default_post_thumbnail' => true,
-            'overcome_thumbnail_is_bg'        => true,
+            'ef5frame_default_post_thumbnail' => true,
+            'ef5frame_thumbnail_is_bg'        => true,
             // Header 
             'logo_width'       => '192',
             'logo_height'      => '38',
@@ -91,22 +91,22 @@ if(!function_exists('overcome_configs')){
             'cmt_avatar_size'  => 100,
             'cmt_border'       => '1px solid #DDDDDD',
             // WooCommerce,
-            'overcome_product_single_image_w' => '455',
-            'overcome_product_single_image_h' => '605',
+            'ef5frame_product_single_image_w' => '455',
+            'ef5frame_product_single_image_h' => '605',
 
-            'overcome_product_loop_image_w' => '205',
-            'overcome_product_loop_image_h' => '162',
+            'ef5frame_product_loop_image_w' => '205',
+            'ef5frame_product_loop_image_h' => '162',
 
-            'overcome_product_gallery_thumbnail_w' => '115',
-            'overcome_product_gallery_thumbnail_h' => '140',
+            'ef5frame_product_gallery_thumbnail_w' => '115',
+            'ef5frame_product_gallery_thumbnail_h' => '140',
 
-            'overcome_product_gallery_thumbnail_v_w' => '115',
-            'overcome_product_gallery_thumbnail_v_h' => '140',
+            'ef5frame_product_gallery_thumbnail_v_w' => '115',
+            'ef5frame_product_gallery_thumbnail_v_h' => '140',
 
-            'overcome_product_gallery_thumbnail_h_w' => '115',
-            'overcome_product_gallery_thumbnail_h_h' => '140',
+            'ef5frame_product_gallery_thumbnail_h_w' => '115',
+            'ef5frame_product_gallery_thumbnail_h_h' => '140',
 
-            'overcome_product_gallery_thumbnail_space' => '14',
+            'ef5frame_product_gallery_thumbnail_space' => '14',
 
             // API 
             'google_api_key' => apply_filters('ef5systems-google-api-key', false)
@@ -115,17 +115,17 @@ if(!function_exists('overcome_configs')){
         return $configs[$value];
     }
 }
-function overcome_relative_path(){
+function ef5frame_relative_path(){
     if(is_ssl())
         return 'https://';
     else 
         return 'http://';
 }
-if (!function_exists('overcome_setup')) {
-    function overcome_setup()
+if (!function_exists('ef5frame_setup')) {
+    function ef5frame_setup()
     {
         // Make theme available for translation.
-        load_theme_textdomain('overcome', get_template_directory() . '/languages');
+        load_theme_textdomain('ef5-frame', get_template_directory() . '/languages');
 
         // Custom Header
         add_theme_support("custom-header");
@@ -138,12 +138,12 @@ if (!function_exists('overcome_setup')) {
         
         // Enable support for Post Thumbnails on posts and pages.
         add_theme_support('post-thumbnails'); 
-        set_post_thumbnail_size(overcome_configs('post_thumbnail_size_w'), overcome_configs('post_thumbnail_size_h'), 1);
+        set_post_thumbnail_size(ef5frame_configs('post_thumbnail_size_w'), ef5frame_configs('post_thumbnail_size_h'), 1);
 
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
-            'ef5-primary'     => esc_html__('Primary Menu', 'overcome'),
-            'ef5-menu-icon'   => esc_html__('Menu with Icon', 'overcome')
+            'ef5-primary'     => esc_html__('Primary Menu', 'ef5-frame'),
+            'ef5-menu-icon'   => esc_html__('Menu with Icon', 'ef5-frame')
         ));
 
         /*
@@ -159,7 +159,7 @@ if (!function_exists('overcome_setup')) {
         ));
 
         // Set up the WordPress core custom background feature.
-        add_theme_support('custom-background', apply_filters('overcome_custom_background_args', array(
+        add_theme_support('custom-background', apply_filters('ef5frame_custom_background_args', array(
             'default-color' => '#ffffff',
             'default-image' => '',
         )));
@@ -169,8 +169,8 @@ if (!function_exists('overcome_setup')) {
 
         // Add support for core custom logo.
         add_theme_support('custom-logo', array(
-            'width'       => overcome_configs('logo_width'),
-            'height'      => overcome_configs('logo_height'),
+            'width'       => ef5frame_configs('logo_width'),
+            'height'      => ef5frame_configs('logo_height'),
             'flex-width'  => true,
             'flex-height' => true,
         ));
@@ -191,26 +191,26 @@ if (!function_exists('overcome_setup')) {
         /*
          * Add style for editor
         */
-        overcome_require_folder( '/inc/editor',get_template_directory());
+        ef5frame_require_folder( '/inc/editor',get_template_directory());
         /**
          * Load custom font icon
         */
-        overcome_require_folder( '/assets/icon_fonts',get_template_directory());
+        ef5frame_require_folder( '/assets/icon_fonts',get_template_directory());
     }
-    add_action('after_setup_theme', 'overcome_setup');
+    add_action('after_setup_theme', 'ef5frame_setup');
 }
 
-function overcome_update(){
+function ef5frame_update(){
     /* Change default image thumbnail sizes in wordpress */
     $thumbnail_size = array(
-        'large_size_w'        => overcome_configs('large_size_w'),
-        'large_size_h'        => overcome_configs('large_size_h'),
+        'large_size_w'        => ef5frame_configs('large_size_w'),
+        'large_size_h'        => ef5frame_configs('large_size_h'),
         'large_crop'          => 1, 
-        'medium_size_w'       => overcome_configs('medium_size_w'),
-        'medium_size_h'       => overcome_configs('medium_size_h'),
+        'medium_size_w'       => ef5frame_configs('medium_size_w'),
+        'medium_size_h'       => ef5frame_configs('medium_size_h'),
         'medium_crop'         => 1, 
-        'thumbnail_size_w'    => overcome_configs('thumbnail_size_w'),
-        'thumbnail_size_h'    => overcome_configs('thumbnail_size_h'),
+        'thumbnail_size_w'    => ef5frame_configs('thumbnail_size_w'),
+        'thumbnail_size_h'    => ef5frame_configs('thumbnail_size_h'),
         'thumbnail_crop'      => 1,
     );
     foreach ($thumbnail_size as $option => $value) {
@@ -218,21 +218,21 @@ function overcome_update(){
             update_option($option, $value);
     }
 }
-add_action('after_switch_theme', 'overcome_update');
+add_action('after_switch_theme', 'ef5frame_update');
 
 /* add editor styles */
-function overcome_editor_styles()
+function ef5frame_editor_styles()
 {
     add_editor_style('assets/admin/css/editor.css');
 }
-add_action('admin_init', 'overcome_editor_styles');
+add_action('admin_init', 'ef5frame_editor_styles');
 
 /* add admin styles */
-function overcome_admin_style()
+function ef5frame_admin_style()
 {
-    wp_enqueue_style('overcome', get_template_directory_uri() . '/assets/admin/css/admin.css');
+    wp_enqueue_style('ef5-frame', get_template_directory_uri() . '/assets/admin/css/admin.css');
 }
-add_action('admin_enqueue_scripts', 'overcome_admin_style');
+add_action('admin_enqueue_scripts', 'ef5frame_admin_style');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -243,19 +243,19 @@ add_action('admin_enqueue_scripts', 'overcome_admin_style');
  */
 // Set up the content width value based on the theme's design and stylesheet.
 if (!isset($content_width))
-    $content_width = apply_filters('overcome_content_width', 1170);
-function overcome_content_width()
+    $content_width = apply_filters('ef5frame_content_width', 1170);
+function ef5frame_content_width()
 {
-    $GLOBALS['content_width'] = apply_filters('overcome_content_width', 1170);
+    $GLOBALS['content_width'] = apply_filters('ef5frame_content_width', 1170);
 }
-add_action('after_setup_theme', 'overcome_content_width', 0);
+add_action('after_setup_theme', 'ef5frame_content_width', 0);
 
 /**
  * Incudes file
  *
 */
-if(!function_exists('overcome_require_folder')){
-    function overcome_require_folder($foldername,$path)
+if(!function_exists('ef5frame_require_folder')){
+    function ef5frame_require_folder($foldername,$path)
     {
         $dir = $path . DIRECTORY_SEPARATOR . $foldername;
         if (!is_dir($dir)) {
@@ -274,12 +274,12 @@ if(!function_exists('overcome_require_folder')){
 /**
  * Register widget area.
  */
-function overcome_widgets_init()
+function ef5frame_widgets_init()
 {
     register_sidebar(array(
-        'name'          => esc_html__('Blog Widgets', 'overcome'),
+        'name'          => esc_html__('Blog Widgets', 'ef5-frame'),
         'id'            => 'sidebar-main',
-        'description'   => esc_html__('Add widgets here to appear below Blog content.', 'overcome'),
+        'description'   => esc_html__('Add widgets here to appear below Blog content.', 'ef5-frame'),
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<div class="ef5-heading h3 widgettitle">',
@@ -287,9 +287,9 @@ function overcome_widgets_init()
     ));
     if(class_exists('EF5Systems')){
         register_sidebar(array(
-            'name'          => esc_html__('Hidden Navigation Menu', 'overcome'),
+            'name'          => esc_html__('Hidden Navigation Menu', 'ef5-frame'),
             'id'            => 'sidebar-nav',
-            'description'   => esc_html__('Add widgets here to appear when click on Hidden Navigation Icon.', 'overcome'),
+            'description'   => esc_html__('Add widgets here to appear when click on Hidden Navigation Icon.', 'ef5-frame'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget'  => '</div>',
             'before_title'  => '<div class="ef5-heading h3 widgettitle">',
@@ -298,9 +298,9 @@ function overcome_widgets_init()
     }
     if(class_exists('WooCommerce')){
         register_sidebar(array(
-            'name'          => esc_html__('Shop Widgets', 'overcome'),
+            'name'          => esc_html__('Shop Widgets', 'ef5-frame'),
             'id'            => 'sidebar-shop',
-            'description'   => esc_html__('Add widgets here to appear in widget area of single product', 'overcome'),
+            'description'   => esc_html__('Add widgets here to appear in widget area of single product', 'ef5-frame'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget'  => '</div>',
             'before_title'  => '<div class="ef5-heading h3 widgettitle">',
@@ -308,64 +308,64 @@ function overcome_widgets_init()
         ));
     }
 }
-add_action('widgets_init', 'overcome_widgets_init');
+add_action('widgets_init', 'ef5frame_widgets_init');
 /**
  * Script Debug
  * Add suffix '.min' to scripts file
  *
 */
-if(!function_exists('overcome_script_debug')){
-    function overcome_script_debug() {
+if(!function_exists('ef5frame_script_debug')){
+    function ef5frame_script_debug() {
         $suffix   = defined( 'WP_DEBUG' ) && WP_DEBUG ? '' : '.min';
-        $dev_mode = overcome_get_opts('dev_mode', true);
+        $dev_mode = ef5frame_get_opts('dev_mode', true);
         if(!$dev_mode) $suffix = '.min';
-        return apply_filters( 'overcome_get_dev_mode', $suffix );
+        return apply_filters( 'ef5frame_get_dev_mode', $suffix );
     }
 }
 /**
  * Enqueue scripts and styles.
  */
-add_action('wp_footer', 'overcome_scripts', 0);
-function overcome_scripts()
+add_action('wp_footer', 'ef5frame_scripts', 0);
+function ef5frame_scripts()
 {
-    $min = overcome_script_debug();
+    $min = ef5frame_script_debug();
     // Comment
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
     // Custom Options
     $filter_reset = function_exists('ef5systems_uri') ? ef5systems_uri() : '';
-    $overcome_ajax_opts = array(
+    $ef5frame_ajax_opts = array(
         'ajaxurl'             => admin_url( 'admin-ajax.php' ),
-        'primary_color'       => overcome_configs('primary_color'),
-        'accent_color'        => overcome_configs('accent_color'),
-        'darkent_accent_color'        => overcome_configs('darkent_accent_color'),
-        'lightent_accent_color'        => overcome_configs('lightent_accent_color'),
+        'primary_color'       => ef5frame_configs('primary_color'),
+        'accent_color'        => ef5frame_configs('accent_color'),
+        'darkent_accent_color'        => ef5frame_configs('darkent_accent_color'),
+        'lightent_accent_color'        => ef5frame_configs('lightent_accent_color'),
         'shop_url'            => function_exists('wc_get_page_id') ? get_permalink( wc_get_page_id( 'shop' )) : '',
         'filter_reset'        => ( strpos($filter_reset,'filter_') !== false || strpos($filter_reset,'min_price') !== false || strpos($filter_reset,'max_price') || strpos($filter_reset, 'rating_filter')) ? 'true' : 'false',
-        'filter_clear_text'   => esc_html__('Clear All', 'overcome'),
+        'filter_clear_text'   => esc_html__('Clear All', 'ef5-frame'),
         'is_rtl'              => is_rtl() ? 'true' : 'false'
     );
     // Scripts
-    wp_enqueue_script('overcome', get_template_directory_uri() . '/assets/js/theme'.$min.'.js', array('jquery'), '', true);
-    wp_localize_script( 'overcome', 'overcome_ajax_opts', $overcome_ajax_opts);
+    wp_enqueue_script('ef5-frame', get_template_directory_uri() . '/assets/js/theme'.$min.'.js', array('jquery'), '', true);
+    wp_localize_script( 'ef5-frame', 'ef5frame_ajax_opts', $ef5frame_ajax_opts);
 }
 
-add_action('wp_enqueue_scripts', 'overcome_styles', 0);
-function overcome_styles()
+add_action('wp_enqueue_scripts', 'ef5frame_styles', 0);
+function ef5frame_styles()
 {
-    $min = overcome_script_debug();
+    $min = ef5frame_script_debug();
     
     // Theme Style
-    wp_enqueue_style('overcome', get_template_directory_uri() . '/assets/css/theme'.$min.'.css', array(), wp_get_theme()->get( 'Version' ) );
+    wp_enqueue_style('ef5-frame', get_template_directory_uri() . '/assets/css/theme'.$min.'.css', array(), wp_get_theme()->get( 'Version' ) );
     // add CSS Variations
-    $overcome_inline_styles = overcome_inline_styles();
-    wp_add_inline_style( 'overcome', $overcome_inline_styles );
+    $ef5frame_inline_styles = ef5frame_inline_styles();
+    wp_add_inline_style( 'ef5-frame', $ef5frame_inline_styles );
     
 }
 
-add_action('wp_footer', 'overcome_ef5systems_styles');
-function overcome_ef5systems_styles(){
+add_action('wp_footer', 'ef5frame_ef5systems_styles');
+function ef5frame_ef5systems_styles(){
     if(wp_script_is('font-awesome5')){
         // Call libs css
         wp_enqueue_style('font-awesome5');
@@ -378,17 +378,17 @@ function overcome_ef5systems_styles(){
     }
 }
 
-function overcome_inline_styles() {
+function ef5frame_inline_styles() {
     ob_start();
-    $preset_primary_color = $primary_color = overcome_get_opts( 'primary_color', apply_filters('overcome_primary_color', overcome_configs('primary_color')) );
-    $preset_accent_color = $accent_color = overcome_get_opts( 'accent_color', apply_filters('overcome_accent_color', overcome_configs('accent_color')) );
-    $darkent_accent_color  = overcome_get_opts( 'darkent_accent_color', apply_filters('overcome_darkent_accent_color', overcome_configs('darkent_accent_color')) );
-    $lightent_accent_color  = overcome_get_opts( 'lightent_accent_color', apply_filters('overcome_lightent_accent_color', overcome_configs('lightent_accent_color')) );
-    $preset_secondary_color = overcome_get_opts( 'secondary_color', apply_filters('overcome_secondary_color',overcome_configs('secondary_color') ));
+    $preset_primary_color = $primary_color = ef5frame_get_opts( 'primary_color', apply_filters('ef5frame_primary_color', ef5frame_configs('primary_color')) );
+    $preset_accent_color = $accent_color = ef5frame_get_opts( 'accent_color', apply_filters('ef5frame_accent_color', ef5frame_configs('accent_color')) );
+    $darkent_accent_color  = ef5frame_get_opts( 'darkent_accent_color', apply_filters('ef5frame_darkent_accent_color', ef5frame_configs('darkent_accent_color')) );
+    $lightent_accent_color  = ef5frame_get_opts( 'lightent_accent_color', apply_filters('ef5frame_lightent_accent_color', ef5frame_configs('lightent_accent_color')) );
+    $preset_secondary_color = ef5frame_get_opts( 'secondary_color', apply_filters('ef5frame_secondary_color',ef5frame_configs('secondary_color') ));
 
-    $thirdary_color = overcome_get_opts( 'thirdary_color', apply_filters('overcome_thirdary_color',overcome_configs('thirdary_color') ));
-    $fourth_color = overcome_get_opts( 'fourth_color', apply_filters('overcome_fourth_color',overcome_configs('fourth_color') ));
-    $main_menu_height = overcome_get_opts( 'main_menu_height', ['height' => overcome_configs('main_menu_height')]);
+    $thirdary_color = ef5frame_get_opts( 'thirdary_color', apply_filters('ef5frame_thirdary_color',ef5frame_configs('thirdary_color') ));
+    $fourth_color = ef5frame_get_opts( 'fourth_color', apply_filters('ef5frame_fourth_color',ef5frame_configs('fourth_color') ));
+    $main_menu_height = ef5frame_get_opts( 'main_menu_height', ['height' => ef5frame_configs('main_menu_height')]);
     // CSS Variable
     printf(':root{
         --primary-color:%s;
@@ -406,19 +406,19 @@ function overcome_inline_styles() {
         }', 
         $preset_primary_color,
         $preset_accent_color,
-        overcome_hex2rgba($preset_accent_color, 0.5),
-        overcome_hex2rgba($preset_accent_color, 0.3),
+        ef5frame_hex2rgba($preset_accent_color, 0.5),
+        ef5frame_hex2rgba($preset_accent_color, 0.3),
         $darkent_accent_color,
         $lightent_accent_color,
         $preset_secondary_color,
         $thirdary_color,
-        overcome_hex2rgba($thirdary_color, 0.5),
-        overcome_hex2rgba($thirdary_color, 0.3),
+        ef5frame_hex2rgba($thirdary_color, 0.5),
+        ef5frame_hex2rgba($thirdary_color, 0.3),
         $fourth_color,
-        overcome_hex2rgba($fourth_color, 0.7)
+        ef5frame_hex2rgba($fourth_color, 0.7)
     );
     // Header Variable
-    $header_bg = overcome_get_opts('header_bg',[
+    $header_bg = ef5frame_get_opts('header_bg',[
         'background-color'      => '#fff',
         'background-image'      => 'inherit',
         'background-size'       => 'inherit',
@@ -426,8 +426,8 @@ function overcome_inline_styles() {
         'background-attachment' => 'inherit', 
         'background-position'   => 'inherit' 
     ]);
-    $header_text_color = overcome_get_opts('header_text_color',['color' => '', 'alpha' => '', 'rgba' => 'inherit']);
-    $header_ontop_top_space = overcome_get_opts('header_ontop_top_space',['height' => '']);
+    $header_text_color = ef5frame_get_opts('header_text_color',['color' => '', 'alpha' => '', 'rgba' => 'inherit']);
+    $header_ontop_top_space = ef5frame_get_opts('header_ontop_top_space',['height' => '']);
     printf(
         ':root{
             --main-menu-height:%s;
@@ -451,7 +451,7 @@ function overcome_inline_styles() {
         $header_ontop_top_space['height']
     );
     /* Default Header Color */
-    $header_link_color = overcome_get_opts('header_link_colors',apply_filters('overcome_header_link_color', ['regular' => $primary_color, 'hover' => $accent_color, 'active' => $accent_color]) );
+    $header_link_color = ef5frame_get_opts('header_link_colors',apply_filters('ef5frame_header_link_color', ['regular' => $primary_color, 'hover' => $accent_color, 'active' => $accent_color]) );
     printf(':root{
             --header_regular: %1$s;
             --header_hover: %2$s;
@@ -462,7 +462,7 @@ function overcome_inline_styles() {
         $header_link_color['active']
     );
     /* Ontop Header Color */
-    $ontop_link_color = overcome_get_opts('ontop_link_colors', apply_filters('overcome_ontop_link_color', ['regular' => $primary_color, 'hover' => $accent_color, 'active' => $accent_color]) );
+    $ontop_link_color = ef5frame_get_opts('ontop_link_colors', apply_filters('ef5frame_ontop_link_color', ['regular' => $primary_color, 'hover' => $accent_color, 'active' => $accent_color]) );
     printf(':root{
             --ontop_regular: %1$s;
             --ontop_hover: %2$s;
@@ -473,7 +473,7 @@ function overcome_inline_styles() {
         $ontop_link_color['active']
     );
     /* Sticky Header Color */
-    $sticky_link_color = overcome_get_opts('sticky_link_colors',apply_filters('overcome_sticky_link_color',['regular' => '#FFFFFF', 'hover' => $accent_color, 'active' => $accent_color]));    
+    $sticky_link_color = ef5frame_get_opts('sticky_link_colors',apply_filters('ef5frame_sticky_link_color',['regular' => '#FFFFFF', 'hover' => $accent_color, 'active' => $accent_color]));    
     printf(':root{
             --sticky_regular: %1$s;
             --sticky_hover: %2$s;
@@ -484,9 +484,9 @@ function overcome_inline_styles() {
         $sticky_link_color['active']
     );
     /* Dropdown && Mobile */
-    $dropdown_bg_opt = overcome_get_opts('dropdown_bg',['rgba' => apply_filters('overcome_dropdown_bg', overcome_configs('dropdown_bg'))]);
+    $dropdown_bg_opt = ef5frame_get_opts('dropdown_bg',['rgba' => apply_filters('ef5frame_dropdown_bg', ef5frame_configs('dropdown_bg'))]);
 
-    $dropdown_link_colors = overcome_get_opts('dropdown_link_colors', apply_filters('overcome_dropdown_link_colors',['regular' => overcome_configs('dropdown_regular'), 'hover' => overcome_configs('dropdown_hover'), 'active' => overcome_configs('dropdown_active')]) );
+    $dropdown_link_colors = ef5frame_get_opts('dropdown_link_colors', apply_filters('ef5frame_dropdown_link_colors',['regular' => ef5frame_configs('dropdown_regular'), 'hover' => ef5frame_configs('dropdown_hover'), 'active' => ef5frame_configs('dropdown_active')]) );
     printf(':root{
             --dropdown_regular: %1$s;
             --dropdown_hover: %2$s;
@@ -507,8 +507,8 @@ function overcome_inline_styles() {
  * //'font-awesome',
  * //'gglcptch',
 */
-add_filter('ef5_remove_styles', 'overcome_remove_styles');
-function overcome_remove_styles($styles){
+add_filter('ef5_remove_styles', 'ef5frame_remove_styles');
+function ef5frame_remove_styles($styles){
     $_styles = [
         'newsletter'
     ];
@@ -524,57 +524,57 @@ function overcome_remove_styles($styles){
  * https://themeshaper.com/2014/08/13/how-to-add-google-fonts-to-wordpress-themes/
  *
 */
-function overcome_fonts_url() {
+function ef5frame_fonts_url() {
     $font_url = add_query_arg( 
         'family', 
-        urlencode(overcome_configs('google_fonts')), 
+        urlencode(ef5frame_configs('google_fonts')), 
         "//fonts.googleapis.com/css"
     );
     return $font_url;
 }
-function overcome_font_scripts() {
-    wp_enqueue_style( 'ef5-fonts', overcome_fonts_url() );
+function ef5frame_font_scripts() {
+    wp_enqueue_style( 'ef5-fonts', ef5frame_fonts_url() );
 }
-add_action( 'wp_enqueue_scripts', 'overcome_font_scripts' );
+add_action( 'wp_enqueue_scripts', 'ef5frame_font_scripts' );
 
-function overcome_default_value($param, $default){
+function ef5frame_default_value($param, $default){
     return !empty($param) ? $param : $default;
 }
 /**
  * All Theme Function
 */
-overcome_require_folder('inc', get_template_directory());
-overcome_require_folder('inc/extends', get_template_directory());
-overcome_require_folder('inc/classes', get_template_directory());
-overcome_require_folder('inc/walker', get_template_directory());
-overcome_require_folder('inc/core', get_template_directory());
-overcome_require_folder('inc/functions', get_template_directory());
-overcome_require_folder('inc/theme-options', get_template_directory());
-overcome_require_folder('inc/custom-post', get_template_directory());
-overcome_require_folder('inc/icons', get_template_directory());
+ef5frame_require_folder('inc', get_template_directory());
+ef5frame_require_folder('inc/extends', get_template_directory());
+ef5frame_require_folder('inc/classes', get_template_directory());
+ef5frame_require_folder('inc/walker', get_template_directory());
+ef5frame_require_folder('inc/core', get_template_directory());
+ef5frame_require_folder('inc/functions', get_template_directory());
+ef5frame_require_folder('inc/theme-options', get_template_directory());
+ef5frame_require_folder('inc/custom-post', get_template_directory());
+ef5frame_require_folder('inc/icons', get_template_directory());
 
 if(class_exists('EF5Systems_MegaMenu_Walker')){
-    overcome_require_folder('inc/mega-menu', get_template_directory());
+    ef5frame_require_folder('inc/mega-menu', get_template_directory());
 }
 
 if(function_exists('register_ef5_widget')){
-    overcome_require_folder('inc/widgets', get_template_directory());
+    ef5frame_require_folder('inc/widgets', get_template_directory());
 }
 
 if(class_exists('VC_Manager') && class_exists('EF5Systems')){
-    overcome_require_folder('vc_extends', get_template_directory());
-    add_action('vc_after_init', 'overcome_vc_after_init');
-    function overcome_vc_after_init(){ 
-        overcome_require_folder('vc_elements', get_template_directory());
+    ef5frame_require_folder('vc_extends', get_template_directory());
+    add_action('vc_after_init', 'ef5frame_vc_after_init');
+    function ef5frame_vc_after_init(){ 
+        ef5frame_require_folder('vc_elements', get_template_directory());
     }
 }
 
 if(class_exists('WooCommerce')){
-    overcome_require_folder('inc/woo', get_template_directory());
+    ef5frame_require_folder('inc/woo', get_template_directory());
 }
 /**
  * Custom Extensions
  * Custom some extension used in theme
  *
 */
-overcome_require_folder('inc/extensions', get_template_directory());
+ef5frame_require_folder('inc/extensions', get_template_directory());
