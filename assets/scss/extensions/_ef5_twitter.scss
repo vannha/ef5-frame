@@ -1,0 +1,55 @@
+.ef5-tweets-1{
+	.ef5-tweet-link{
+		color: inherit;
+	}
+	.ef5-tweet-text{
+		padding-bottom: 9px;
+		margin-bottom: 7px;
+		position: relative;
+		.ef5-tweet-text-inner{
+			font-size: 14px;
+			background-color: #2f2e4b;
+			color: $white;
+			padding: 13px 20px;
+			@include border-radius(10px);
+		}
+		a{
+			color: #777777;
+			&:hover{
+				color: $accent_color;
+			}
+		}
+		&:after{
+			content: '';
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 9px 9px 0 0;
+			border-color: #2f2e4b transparent transparent transparent;
+			position: absolute;
+			left: 20px;
+			bottom: 0;
+			[dir="rtl"] &{
+				left: auto;
+				right: 20px;
+				border-width: 0 9px 9px 0;
+				border-color: transparent #2f2e4b transparent transparent;
+			}
+		}
+	}
+	.ef5-tweet-avatar{
+		img{
+			width: 32px;
+			height: 32px;
+			@include border-radius(50%);
+		}
+	}
+	.ef5-tweet-name{
+		font-size: 16px;
+		font-weight: 500;
+	}
+	.ef5-tweet-date{
+		font-size: 11px;
+		text-transform: uppercase;
+	}
+}

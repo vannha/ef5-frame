@@ -1,0 +1,85 @@
+// Menu Desktop
+@media( min-width: $screen-xl-min ) {
+    .ef5-header-menu .menu-item-has-children > a > .ef5-toggle{
+        display: none; // remove menu expander for level 1
+    }
+    // Primary menu
+    .ef5-menu{
+        > li {
+            > a{
+                text-transform: uppercase;
+                font-size: $lv1_font_size;
+                font-weight: $lv1_font_weight;
+            }
+        }
+        /* Has helper Menu */
+        &.has-helper-menu{
+            > li > a{
+                //line-height: #{ $lv1_lineheight - 17px};
+            }
+        }
+        .menu-title{
+            position: relative;
+        }
+    }
+    .ef5-header-menu {
+        margin-left: ($lv1_space / -2);
+        margin-right: ($lv1_space / -2);
+        @include d-flex-auto();
+        /* Level 1 */
+        > li {
+            vertical-align: middle;
+            padding: 0;
+            padding: 0 #{$lv1_space / 2};
+            > a{
+                height: $lv1_lineheight;
+                &:after{
+                    content: '';
+                    display: none;
+                    height: 2px;
+                    width: 0;
+                    position: absolute;
+                    left: 50%;
+                    top: calc(50% + 8px );
+                    background-color: transparent;
+                    @include transition();
+                }
+            }
+            > .ef5-menu-toggle{
+                display: none;
+            }
+            &:hover,
+            &.current_page_item,
+            &.current-menu-item,
+            &.current_page_ancestor,
+            &.current-menu-ancestor{
+               > a {
+                    &:after{
+                        left: 0;
+                        width: 100%;
+                    }
+                }
+            }
+            // Has children
+            &.menu-item-has-children > a > .menu-title{
+                &:before,
+                &:after{
+                    font-family: $FontAwesome;
+                    font-weight: 400;
+                }
+                &:after{
+                    content: "\00a0\00a0\00a0\f107";
+                }
+                [dir="rtl"] &{
+                    &:after{
+                        content: '';
+                        display: none;
+                    }
+                    &:before{
+                        content: "\f107\00a0\00a0\00a0";
+                    }
+                }
+            }
+        }
+    }
+}

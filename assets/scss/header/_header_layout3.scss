@@ -1,0 +1,33 @@
+$boxed_w: 1200px;
+@media (min-width: $screen-xl-min){
+	body.header-3:not(.side-header-ontop){
+		position: relative;
+		padding-left: $header_sidewidth;
+		[dir='rtl'] &{
+			padding-left: unset;
+			padding-right: $header_sidewidth;
+		}
+	}
+	.side-header{
+		position: absolute;
+		left: 0;
+		height: 100%;
+		min-height: 100vh;
+		z-index: 2;
+		width: $header_sidewidth;
+		max-width: 100%;
+		.main-header{
+			position: fixed;
+			width: inherit;
+			max-width: inherit;
+		}
+		@include ef5-mousewheel('.main-header');
+		[dir='rtl'] &{
+			left: auto;
+			right: 0;
+			.main-header > *{
+				padding-right: $grid-gutter-width / 2;
+			}
+		}
+	}
+}

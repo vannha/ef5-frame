@@ -1,0 +1,18 @@
+$outline_style : 0 0 1px #DDDDDD;
+$shape-outline: (
+	'square' : $outline_style,
+	'rounded' : $outline_style,
+	'circle' : $outline_style,
+);
+@each $shape, $outline in $shape-outline{
+	.#{$shape}{
+		&.outline{
+			@include css3-prefix('box-shadow', $outline );
+		}
+	}
+}
+@for $i from 0 through 100{
+	.outline-#{$i}{
+		padding: #{$i}px;
+	}
+}

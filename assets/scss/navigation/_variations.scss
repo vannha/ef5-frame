@@ -1,0 +1,55 @@
+// size
+$page-link-w: 26px;
+$page-link-h: $page-link-w;
+
+$page-link-lg-w: 60px;
+$page-link-lg-h: $page-link-lg-w;
+
+$page-link-md-w: 50px;
+$page-link-md-h: $page-link-md-w;
+
+$page-link-sm-w: 36px;
+$page-link-sm-h: $page-link-sm-w;
+
+$page-link-tn-w: 30px;
+$page-link-tn-h: $page-link-tn-w;
+
+// color
+$page-link-color: #787878;
+$page-link-color-hover: $accent_color;
+
+// background
+$page-link-bg: transparent;
+$page-link-bg-hover: transparent;
+
+// border
+$page-link-border-w: 1px;
+$page-link-border-style: solid;
+$page-link-border-color: transparent;
+$page-link-border-color-hover: $page-link-bg-hover;
+$page-link-lh: #{$page-link-h - $page-link-border-w * 2};
+
+// size 
+$ef5-pagination-sizes:(
+	'lg': 60,
+	'md': 50,
+	'sm': 36,
+	'tn': 30
+);
+
+@mixin page-link-border($width: $page-link-border-w, $style :$page-link-border-style, $color: $page-link-border-color, $color-hover:$page-link-border-color-hover  ){
+	border: $width $style $color;
+	&:hover{
+		border-color: $color-hover;
+	}
+}
+
+// space 
+$page-link-inner-space: 0 8px;
+$page-link-outer-space: 0;
+
+// icon
+$page-link-font-family: $FontAwesome;
+$page-link-font-size: 12px;
+$page-link-prev-icon: "\f104\00a0\00a0";
+$page-link-next-icon: "\00a0\00a0\f105";

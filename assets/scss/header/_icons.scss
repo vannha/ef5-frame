@@ -1,0 +1,88 @@
+.header-icon{
+    position: relative;
+    .header-count{
+        position: absolute;
+        top: -8px;
+        right: 5px;
+        min-width: 15px;
+        height: 15px;
+        line-height: 15px;
+        font-size: 10px;
+        font-weight: 500;
+        padding: 0;
+        color: $white;
+        background: $accent_color;
+        @include border-radius(50%);
+        [dir="rtl"] &{
+            right: auto;
+            left: 5px;
+        }
+    }
+}
+.ef5-cart-toggle{
+    .ef5-cartform{
+        background: #fff;
+        width: 260px;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        right: 0;
+        top: 50px;
+        [dir="rtl"] &{
+        	right: auto;
+        	left: 0;
+        }
+    }
+    .widget_shopping_cart{
+        margin: 0;
+        padding: 15px;
+        p{
+            margin-bottom: 0;
+        }
+    }
+}
+
+.nav-extra{
+    margin: 0 -10px;
+    display: flex;
+    flex-wrap: wrap;
+	.header-icon{
+	    padding: 5px 10px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 16px;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%;
+        position: relative;
+        @media (max-width: $screen-sm-max){
+            padding: 0 8px;
+        }
+        .icon{
+            @include center-align(relative);
+        }
+		&:hover{
+			color: $accent_color;
+		}
+        &.has-badge{
+            .icon{
+                padding-right: 15px;
+                [dir="rtl"] &{
+                    padding-right: 0;
+                    padding-left: 15px;
+                }
+            }
+        }
+	}
+}
+.header-extra-icon{
+    margin: $grid-gutter-width / 6;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+.ef5-header-donate {
+    @media (max-width: 560px){
+        display: none;
+    }
+}

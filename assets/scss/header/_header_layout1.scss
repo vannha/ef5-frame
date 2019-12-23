@@ -1,0 +1,69 @@
+.header-layout-1{
+	@media (min-width: 1366px){
+		&.header-ontop{
+			left: 50%;
+			right: auto;
+			@include transform(translateX(-50%));
+			min-width: 1300px;
+			max-width: 1300px;
+			@include border-radius(10px);
+		}
+		.header-inner.no-container{
+			padding-left: 110px;
+			padding-right: 110px;
+		}
+	}
+	@media (min-width: $screen-lg-min) and (max-width: $screen-lg-max){
+		&.header-ontop{
+			min-width: calc(100% - 30px);
+			max-width: calc(100% - 30px);
+			left: 15px;
+			right: 15px;
+			@include border-radius(10px);
+		}
+	}
+	#ef5-navigation{
+		@media (min-width: $screen-xl-min){
+			padding-right: 35px;
+			[dir="rtl"] &{
+				padding-right: 15px;
+				padding-left: 35px;
+			}
+		}
+	}
+	@media (min-width: $screen-xl-min){
+		.ef5-menu {
+			margin-left: -17.5px;
+			margin-right: -17.5px;
+			> li {
+				padding-left: 17.5px;
+				padding-right: 17.5px;
+				> a{
+					.menu-title:after{
+						display: none;
+					}
+					&:after{
+						content: '';
+						display: none;
+						height: 3px;
+						width: 0;
+						margin-top: 6px;
+						background: $accent_color;
+						position: absolute;
+						left: 50%;
+						bottom: 0;
+						@include transform(translateX(-50%));
+						@include transition();
+					}
+				}
+				&.current-menu-item > a,
+				&.current-menu-ancestor > a,
+				&:hover > a{
+					&:after{
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

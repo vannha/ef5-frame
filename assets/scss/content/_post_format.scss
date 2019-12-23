@@ -1,0 +1,64 @@
+.ef5-gallery-lightbox{
+	overflow: hidden;
+	a{
+		display: block;
+		position: relative;
+		&:before,
+		&:after{
+			@include opacity(0);
+			@include transform(translateY(100%));
+			@include transition();
+		}
+		&:before{
+			content: '';
+			background: rgba($primary_color, 0.8);
+			@include overlay-pos();
+		}
+		&:after{
+			content: '\f002';
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			font-family: $FontAwesome;
+			font-size: 20px;
+			text-align: center;
+			color: $white;
+			background: $accent_color;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -25px;
+			margin-left: -25px;
+			@include border-radius(50%);
+		}
+		&:hover{
+			&:before,
+			&:after{
+				@include opacity(1);
+				@include transform(translateY(0));
+			}
+		}
+	}
+}
+.format-chat{
+	.ef5-single-content{
+		> p{
+			background: $primary_color;
+			color: $white;
+			padding: 5px 10px;
+			float: left;
+			clear: both;
+			@include border-radius(5px);
+			[dir="rtl"] &{
+				float: right;
+			}
+			&:nth-child(2n){
+				background: $accent_color;
+				float: right;
+				[dir="rtl"] &{
+					float: left;
+				}
+			}
+		}
+	}
+}

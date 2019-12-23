@@ -1,0 +1,69 @@
+.ef5-anim-wave{
+	position: relative;
+	display: inline-block;
+	&.loop,
+	&:hover{
+		.ef5-wave1,
+		.ef5-wave2{
+			.delay1 {
+			    animation: ef5-waves 2.5s linear;
+			}
+			.delay2 {
+				animation: ef5-waves 2.5s linear .7s;
+			}
+			.delay3 {
+				animation: ef5-waves 2.5s linear 1.3s;
+			}
+			.delay4 {
+				animation: ef5-waves 2.5s linear 1.9s;
+			}
+		}
+		.ef5-wave3{
+			.delay1 {
+			    animation: ef5-waves 2.5s linear;
+			}
+			.delay2 {
+				animation: ef5-waves 2.5s linear .7s;
+			}
+			.delay3 {
+				animation: ef5-waves 2.5s linear 1.3s;
+			}
+			.delay4 {
+				animation: ef5-waves 2.5s linear 1.9s;
+			}
+		}
+		.size-2 > .ef5-wave{
+			animation-name: ef5-waves2;
+		}
+	}
+
+	.ef5-wave-wrap{
+		display: block;
+		height: 60px;
+		width: 60px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		z-index: -1;
+	}
+	.ef5-wave{
+		display: block;
+		height: 60px;
+		width: 60px;
+		border-radius: 50%;
+		position: absolute;
+		&.wave1{
+			border: 1px solid rgba(239,239,239,0.7);
+		}
+		&.wave2{
+			background: $accent_color;
+		}
+		&.wave3{
+			background: $accent_color;
+		}
+	}
+	.infinite{
+		animation-iteration-count: infinite!important;
+	}
+}

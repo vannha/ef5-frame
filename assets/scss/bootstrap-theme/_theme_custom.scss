@@ -1,0 +1,85 @@
+// RTL offset
+@mixin make-col-offset-rtl($size, $columns: $grid-columns) {
+  $num: $size / $columns;
+  margin-left: 0;
+  margin-right: if($num == 0, 0, percentage($num));
+}
+@mixin make-grid-columns-offset-rtl($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      // RTL offset
+      @for $i from 0 through ($columns - 1) {
+        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          .rtl .offset#{$infix}-#{$i} {
+            @include make-col-offset-rtl($i, $columns);
+          }
+        }
+      }
+    }
+  }
+}
+@include make-grid-columns-offset-rtl();
+// Row Gutters
+$customs_gutters: (
+	0 : 0,
+	1 : 1px,
+	2 : 2px,
+	3 : 3px,
+	4 : 4px,
+	5 : 5px,
+	6 : 6px,
+	7 : 7px,
+	8 : 8px,
+	9 : 9px,
+	10 : 10px,
+	15 : 15px,
+	20 : 20px,
+	25 : 25px,
+	30 : 30px,
+	35 : 35px,
+	40 : 40px,
+	50 : 50px,
+	60 : 60px,
+	70 : 70px,
+	80 : 80px,
+	90 : 90px,
+	100 : 100px
+);
+// Row gutters
+@each $breakpoint in map-keys($grid-breakpoints) {
+	$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+		@each $gutters , $gutters-value in $customs_gutters{
+			.gutters#{$infix}-#{$gutters}{
+				margin-left: $gutters-value / -2!important;
+				margin-right: $gutters-value / -2!important;
+				> [class*='col']{
+					padding-left: $gutters-value / 2;
+					padding-right: $gutters-value / 2;
+				}
+			}
+		}
+	}
+}
+// Grid Gutters
+@each $gutters , $gutters-value in $customs_gutters{
+	.grid-gutters-#{$gutters}{
+		margin: $gutters-value / -2!important;
+		> [class*='col']{
+			padding: $gutters-value / 2; 
+		}
+	}
+}
+
+// Width and Height with breakponits
+@each $breakpoint in map-keys($grid-breakpoints) {
+	$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+		@each $prop, $abbrev in (width: w, height: h) {
+		  @each $size, $length in $sizes {
+		    .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length!important; }
+		  }
+		}
+	}
+}

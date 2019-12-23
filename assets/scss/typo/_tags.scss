@@ -1,0 +1,64 @@
+// Image
+img{
+	height: auto;
+	max-width: 100%;
+	//max-height: 100%;
+	vertical-align: top;
+	&.image-fit,
+	&.img-fit{
+		@include image-fit();
+	}
+
+	&.alignleft,
+	&.alignright{
+		&[alt="Image Alignment 150x150"]{
+			clear: both;
+		}
+	}
+}
+.thumbnai-is-bg img{
+	//height: inherit;
+}
+.post-image.thumbnai-is-bg .ef5-img{
+	//@include image-fit();
+}
+// Link 
+a{
+	color: $link_color;
+	text-decoration: none;
+	&:hover{
+		color: $link_color_hover;
+	}
+	&:hover,
+	&:active,
+	&:focus{
+		text-decoration: none;
+	}
+}
+// paragrap
+p{
+	margin: 0 0 20px;
+	//@include clearfix();
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+
+// dl
+dl{
+	
+}
+
+img, video, iframe, svg {
+    max-width: 100%;
+    vertical-align: top;
+}
+.ef5-img.svg{
+	width: 100%;
+}
+figure{
+	margin: 0 0 $grid-gutter-width 0;
+}
+figcaption{
+	display: block;
+}

@@ -1,0 +1,23 @@
+$separator_ltr: '/';
+$separator_rtl: '\\';
+.breadcrumb{
+	color: inherit;
+	text-transform: lowercase;
+	.separator{
+		padding: 0 10px;
+		&:empty{
+			&:before{
+				content: $separator_ltr;
+				[dir='rtl'] &{
+					content: $separator_rtl;
+				}
+			}
+		}
+	}
+}
+
+.ef5-breadcrumb{
+	@media (max-width: $screen-md-max){
+		padding-top: 20px;
+	}
+}

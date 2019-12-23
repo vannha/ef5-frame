@@ -1,0 +1,31 @@
+.ef5-single-content,
+.ef5-single-page-links{
+	margin-bottom: $grid-gutter-width;
+}
+.ef5-single-content{
+	blockquote{
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+}
+.ef5-pwbox-inner{
+	position: relative;
+	input[type="submit"]{
+		position: absolute;
+		top: 50%;
+		right: 3px;
+		@include transform(translate(0, -50%));
+		max-width: 120px;
+		[dir="rtl"] &{
+			right: auto;
+			left: 3px;
+		}
+	}
+	input[name="post_password"]{
+		padding-right: 130px;
+		[dir="rtl"] &{
+			padding-right: inherit;
+			padding-left: 130px;
+		}
+	}
+}

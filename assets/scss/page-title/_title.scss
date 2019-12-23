@@ -1,0 +1,9 @@
+.page-title,
+.page-desc{
+    color: inherit;
+}
+.page-title{
+	@media (min-width: $screen-xl-min){
+		font-size: 48px;
+	}
+}

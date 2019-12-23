@@ -1,0 +1,18 @@
+.badge-info{
+	background: $accent_color;
+	color: $white;
+	padding: 5px 20px;
+	* {
+		color: $white;
+	}
+	a{
+		color: $white;
+		&:hover{
+			color: $white;
+		}
+	}
+	> .icon:after{
+		content: '\00a0\00a0';
+		display: inline-block;
+	}
+}

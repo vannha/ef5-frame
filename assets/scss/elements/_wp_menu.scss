@@ -1,0 +1,37 @@
+.ef5-menu-container{
+	.menu{
+		list-style: none;
+		a{
+			display: block;
+			padding: 5px 0;
+		}
+		&.vertical{
+		} 
+		&.two-col{
+			@include d-flex();
+			li{
+				flex: 0 0 50%;
+			}
+		}
+		a:before,
+		a:after {
+		    font-family: 'Flaticon';
+		    color: $accent_color;
+		    font-size: 12px;
+		    transform: translate(0, 3px);
+		}
+		a:before{
+			content: "\f10c";
+		    padding-right: 15px;
+		}
+		[dir="rtl"] &{
+			a:before{
+				display: none;
+			}
+			a:after{
+				content: "\f10b";
+			    padding-left: 15px;
+			}
+		}
+	}
+}

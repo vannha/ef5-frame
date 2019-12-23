@@ -1,0 +1,264 @@
+.ef5-loading{
+	cursor: wait;
+	position: relative;
+	&:before{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		content: '';
+		display: block;
+		background: rgba($accent_color, 0.7);
+	}
+	&:after{
+		z-index: 2;
+		position: absolute;
+		top: 20%;
+		left: 50%;
+		content: "\f110";
+		font-family: $FontAwesome;
+		font-size: 50px;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		margin: -25px 0 0 -25px;
+		color: $white;
+		@include animation('spin 1s infinite linear')
+	}
+}
+.empty-none:empty{
+	display: none;
+}
+.transition,
+a{
+    @include transition();
+}
+
+.meta-color{
+	color: $MetaColor;
+	a{
+		color: inherit;
+		&:hover{
+			color: $link_color_hover;
+		}
+	}
+}
+
+// Rotate
+$rotate: (
+	'45',
+	'90',
+	'180',
+	'270',
+	'360'
+);
+@each $deg in $rotate{
+	.rotateX-#{$deg}{
+		@include transform(rotateX(#{$deg}deg));
+	}
+	.rotateY-#{$deg}{
+		@include transform(rotateY(#{$deg}deg));
+	}
+
+	.icon-rotateX-#{$deg}:before{
+		display: inline-block;
+		@include transform(rotateX(#{$deg}deg));
+	}
+	.icon-rotateY-#{$deg}:before{
+		display: inline-block;
+		@include transform(rotateY(#{$deg}deg));
+	}
+}
+// Box Style 
+.ef5-box{
+	padding: 20px;
+}
+// Shadow style
+@each $name, $shadow in $ef5-boxshadow{
+	.ef5-shadow-#{$name}{
+		@include box-shadow($shadow);
+	}
+	.ef5-hover-shadow-#{$name}:hover{
+		@include box-shadow($shadow);
+	}
+}
+// Positioned
+.center-align{
+	@include center-align();
+}
+// Animation 
+$ef5-anims: (
+	'swing' : 'swing',
+	'bounce' : 'bounce',
+	'bounceIn' : 'bounceIn',
+	'bounceInLeft' : 'bounceInLeft',
+	'bounceInRight' : 'bounceInRight',
+	'bounceInUp' : 'bounceInUp',
+	'bounceInDown' : 'bounceInDown',
+);
+@each $name, $anim in $ef5-anims{
+	.ef5-anim-#{$name}{
+		@include animation($anim 2s linear infinite);
+	}
+}
+
+// Background size
+.bg-cover{
+	background-size: cover;
+}
+// Position 
+.relative{
+	position: relative;
+}
+// Opacity
+$ef5-opacity : (
+	0 : 0,
+	1 : 1
+);
+@each $name, $opacity in $ef5-opacity{
+	.opacity-#{$name}{
+		@include opacity(#{$opacity});
+	}
+}
+// Overlay 
+.parallax-overlay{
+	@include overlay-pos();
+}
+// Overflow
+.ef5-no-overflow-hidden{
+	overflow: unset!important;
+}
+$ef5-overflow: (
+	hidden,
+	visible
+);
+@each $name in $ef5-overflow{
+	.ef5-overflow-#{$name}{
+		overflow: #{$name};
+	}
+}
+// Toggle Block 
+.ef5-toggle-block-wrap{
+	position: relative;
+}
+.ef5-toggle-block{
+	cursor: pointer;
+	.ef5-el-title{
+		&:after{
+			font-family: $FontAwesome;
+			font-size: 14px;
+			content: "\f107";
+			padding-left: 10px;
+			[dir="rtl"] &{
+				padding-left: 0;
+				padding-right: 10px;
+			}
+		}
+	}
+}
+.ef5-toggle-block-content{
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	left: 0;
+	min-width: 320px;
+	background: $white;
+	padding: 15px;
+	ul{
+		list-style: none;
+		li{
+			@include wg-list-style();
+			a{	
+				display: block;
+				padding: 10px 0;
+				&:before{
+					@include wg-list-arrow();
+				}
+			}
+		}
+	}
+}
+
+// Rounded 
+$ef5-rounded: (
+	'': 5px,
+	'1': 1px,
+	'2': 2px,
+	'3': 3px,
+	'4': 4px,
+	'5': 5px,
+	'6': 6px,
+	'7': 7px,
+	'8': 8px,
+	'9': 9px,
+	'10': 10px,
+	'18\/5': 18.5px,
+	'20': 20px,
+	'30': 30px,
+	'40': 40px,
+	'50': 50px,
+	'60': 60px,
+	'70': 70px
+);
+@each $name, $rounded in $ef5-rounded{
+	/* .ef5-rounded-#{$name}{
+		@include border-radius($rounded);
+	}
+	.ef5-rounded-t-#{$name}{
+		@include border-radius-separate($rounded, $rounded, 0, 0);
+	}
+	.ef5-rounded-b-#{$name}{
+		@include border-radius-separate(0, 0, $rounded, $rounded);
+	}
+	.ef5-rounded-tbl-#{$name}{
+		@include border-radius-separate($rounded, 0, $rounded, 0);
+	}
+	@media (max-width: $screen-sm-max){
+		.ef5-rounded-sm-t-#{$name}{
+			@include border-radius-separate($rounded, $rounded, 0, 0);
+		}
+	} */
+}
+@each $breakpoint in map-keys($grid-breakpoints) {
+	$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+		@each $name, $rounded in $ef5-rounded{
+			.ef5-rounded#{$infix}-#{$name}{
+				@include border-radius($rounded);
+			}
+			.ef5-rounded#{$infix}-t-#{$name}{
+				@include border-radius-separate($rounded, $rounded, 0, 0);
+			}
+			.ef5-rounded#{$infix}-b-#{$name}{
+				@include border-radius-separate(0, 0, $rounded, $rounded);
+			}
+			.ef5-rounded#{$infix}-l-#{$name}{
+				@include border-radius-separate($rounded, 0, $rounded, 0);
+				[dir="rtl"] &{
+					@include border-radius-separate(0, $rounded, 0, $rounded);
+				}
+			}
+			.ef5-rounded#{$infix}-r-#{$name}{
+				@include border-radius-separate(0, $rounded, 0, $rounded);
+				[dir="rtl"] &{
+					@include border-radius-separate($rounded, 0, $rounded, 0);
+				}
+			}
+		}
+	}
+}
+
+// Border 
+.ef5-bl-1-e2e2e1{
+	@media (min-width: $screen-lg-min){
+		border-left: 1px solid #e2e2e1;
+		[dir="rtl"] &{
+			border-left: 0;
+			border-right: 1px solod #e2e2e1;
+		}
+	}
+}

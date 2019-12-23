@@ -1,0 +1,109 @@
+.nav-links{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	.page-numbers{
+		min-width: $page-link-w;
+		padding: $page-link-inner-space;
+		margin: $page-link-outer-space;
+		line-height: $page-link-lh;
+		text-align: center;
+		color: $page-link-color;
+		@include page-link-border();
+		background: $page-link-bg;
+		@include transition();
+		&:hover,
+		&.current{
+			background: $page-link-bg-hover;
+			color: $page-link-color-hover;
+			font-weight: 600;
+			position: relative;
+			//text-decoration: underline;
+			&:after{
+				content: '';
+				display: block;
+				height: 1px;
+				background: $page-link-color-hover;
+				position: absolute;
+				left: 8px;
+				right: 8px;
+				@include transform(translate(0, -5px));
+			}
+		}
+		&.next,
+		&.prev{
+			&:after{
+				display: none;
+			}
+		}
+	}
+	> .current{
+		cursor: not-allowed;
+		background: $page-link-bg-hover;
+		color: $page-link-color-hover;
+		border-color:$page-link-border-color-hover;
+	}
+}
+.ef5-loop-pagination{
+	margin-top: 68px;
+	&:empty{
+		display: none;
+	}
+	// Layout type
+	&.layout-type-1 .nav-links,
+	&.layout-type-4,
+	&.layout-type-5{
+		@include d-flex();
+		justify-content: space-between;
+	}
+
+	// Layout
+	&.layout-2 .nav-links{
+		.page-numbers{
+			margin: 2.5px;
+		}
+	}
+	// Colors 
+	@each $name, $color in $ef5-colors{
+		&.df-#{$name} .nav-links .page-numbers{
+			color: $white;
+			border-color: $color;
+			background: $color;
+		}
+		&.hv-#{$name} .nav-links .page-numbers{
+			//border-color: #727272;
+			&:hover,
+			&.current{
+				border-color: $color;
+				background: $color;
+			}
+		}
+	}
+	// Shape 
+	&.rounded{
+		.nav-links .page-numbers{
+			margin: 2.5px;
+			@include border-radius(5px);
+		}
+	}
+	&.circle{
+		.nav-links .page-numbers{
+			margin: 2.5px;
+			@include border-radius(50%);
+		}
+	}
+	// Size 
+	@each $name, $size in $ef5-pagination-sizes{
+		&.size-#{$name}{
+			.nav-links .page-numbers{
+				min-width: #{$size}px;
+				line-height: #{$size - $page-link-border-w * 2};
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+.ef5-tribe-list{
+	margin: -15px;
+	> div{
+		padding: 15px;
+	}
+	.ef5-tribe-event-start-date{
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		background: white;
+		border-radius: 5px;
+		text-transform: uppercase;
+		font-size: 10px;
+		color: var(--primary-color);
+		min-width: 36px;
+		text-align: center;
+		font-weight: 500;
+		padding: 5px;
+		line-height: 1;
+		span{
+			display: block;
+		}
+		.ef5-tribe-date{
+			font-size: 18px;
+			color: var(--accent-color);
+			padding-bottom: 3px;
+		}
+		.ef5-tribe-month{
+			font-weight: 600;
+			padding-bottom: 2px;
+		}
+		.ef5-tribe-year{
+			font-size: 11px;
+		}
+	}
+	.ef5-tribe-list-thumb .post-image{
+		border-radius: 10px;
+	}
+	.ef5-tribe-events-info{
+		padding-top: 3px;
+		padding-bottom: 11px;
+	}
+}
+.events-list {
+	.tribe-events-loop{
+		max-width: unset;
+	}
+	#tribe-events-footer{
+		border-top: 0;
+		margin-top: 0;
+		padding-top: 0;
+	}
+}

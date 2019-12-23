@@ -1,0 +1,12 @@
+.wc-gallery-sync{
+	position: relative;
+}
+.flex-control-thumb{
+	cursor: pointer;
+	@include opacity(0.5);
+	@include transition();
+	&:hover,
+	&.flex-active-slide{
+		@include opacity(1);
+	}
+}

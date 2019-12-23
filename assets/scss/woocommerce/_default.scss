@@ -1,0 +1,133 @@
+.blockUI.blockOverlay {
+	position: relative;
+	@include loader();
+}
+
+.loader {
+	@include loader();
+}
+
+.ef5-products-price{
+	font-weight: 700;
+	del{
+		color: $BodyColor;
+	}
+	&.single{
+		font-size: 18px;
+		color: $accent_color;
+		margin-bottom: 30px;
+	}
+}
+.woocommerce-grouped-product-list-item__price .ef5-products-price.single{
+	margin-bottom: 0;
+}
+
+.ef5-quantity{
+	position: relative;
+	max-width: 120px;
+	.qty{
+		padding:5px 40px;
+		max-width: 120px;
+		text-align: center;
+		&::-webkit-inner-spin-button, 
+		&::-webkit-outer-spin-button { 
+			-webkit-appearance: none; 
+			margin: 0; 
+		}
+	}
+	.quantity-button{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 40px;
+		text-align: center;
+		cursor: pointer;
+		&:before{
+			@include center-align();
+		}
+	}
+	.quantity-down{
+		left: 0;
+		&:before{
+			content: '-';
+		}
+	}
+	.quantity-up{
+		right: 0;
+		&:before{
+			content: '+';
+		}
+	}
+}
+
+/* FlexSlider Gallery */
+.woocommerce-product-gallery{
+	position: relative;
+	.woocommerce-product-gallery__trigger {
+		position: absolute;
+		top: $grid-gutter-width / 2;
+		right: $grid-gutter-width / 2;
+		font-size: 2em;
+		z-index: 9;
+		width: 36px;
+		height: 36px;
+		background: #fff;
+		text-indent: -9999px;
+		border-radius: 100%;
+		box-sizing: content-box;
+		[dir="rtl"] &{
+			right: auto;
+			left: $grid-gutter-width / 2;
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			width: 10px;
+			height: 10px;
+			border: 2px solid #000;
+			border-radius: 100%;
+			position: absolute;
+			top: 9px;
+			left: 9px;
+			box-sizing: content-box;
+		}
+
+		&:after {
+			content: "";
+			display: block;
+			width: 2px;
+			height: 8px;
+			background: #000;
+			border-radius: 6px;
+			position: absolute;
+			top: 19px;
+			left: 22px;
+			transform: rotate(-45deg);
+			box-sizing: content-box;
+		}
+	}
+}
+
+.col2-set{
+	margin-right: -20px;
+	margin-left: -20px;
+	@include d-flex();
+	> [class*="col-"] {
+		padding-left: 20px;
+		padding-right: 20px;
+		flex: 0 0 100%;
+		max-width: 100%;
+		@media (min-width: $screen-lg-min){
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+	}
+}
+.woocommerce-table--order-details{
+	margin-bottom: 50px;
+}
+
+.woocommerce-input-wrapper{
+	display: block;
+}

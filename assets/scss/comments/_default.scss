@@ -1,0 +1,49 @@
+.commentlist-wrap,
+.woocommerce-Reviews #comments{
+	border: $cmt_border;
+	padding: 30px 30px 0;
+	margin-top: 77px;
+}
+.comments-title,
+.woocommerce-Reviews-title{
+	font-size: 24px;
+	padding: 0;
+	margin: 0 0 30px;
+}
+
+.discussion-meta-info{
+	margin: 0;
+}
+/* Comment Button */
+.comment-links{
+	padding-top: 24px;
+}
+
+.no-comments{
+	margin-top: $grid-gutter-width;
+}
+#cancel-comment-reply-link,
+.no-comments{
+	color: $invalid_color;
+}
+/* Loading */
+.commentlist{
+	position: relative;
+	@include transition();
+}
+
+
+.ef5-comment-loadmore,
+.comment-navigation{
+	margin-top: 50px;
+}
+
+.ef5-comment-loadmore{
+	margin-left: -30px;
+	margin-right: -30px;
+	display:  block;
+}
+
+.ef5-no-comments{
+	padding-top: 15px;
+}

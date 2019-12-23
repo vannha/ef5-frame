@@ -1,0 +1,45 @@
+table{
+	width: 100%;
+	border-spacing: 0;
+    border-collapse: collapse;
+	td,
+	th {
+		padding: 5px;
+		border: $MainBorder;
+		word-break: break-all;
+	}
+	th{
+		color: $HeadingColor;
+		white-space: nowrap;
+	}
+	&.ef5-table-responsive{
+		@media (max-width: $screen-md-max){
+			thead{
+				display: none;
+			}
+			th,
+			td{
+				display: block;
+			}
+			td{
+				text-align: initial;
+				padding: 10px 20px;
+				&:before{
+					display: inline-block;
+					content: attr(data-title) ' :\00a0\00a0';
+					color: $HeadingColor;
+				}
+				&.no-responsive-title:before{
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.ef5-content,
+.comment-content{
+	table {
+		margin: 0 0 $grid-gutter-width;
+	}
+}

@@ -1,0 +1,12 @@
+/* Recent Post */
+.widget_recent_entries{
+	.post-date{
+		display: block;
+		font-size: 80%;
+		font-style: italic;
+		flex: 0 0 100%;
+	    width: 100%;
+	    max-width: 100%;
+	    order: 3;
+	}
+}

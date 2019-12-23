@@ -1,0 +1,163 @@
+.ef5-post-item-layout-2{
+	.ef5-post-item-inner{
+		@include border-radius(10px);
+		border: $MainBorder;
+		background: $white;
+	}
+	.post-image,
+	.overlay{
+		@include border-radius(10px 10px 0 0);
+	}
+	.ef5-post-info{
+		padding: 25px 30px;
+	}
+	.ef5-excerpt{
+		padding-top: 15px;
+		margin-bottom: 0;
+	}
+	.ef5-donate-progress-donor{
+		padding-top: 20px;
+		.ef5-donation-donor{
+			color: $accent_color;
+			font-weight: 500;
+		}
+		.ef5-donate-progress-value{
+			color: #2f2f2f;
+		}
+		.ef5-donate-progress-bar{
+			@include border-radius(5px);
+			.ef5-donate-progress-bar-value{
+				@include border-radius(5px);
+				@include background-horizontal($darkent_accent_accent, $lightent_accent_accent);
+			}
+		}
+	}
+	.ef5-donation-amount{
+		padding-top: 12px;
+		.ef5-donation-raised .ef5-label{
+			display: inline-block;
+			font-size: $BodyFontSize;
+			font-weight: 400;
+		}
+		.ef5-donation-raised .ef5-value{
+			font-weight: 700;
+			color: #777;
+			display: inline-block;
+			font-size: $BodyFontSize;
+			margin-top: 0;
+		}
+		.ef5-donation-goal .ef5-value{
+			font-weight: 700;
+			color: $accent_color;
+		}
+	}
+	.ef5-readmore{
+		margin-top: 25px;
+	}
+	.ef5-loop-donate-info{
+		border-top: 1px solid #d7d7d7;
+		margin-top: 23px;
+		padding-top: 22px;
+		.ef5-payments-trigger{
+			margin-top: 8px;
+		}
+	}
+}
+// Layout 3-1
+.ef5-posts-3-1 + .ef5-loop-pagination{
+	margin-top: 48px;
+}
+.ef5-post-item-layout-3-1{
+	border: 1px solid #d7d7d7;
+	margin-bottom: 20px;
+	.ef5-featured{
+		margin: -1px -1px 0;
+	}
+	.ef5-post-info{
+		padding: 20px 25px 25px;
+	}
+	.ef5-donate-info{
+		border-top: 1px solid #d7d7d7;
+		padding-top: 14px;
+		margin-top: 1px;
+	}
+}
+// Layout 4
+.ef5-post-item-layout-4{
+	.overlay{
+		padding: 30px 30px 23px;
+		@media (max-width: $screen-sm-max){
+			padding: 15px;
+		}
+	}
+	.ef5-posted-in a{
+		font-size: 13px;
+		color: $white;
+		font-weight: 500;
+		background-color: $accent_color;
+		padding: 8px 15px;
+		@include border-radius(5px);
+		&:hover{
+			background-color: $primary_color;
+		}
+	}
+	.ef5-date a{
+		color: $white;
+	}
+	.ef5-post-info {
+		@media (min-width: $desktop-screen){
+			.ef5-readmore-wrap{
+				@include opacity(0);
+				@include transition();
+			}
+			.align-self-end{
+				@include transition();
+				@include transform(translateY(20px));
+			}
+			.ef5-large-item &{
+				.align-self-end{
+					@include transform(translateY(34px));
+				}
+			}
+		}
+	}
+	&:hover{
+		.ef5-readmore-wrap{
+			@include opacity(1);
+		}
+		.align-self-end{
+			@include transform(translateY(0));
+		}
+	}
+}
+
+// Layout 5
+.ef5-post-item-layout-5{
+	.ef5-content-info{
+		margin-top: -8px;
+	}
+}
+
+// Layout 6
+.ef5-post-item-layout-6{
+	background-color: $white;
+	.ef5-countdown-bar{
+		@media (min-width: $screen-xl-min){
+			justify-content: flex-end;
+		}
+	}
+}
+
+// Layout 13
+.ef5-post-item-layout-13{
+	border: 1px solid #e0e0e0;
+	&:last-child{
+		margin-bottom: 0;
+	}
+	.ef5-featured{
+		margin: -1px;
+	}
+	.ef5-post-item-inner > .col{
+		padding: 19px 30px 9px;
+	}
+}

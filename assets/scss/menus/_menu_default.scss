@@ -1,0 +1,33 @@
+@media( min-width: 1200px ) {
+    // Primary menu
+    .menu-default{
+    	// Levvel 1
+        > li {
+            > a{
+                color: $header_regular;
+                &:after{
+            		background-color: $header_regular;
+            	}
+            }
+            &:hover{
+            	> a{
+            		color: $header_hover;
+	            	&:after{
+	            		background-color: $header_hover;
+	            	}
+	            }
+            }
+            &.current_page_item,
+            &.current-menu-item,
+            &.current_page_ancestor,
+            &.current-menu-ancestor{
+               > a{
+               		color: $header_active;
+	               	&:after{
+	                    background-color: $header_active;
+	                }
+	            }
+            }
+        }
+    }
+}

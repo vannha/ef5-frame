@@ -1,0 +1,90 @@
+.ef5-menu,
+.ef5-submenu{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+// Main Navigation
+//--------------------------------------------------
+.ef5-menu{
+    li{
+        overflow: hidden;
+        &:not(.megamenu){
+            position: relative;
+        }
+        a{
+            padding: $list_inner_space;
+            position: relative;
+            @include d-flex();
+            align-items: center;
+            > span{
+                flex: 0 0 auto;
+                width: auto;
+                max-width: 100%;
+                &.menu-desc{
+                    flex: 0 0 100%;
+                    width: 100%;
+                }
+            }
+        }
+        &:hover{
+            overflow: visible;
+        }
+    }
+    .menu-icon{
+        &.left-icon{
+            padding-right: 10px;
+            [dir="rtl"] &{
+                padding-right: 0;
+                padding-left: 10px;
+            }
+        }
+        &.right-icon{
+            padding-left: 10px;
+            [dir="rtl"] &{
+                padding-left: 0;
+                padding-right: 10px;
+            }
+        }
+    }
+}
+.ef5-submenu{
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+}
+.ef5-toggle-menu{
+    display: none;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+.menu-desc{
+    font-size: 80%;
+    text-transform: none;
+}
+.menu-badge{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 80%;
+    text-transform: none;
+    background: $accent_color;
+    color: $white;
+    font-weight: 400;
+    padding: 0 5px;
+    [dir="rtl"] &{
+        left: 0;
+        right: auto;
+    }
+}
+/* Header extra */
+.nav-extra{
+    .nav-link{
+        text-transform: uppercase;
+        font-size: $lv1_font_size;
+        font-weight: $lv1_font_weight;
+        color: $lv1_color;
+    }
+}

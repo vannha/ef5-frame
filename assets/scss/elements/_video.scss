@@ -1,0 +1,52 @@
+.ef5-video{
+	position: relative;
+}
+.ef5-video-1{
+	.ef5-video-info{
+		margin-bottom: 30px;
+	}
+	.ef5-video{
+		@include border-radius(10px);
+		position: relative;
+		text-align: center;
+		display: inline-block;
+	    vertical-align: top;
+	    left: 50%;
+	    @include transform(translate(-50%, 0));
+	}
+	.ef5-video:not(.overlay-wrap) {
+		&:before{
+			content: '';
+			display: block;
+			background: rgba(54,54,54,0.4);
+			@include overlay-pos();
+			z-index: 1;
+		}
+		.ef5-popupvideo{
+			@include center-align();
+			z-index: 2;
+		}
+	}
+}
+.ef5-video-2{
+	text-align: end;
+	[dir="rtl"] &{
+		text-align: start;
+	}
+	.video-poster2{
+		margin-left: 20%;
+		[dir="rtl"] &{
+			margin-left: 0;
+			margin-right: 20%;
+		}
+	}
+	.ef5-video2{
+		position: absolute;
+		top: 72px;
+		left: 0;
+		[dir="rtl"] &{
+			left: auto;
+			right: 0;
+		}
+	}
+}

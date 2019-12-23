@@ -1,0 +1,10 @@
+.btn-white{
+	background-color: $white;
+	color: $accent_color;
+	&:hover,
+	&:active,
+	&:focus{
+		background-color: $accent_color;
+		color: $white;
+	}
+}

@@ -1,0 +1,32 @@
+.ef5-testimonial-layout-1{
+	text-align: center;
+	@media (min-width : $desktop-screen){
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+}
+.ef5-testimonial-layout-2{
+	+ .ef5-owl-dots{
+		margin-top: 21px;
+	}
+	.ttmn-header {
+		position: relative;
+		&:after{
+			font-family: $FontAwesome;
+			content: "\f10e";
+			font-size: 79px;
+			font-weight: 900;
+			line-height: 1;
+			color: $accent_color;
+			@include opacity(0.2);
+			position: absolute;
+			top: 0;
+			right: 33px;
+			[dir="rtl"] &{
+				right: auto;
+				left: 33px;
+				content: "\f10d";
+			}
+		}
+	}
+}

@@ -1,0 +1,90 @@
+/* Popup Nav */
+$popup_lv1_tb_space: 7px;
+#ef5-popupnav{
+	.ef5-main-nav + #sidebar-popup{
+		margin-top: 110px;
+	}
+	.ef5-main-nav,
+	.widget_nav_menu.popup-nav{
+		ul, ol{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		
+		ul.popup-nav {
+			.menu-item{
+				position: relative;
+				padding: 5px 0;
+				a{
+					display: block;
+				}
+				&.menu-item-has-children{
+				}
+			}
+			.sub-menu{
+				display: none;
+			}
+			/* First Level */
+			> .menu-item {
+				padding-top: $popup_lv1_tb_space;
+				padding-bottom: $popup_lv1_tb_space;
+				> a{
+					font-size: 30px;
+					font-weight: 700;
+					&:after{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Menu */
+.popup-nav{
+	.ef5-menu-toggle{
+		position: absolute;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    width: auto;
+	    height: auto;
+	    &.active{
+	    	display: none;
+	    }
+	}
+	.ef5-menu-toggle-inner{
+		@include opacity(0);
+	}
+}
+
+/* Widgets */
+#sidebar-popup{
+	margin-left: -15px;
+	margin-right: -15px;
+	@include d-flex();
+	.widget{
+		padding-left: 15px;
+		padding-right: 15px;
+		position: relative;
+	    width: 100%;
+	    min-height: 1px;
+	}
+	@media (min-width: $screen-lg-min){
+		> .widget {
+		    flex: 0 0 50%;
+		    max-width: 50%;
+		}
+	}
+	@media (min-width: $screen-xl-min){
+		> .widget {
+		    flex: 0 0 25%;
+		    max-width: 25%;
+		}
+	}
+	.wg-title{
+		background-image: url('../images/divider4.png');
+	}
+}

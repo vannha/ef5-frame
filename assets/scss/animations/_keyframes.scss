@@ -1,0 +1,114 @@
+@include keyframes(ef5-waves) {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@include keyframes(ef5-waves2) {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@include keyframes(buttonRing) {
+  0% {
+    @include transform(scale3d(0.5, 0.5, 0.5));
+    @include opacity(0.6); 
+  }
+
+  85% {
+    opacity: 0; }
+
+  100% {
+    @include transform(scale3d(1, 1, 1));
+    @include opacity(0);
+    }
+}
+
+@include keyframes(markerWave) {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0.8; }
+
+  20% {
+    opacity: 0.8; }
+
+  100% {
+    -webkit-transform: scale(5.5);
+    transform: scale(5.5);
+    opacity: 0; } 
+}
+
+@include keyframes(sonarWarning) {
+  0% {
+    box-shadow: 0 0 0 0 $accent_color;
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba($accent_color, 0);
+  }
+}
+
+@include keyframes(sonarWarning2) {
+  0% {
+    box-shadow: 0 0 0 0 $accent_color;
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba($accent_color, 0);
+  }
+}
+@include keyframes(sonarAccent) {
+  0% {
+    box-shadow: 0 0 0 0 $accent_color;
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba($accent_color, 0);
+  }
+}
+
+@include keyframes(sonarDanger) {
+  0% {
+    box-shadow: 0 0 0 0 #FB5252;
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(#FB5252, 0);
+  }
+}
+
+@include keyframes(sonarSuccess) {
+  0% {
+    box-shadow: 0 0 0 0 #69E781;
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(#69E781, 0);
+  }
+}
+@include keyframes(sonarDoubleWave) {
+  0% {
+    box-shadow: 0 0 0 0 #FFB229, 0 0 0 0 #FFB229;
+  }
+  100% {
+    box-shadow: 0 0 0 6px rgba(#FFB229, 0.16), 0 0 0 13px rgba(#FFB229, 0.06); 
+  }
+}
+@include keyframes(iconWarning) {
+  0% {
+    @include transform(scale(1));
+  }
+  100% {
+    @include transform(scale(1.1));
+  }
+}

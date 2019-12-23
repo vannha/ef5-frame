@@ -1,0 +1,30 @@
+.ef5-fancybox-1{
+	text-align: center;
+	.ef5-fancybox-icon{
+		margin-bottom: 23px;
+	}
+	.ef5-fancybox-desc{
+		margin-top: 16px;
+	}
+}
+.ef5-fancybox-4{
+	text-align: center;
+	.ef5-fancybox-icon{
+		width: 163px;
+	    height: 163px;
+	    line-height: 153px;
+	    text-align: center;
+	    border: 5px solid $primary_color;
+	    @include border-radius(50%);
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-bottom: 40px;
+	    .flaticon-candlestick{
+	    	transform: translateX(8px);
+    		display: inline-block;
+	    }
+	}
+	.ef5-fancybox-desc{
+		padding-top: 13px;
+	}
+}

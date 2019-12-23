@@ -1,0 +1,35 @@
+.ef5-footer-default{
+	background: $primary_color;
+	padding: 50px 0;
+	color: $white;
+	a{
+		color: $accent_color;
+		&:hover{
+			color: $white;
+		}
+	}
+}
+
+.ef5-footer-area {
+	.ef5-el-title{
+		color: $white;
+		font-size: 22px;
+		margin-bottom: 40px;
+		font-weight: 500;
+	}
+	.ef5-wp-menu{
+		.ef5-el-title{
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.footer-default{
+	color: #eee8d9;
+	a{
+		color: #eee8d9;
+		&:hover{
+			color: $accent_color;
+		}
+	}
+}

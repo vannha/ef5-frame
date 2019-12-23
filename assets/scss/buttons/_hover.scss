@@ -1,0 +1,62 @@
+.ef5-btn{
+	position: relative;
+	overflow: hidden;
+	> span{
+		position: relative;
+		z-index: 2;
+	}
+	&.hover-dir{
+		&:before{
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 0;
+			-webkit-animation-duration: .3s;
+		    -webkit-animation-fill-mode: both;
+		    animation-duration: .3s;
+		    animation-fill-mode: both;
+		    display: none;
+		}
+		&[class*='in-']:before,
+		&[class*='out-']:before{
+			display: block;
+		}
+		// In
+		&.in-bottom:before{
+			-webkit-animation-name: slideInUp;
+    		animation-name: slideInUp;
+		}
+		&.in-top:before{
+			-webkit-animation-name: slideInDown;
+    		animation-name: slideInDown;
+		}
+		&.in-right:before{
+			-webkit-animation-name: slideInRight;
+    		animation-name: slideInRight;
+		}
+		&.in-left:before{
+			-webkit-animation-name: slideInLeft;
+    		animation-name: slideInLeft;
+		}
+		// Out
+		&.out-bottom:before{
+			-webkit-animation-name: slideOutDown;
+    		animation-name: slideOutDown;
+		}
+		&.out-top:before{
+			-webkit-animation-name: slideOutUp;
+    		animation-name: slideOutUp;
+		}
+		&.out-right:before{
+			-webkit-animation-name: slideOutRight;
+    		animation-name: slideOutRight;
+		}
+		&.out-left:before{
+			-webkit-animation-name: slideOutLeft;
+    		animation-name: slideOutLeft;
+		}
+	}
+}

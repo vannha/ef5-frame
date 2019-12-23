@@ -1,0 +1,7 @@
+.ef5-grid-wrap{
+	margin: -15px;
+	@include d-flex();
+	.ef5-grid-item-wrap {
+		padding: 15px;
+	}
+}

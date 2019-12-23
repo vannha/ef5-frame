@@ -1,0 +1,150 @@
+/* Loop Products */
+.products{
+	padding: 0;
+	margin: $grid-gutter-width / -2;
+	list-style: none;
+	@include d-flex();
+	> .product{
+		padding: $grid-gutter-width / 2;
+		float: none;
+		margin: 0;
+		flex: 0 0 100%;
+		max-width: 100%;
+		position: relative;
+		background: $white;
+		@include transition();
+	}
+	/* Columns */
+	@media (min-width: $screen-md-min){
+		&.columns-2,
+		&.columns-4,
+		&.columns-3,
+		&.columns-5,
+		&.columns-6{
+			> .product{
+				flex: 0 0 50%;
+				max-width: 50%;
+			}
+		}
+	}
+	@media (min-width: $screen-lg-min){
+		&.columns-3{
+			> .product{
+				flex: 0 0 33.3333333333%;
+    			max-width: 33.3333333333%;
+			}
+		}
+		&.columns-4{
+			> .product{
+				flex: 0 0 25%;
+				max-width: 25%;
+			}
+		}
+		&.columns-5{
+			> .product{
+				flex: 0 0 20%;
+				max-width: 20%;
+			}
+		}
+		&.columns-6{
+			> .product{
+				flex: 0 0 16.6666667%;
+				max-width: 16.6666667%;
+			}
+		}
+	}
+
+	+ .ef5-loop-pagination .nav-links{
+		justify-content: center;
+	}
+}
+
+.ef5-loop-products{
+	padding: 10px;
+}
+.ef5-loop-products-inner{
+	border: 1px solid #ABABAB;
+	padding: 0 5px 5px;
+}
+.ef5-wc-loop-images{
+	min-height:200px;
+	padding:10px;
+	@include d-flex();
+	align-items: center;
+	justify-content: center;
+}
+
+.ef5-wc-loop-img{
+	position: relative;
+	overflow: hidden;
+}
+.ef5-loop-product-title{
+	padding: 4px 0 11px;
+}
+.ef5-loop-product-add-to-cart{
+	//margin: 61.5px -2.5px -2.5px; // main style
+	margin: 15px -2.5px -2.5px; // for check
+	@include d-flex();
+	justify-content: center;
+	> * {
+		margin: 2.5px;
+	}
+	.woosmart-icon{
+		flex: 0 0 auto;
+		a{
+			width: 36px;
+			height: 36px;
+			line-height: 36px;
+			display: block;
+			text-align: center;
+			color: $primary_color;
+			background: $accent_color;
+			&:hover{
+				background: $primary_color;
+				color: $white;
+			}
+		}
+	}
+	.add_to_cart_button,
+	.added_to_cart,
+	.product_type_grouped,
+	.product_type_external{
+		//flex-basis: 0;
+		flex: 0 0 auto;
+	    flex-grow: 1;
+	    max-width: 100%;
+	    padding: 0 10px;
+	    line-height: 36px;
+		text-align: center;
+		color: $primary_color;		
+		text-transform: uppercase;
+		font-size: 12px;
+		font-weight: 700;
+		background: $accent_color;
+		&:hover{
+			background: $primary_color;
+			color: $white;
+		}
+	}
+}
+.add_to_cart_button{
+	&.loading{
+		@include opacity(0.7);
+		&:before{
+			display: inline-block;
+			content: "\f021" !important;
+			font-family: $FontAwesome;
+			margin-right: 10px;
+			@include animation('a 2s infinite linear');
+			[dir="rtl"] &{
+				margin-right: 0;
+				margin-left: 10px;
+			}
+		}
+	}
+	+ .added_to_cart:before{
+		font-family: $FontAwesome;
+		content: "\f07a\00a0\00a0";
+
+	}
+}

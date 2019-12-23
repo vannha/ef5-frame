@@ -1,0 +1,56 @@
+.flex-direction-nav{
+	list-style: none;
+	padding: 0;
+	a{
+		z-index: 1;
+		position: absolute;
+		top: 50%;
+		@include transform(translateY(-50%));
+		width: 30px;
+		height: 30px;
+		display: block;
+		@include border-radius(50%);
+		line-height: 30px;
+		font-size: 13px;
+		text-align: center;
+		background: $primary_color;
+		color: $accent_color;
+		@include transition();
+		&.flex-next{
+			right: 15px;
+		}
+		&.flex-prev{
+			left: 15px;
+		}
+		&.flex-disabled{
+			display: none;
+		}
+		&:hover{
+			background: $accent_color;
+			color: $primary_color;
+		}
+
+		@media (min-width: $screen-lg-min){
+			visibility: hidden;
+			@include opacity(0);
+		}
+	}
+	.flex-disabled{
+		visibility: hidden;
+		z-index: -1;
+		@include opacity(0);
+	}
+	.flex-prev-icon:before{
+		content: "\f11a";
+	}
+	.flex-next-icon:before{
+		content: "\f11b";
+	}
+}
+.wc-gallery-sync:hover,
+.woocommerce-product-gallery:hover {
+	.flex-direction-nav a{
+		visibility: visible;
+		@include opacity(1);
+	}
+}

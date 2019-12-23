@@ -1,0 +1,115 @@
+/* WP Search */
+.search-form label{
+	display: block;
+}
+.search-form,
+.woocommerce-product-search{
+	position: relative;
+	input[name="s"],
+	[type="submit"]{
+		@include border-radius(23px);
+	}
+	input[name="s"]{
+		padding: 11px 118px 11px 20px;
+		font-size: 14px;
+		[dir="rtl"] &{
+			padding-left: 118px;
+			padding-right: 20px;
+		}
+	}
+	input:-webkit-autofill + .search-btn{
+		right: 0;
+		[dir="rtl"] &{
+			right: auto;
+			left: 0;
+		}
+	}
+	[type="submit"]{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 108px;
+		line-height: 36px;
+		text-align: center;
+		border: none;
+		padding: 0;
+		min-width: inherit;
+		background-color: $accent_color;
+		color: $white;
+		font-size: 13px;
+		font-weight: 500;
+		cursor: pointer;
+		z-index: 1;
+		[dir="rtl"] &{
+			right: auto;
+			left: 0;
+		}
+		&:hover,
+		&:focus{
+			outline: none;
+			background: $primary_color;
+			color: $white;
+		}
+	}
+}
+/* Search Form In Popup */
+.mfp-contentx{
+	.search-form,
+	.woocommerce-product-search{
+		color: $white;
+		font-size: 20px;
+		input{
+			background: transparent;
+			border-color: $white;
+			height: auto;
+			box-shadow: none;
+			[dir="rtl"] &{
+				padding-right: 0;
+				padding-left: 60px;
+			}
+			&:hover,
+			&:active,
+			&:focus{
+				border-color: $accent_color;
+			}
+			&::-webkit-input-placeholder {
+			    color: #fff;
+			}
+
+			&:-moz-placeholder { /* Firefox 18- */
+			    color: #fff;
+			}
+
+			&::-moz-placeholder {  /* Firefox 19+ */
+			    color: #fff;
+			}
+
+			&:-ms-input-placeholder {
+			    color: #fff;
+			}
+		}
+		[type="submit"],
+		&:after {
+			background: $accent_color;
+			&:hover{
+				color: $accent_color;
+			}
+		}
+		@media (min-width: $screen-md-min){
+			input{
+				width: 570px;
+				font-size: 35px;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+			[type="submit"],
+			&:after{
+				top: 0px;
+				span{
+					font-size: 28px;
+				}
+			}
+		}
+	}
+}

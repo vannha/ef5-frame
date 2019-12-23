@@ -1,0 +1,49 @@
+/* Mega Menu */
+@media (min-width: $desktop-screen){
+    .ef5-navigation-wrap,
+    #ef5-navigation{
+        position: static; 
+    }
+}
+.container-megamenu{
+    padding-left: 0;
+    padding-right: 0;
+}
+.megamenu{
+    overflow: hidden;
+    position: static;
+    &:hover{
+        overflow: visible;
+    }
+    > a{
+        position: relative;
+    }
+    > .ef5-dropdown{
+        right: 0;
+    }
+    h1, h2, h3, h4, h5, h6,
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+    .h1, .h2, .h3, .h4, .h5, .h6,
+    .h1 a, .h2 a, .h3 a,.h4 a, .h5 a, .h6 a,
+    thead,
+    th{
+    	color: $white;
+    	&:hover{
+    		color: $white;
+    	}
+    }
+    /**
+     * Widgets
+    */
+    .widgettitle{
+        text-transform: uppercase;
+        font-size: $lv1_font_size !important;
+        font-weight: $lv1_font_weight;
+        color: $lv2_color_hover;
+    }
+    /* VC */
+    .wpb_content_element{
+        margin-bottom: 0;
+    }
+}
+

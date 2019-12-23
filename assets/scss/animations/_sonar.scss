@@ -1,0 +1,32 @@
+// Warning
+.sonarWarning{
+    @include animation(sonarWarning 1.8s linear infinite);
+}
+.sonarHoverWarning:hover{
+    @include animation(sonarWarning 1.8s linear infinite);
+}
+.sonarWarning2{
+	position: relative;
+	&:after{
+		content: '';
+		@include border-radius(50%);
+		@include center-align();
+    	@include animation(sonarWarning2 1.8s linear infinite);
+    }
+}
+
+// Danger
+.sonarDanger{
+    @include animation(sonarDanger 1.8s linear infinite);
+}
+// Success
+.sonarSuccess{
+    @include animation(sonarSuccess 1.8s linear infinite);
+}
+// Double Wave
+.sonarDoubleWaveHover:hover{
+    box-shadow: 0 0 0 6px rgba(#FFB229, 0.16), 0 0 0 13px rgba(#FFB229, 0.06) !important;
+}
+.sonarDoubleWaveLoop{
+    @include animation(sonarDoubleWave 1.8s linear infinite);
+}

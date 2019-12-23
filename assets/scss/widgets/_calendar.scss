@@ -1,0 +1,25 @@
+/* Calendar */
+.widget_calendar{
+	.calendar_wrap{
+		text-align: center;
+	}
+	table{
+		width: 100%;
+		max-width: 400px;
+		margin: 0 auto;
+	}
+	#today{
+		background: $accent_color;
+		color: $white;
+		a{
+			display: block;
+			color: $white;
+			&:hover{
+				color: $white;
+			}
+		}
+	}
+	th{
+		text-align: center;
+	}
+}

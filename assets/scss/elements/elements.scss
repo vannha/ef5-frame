@@ -1,0 +1,24 @@
+.ef5-el-title{
+	.title-icon{
+		padding-right: 10px;
+		[dir="rtl"] &{
+			padding-right: 0;
+			padding-left: 10px;
+		}
+	}
+}
+@import 'client';
+@import 'countdown';
+@import 'counter';
+@import 'fancy_box';
+@import 'heading';
+@import 'list';
+@import 'newsletter';
+@import 'post_masonry';
+@import 'posts';
+@import 'quick_contact';
+@import 'social';
+@import 'team';
+@import 'testimonial';
+@import 'video';
+@import 'wp_menu';

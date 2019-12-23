@@ -1,0 +1,20 @@
+.ef5-woo-filters{
+	select[name="orderby"]{
+		border: none;
+		padding: 0;
+		option{
+			padding: 6px 0;
+			cursor: pointer;
+			&:hover,
+			&[selected="selected"],
+			&:checked{
+				background: none !important;
+				color: $accent_color;
+			}
+		}
+	}
+	select:-internal-list-box option:checked {
+	    background: none !important;
+	    color: $accent_color !important;
+	}
+}

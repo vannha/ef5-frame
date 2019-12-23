@@ -1,0 +1,98 @@
+.tribe-events-single-event-description{
+	p{
+		margin-bottom: 30px!important;
+		&:last-child{
+			margin-bottom: 0!important;
+		}
+	}
+	h4{
+		margin-bottom: 10px;
+	}
+}
+.tribe-events-single{
+	.ef5-tribe-event-content{
+		margin-bottom: 50px;
+	}
+	.ef5-tribe-event-start-date{
+		background: var(--accent-color);
+		font-size: 18px;
+		font-weight: 500;
+		color: var(--primary-color);
+		text-align: center;
+		padding: 5px;
+		min-width: 63px;
+		border-radius: 5px;
+		text-transform: uppercase;
+		line-height: 1;
+		span{
+			display: block;
+			&.ef5-tribe-date{
+				color: white;
+				font-size: 36px;
+				font-weight: 600;
+				padding-bottom: 2px;
+			}
+			&.ef5-tribe-month{
+				padding-bottom: 5px;
+			}
+			&.ef5-tribe-year{
+				padding-bottom: 2px;
+			}
+		}
+	}
+	.ef5-shares{
+		font-size: 12px;
+		text-transform: uppercase;
+		color: #777;
+		border-top: 1px solid #dedede;
+		padding-top: 17px;
+		a{
+			color: #777;
+			&:hover{
+				color: var(--accent-color);
+			}
+		}
+	}
+	.ef5-event-galleries{
+		margin-top: 45px;
+	}
+	.ef5-single-tribe-events-nav-pagination{
+		margin-top: 50px;
+		padding-top: 45px;
+		border-top: 1px solid #dedede;
+	}
+}
+.ef5-tribe-events-meta-group-organizer{
+	padding-top: 20px;
+	margin-top: 30px;
+	border-top: 1px solid #d7d7d7;
+	> div {
+		padding-bottom: 20px;
+		&:last-child{
+			padding-bottom: 0;
+		}
+	}
+}
+.ef5-tribe-single-book-form{
+	border-top: 1px solid #d7d7d7;
+	.field{
+		margin-bottom: 15px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	.input{
+		padding: 12px 23px;
+		border-radius: 23px;
+		max-height: 80px;
+	}
+	::-webkit-input-placeholder{
+		font-size: 15px;
+		color: #777;
+	}
+}
+.ef5-tribe-single-sponsor-list{
+	border-top: 1px solid #d7d7d7;
+	padding-top: 37px;
+}
+

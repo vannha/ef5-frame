@@ -1,0 +1,48 @@
+@import 'variations';
+@import 'normalize';
+@import 'copy';
+@import 'badge';
+@import 'list';
+@import 'meta';
+@import 'table';
+@import 'tags';
+@import 'heading';
+@import 'form';
+@import 'classes';
+@import 'text_size';
+
+
+*,
+*:before,
+*:after {
+    outline: none;
+    box-sizing: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+body{
+    position: relative;
+    color           : $BodyColor;
+    font-family     : $BodyFont;
+    font-size       : $BodyFontSize;
+    line-height     : $BodyLineHeight;
+    background-color: $BodyBG;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    word-break: break-word;
+    @include font-smoothing();
+}
+::-moz-selection {
+    background-color: $accent_color;
+    color: $white;
+}
+
+::selection {
+    background-color: $accent_color;
+    color: $white;
+}

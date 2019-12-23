@@ -1,0 +1,41 @@
+.ef5-i-plus{
+	position: relative;
+	width: 20px;
+	height: 20px;
+	display: block;
+	&:before,
+	&:after{
+		content: '';
+		display: block;
+		background: $primary_color;
+		position: absolute;
+	}
+	&:before{
+		width: 100%;
+		height: 2px;
+		top: 50%;
+		margin-top: -1px;
+	}
+	&:after{
+		width: 2px;
+		height: 100%;
+		left: 50%;
+		margin-left: -1px;
+	}
+}
+
+.ef5-bar{
+	width: 15px;
+	display: block;
+	position: relative;
+	border-top: 2px solid $accent_color;
+	&:before,
+	&:after{
+		content: '';
+		width: 100%;
+		height: 2px;
+		display: block;
+		margin-top: 2px;
+		background: $accent_color;
+	}
+}

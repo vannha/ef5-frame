@@ -1,0 +1,8 @@
+.site-bordered{
+	.ef5-page{
+		background: $white;
+	}
+	@media (max-width: $screen-md-max){
+		padding: 0 !important;
+	}
+}

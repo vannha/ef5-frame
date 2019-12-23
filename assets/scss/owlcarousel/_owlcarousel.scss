@@ -1,0 +1,79 @@
+.ef5-owl-nav-style-overcome-1{
+	.ef5-owl-nav-button{
+		background: transparent;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		color: #c5c5c5;
+		font-size: 40px;
+		&:hover{
+			background: transparent;
+			color: $accent_color;
+		}
+	}
+	.ef5-owl-prev .ef5-owl-nav-icon:before{
+		content: "\f103";
+		font-family: $FontOverCome;
+	}
+	.ef5-owl-next .ef5-owl-nav-icon:before{
+		content: "\f104";
+		font-family: $FontOverCome;
+	}
+	&.ef5-owl-nav-pos-vertical.outside{
+		@media (min-width: 1366px){
+			left: -103px;
+			right: -103px;
+		}
+		@media (min-width: 1280px) and (max-width: 1360px){
+			left: -65px;
+			right: -65px;
+		}
+		@media (min-width: 1200px) and (max-width: 1279px){
+			left: 0;
+			right: 0;
+		}
+	}
+}
+
+.ef5-owl-dots.ef5-owl-dots-circle{
+	padding-top: 38px;
+	.ef5-owl-dot{
+		background: transparent;
+		&:hover,
+		&.active{
+			background: transparent;
+		}
+		span{
+			@include border-radius(50%);
+		}
+	}
+	&.size-11{
+		margin: -6px;
+		.ef5-owl-dot{
+			width: 23px;
+			height: 23px;
+			padding: 6px;
+			margin: 0;
+			span{
+				width: 11px;
+				height: 11px;
+				display: block;
+			}
+		}
+	}
+	&.ef5-owl-dots-color-white-blue-5580ff{
+		.ef5-owl-dot{
+			span{
+				background-color: $white;
+			}
+			&:hover,
+			&.active{
+				span{
+					background-color: #5580ff;
+				}
+			}
+		}
+	}
+}
+@import 'nav';
+@import 'dots';

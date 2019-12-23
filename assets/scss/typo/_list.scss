@@ -1,0 +1,225 @@
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+	list-style-position: inside;
+	ul,
+	ol{
+		padding-left: ( $grid-gutter-width / 2);
+		[dir="rtl"] &{
+			padding-left: 0;
+			padding-right: ($grid-gutter-width / 2);
+		}
+	}
+}
+
+li > a:empty:before{
+	content: 'Empty menu title';
+}
+
+.ef5-unstyled{
+	list-style: none;
+}
+
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 $grid-gutter-width $grid-gutter-width;
+}
+
+/**
+ * Nested sub-menu padding: 10 levels deep 
+ * add dashed before link text
+*/
+@mixin nestedSubMenuPadding() {
+	ul {
+		counter-reset: submenu;
+	}
+	ul > li > a::before {
+		font-family: $BodyFont;
+		font-weight: normal;
+		content: "\2013\00a0" counters(submenu, "\2013\00a0", none);
+		counter-increment: submenu
+	}
+}
+
+.ef5-list{
+	list-style: none inside;
+	&.unordered{
+		margin-left: 30px;
+		[dir="rtl"] &{
+			margin-left: 0;
+			margin-right: 30px;
+		}
+		li{
+			&:before{
+				content: '';
+				display: inline-block;
+				width: 5px;
+				height: 5px;
+				@include border-radius(50%);
+				background-color: $accent_color;
+				margin-right: 10px;
+    			transform: translate(0, -3px);
+    			[dir="rtl"] &{
+    				margin: 0 0 0 10px;
+    			}
+			}
+		}
+	}
+	&.ordered {
+	  	counter-reset: ef5-list-counter;
+		li{
+			padding: 7px 0;
+			position: relative;
+			counter-increment: ef5-list-counter;
+			display: flex;
+			&:before{
+				flex: 0 0 auto;
+				content: counter(ef5-list-counter) " ";
+				width: 28px;
+			    height: 28px;
+			    font-size: 14px;
+			    line-height: 26px;
+			    text-align: center;
+			    color: #fff;
+			    border-radius: 50%;
+			    background-color: $accent_color;
+			    border: 1px solid transparent;
+			    margin-right: 10px;
+			    [dir="rtl"] &{
+			    	margin-right: 0;
+			    	margin-left: 10px;
+			    }
+			}
+		}
+		&.list-circle li:before{
+			@include border-radius(50%);
+		}
+		
+		@each $name, $color in $ef5-colors{
+			&.#{$name}{
+				li{
+					&:before{
+						color: $white;
+						background: $color;
+					}
+				}
+			}
+		}
+		&.outline{
+			@each $name, $color in $ef5-colors{
+				&.#{$name}{
+					li{
+						&:before{
+							color: $color;
+							border-color: $color;
+							background: transparent;
+						}
+					}
+				}
+			}
+		}
+		&.grey,
+		&.grey-dark{
+			li:before{
+				color: $primary_color !important;
+			}
+		}
+	}
+	&.hamburger{
+		color: #EEEEEE;
+		li{
+			padding: 5px 0;
+			&:first-child{
+				padding-top: 0;
+			}
+			&:last-child{
+				padding-bottom: 0;
+			}
+			&:before{
+				content: "\f113\00a0\00a0";
+				color: $accent_color;
+				font-size: 12px;
+			}
+			&:before{
+				[dir="rtl"] &{
+					//display: none;
+				}
+			}
+			&:after{
+				display: none;
+				[dir="rtl"] &{
+					display: inline-block;
+				}
+			}
+		}
+	}
+	&.hamburger2{
+		color: $primary_color;
+	}
+	&.check {
+		color: $primary_color;
+		li{
+			padding: 5px 0;
+			&:first-child{
+				padding-top: 0;
+			}
+			&:last-child{
+				padding-bottom: 0;
+			}
+			&:before{
+				content: '\f00c\00a0\00a0\00a0';
+				font-family: $FontAwesome;
+				color: $accent_color;
+				font-weight: 400;
+			}
+		}
+		&.accent{
+			li:before{
+				color: $accent_color;
+			}
+		}
+	}
+	&.triangle {
+		color: $primary_color;
+		font-weight: 500;
+		li{
+			padding: 4px 0;
+			&:first-child{
+				padding-top: 0;
+			}
+			&:last-child{
+				padding-bottom: 0;
+			}
+			&:before{
+				content: '';
+				display: inline-block;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 5px 0 5px 7px;
+				border-color: transparent transparent transparent $primary_color;
+				margin-right: 12px;
+				[dir="rtl"] &{
+					margin-right: 0;
+					margin-left: 12px;
+					border-width: 5px 7px 5px 0;
+					border-color: transparent $primary_color transparent transparent;
+				}
+			}
+		}
+		&.accent{
+			li:before{
+				border-color: transparent transparent transparent $accent_color;
+				[dir="rtl"] &{
+					border-width: 5px 7px 5px 0;
+					border-color: transparent $accent_color transparent transparent;
+				}
+			}
+		}
+	}
+}

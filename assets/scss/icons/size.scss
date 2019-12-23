@@ -1,0 +1,26 @@
+/*
+ * Icon Size
+ * Structure 1.size 2.font-size
+*/
+$ef5-icon-sizes :(
+	20 10px,
+	30 12px,
+	36 12px,
+	40 13px,
+	50 15px,
+	60 16px,
+	70 18px,
+	80 20px,
+	90 25px,
+	100 30px
+);
+
+@each $size in $ef5-icon-sizes{
+	.ef5-icon.size-#{nth($size,1)},
+	.ef5-icons.size-#{nth($size,1)} .ef5-icon {
+		width: #{nth($size,1)}px;
+		height: #{nth($size,1)}px;
+		line-height: #{nth($size,1)}px;
+		font-size: nth($size, 2);
+	}
+}

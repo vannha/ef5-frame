@@ -1,0 +1,51 @@
+// Alignment
+@media (min-width: 30em){
+	.alignleft{
+		float: left;
+		margin-right: $grid-gutter-width !important;
+		[dir='rtl'] &{
+			float: right;
+			margin-right: 0 !important;
+			margin-left: $grid-gutter-width !important;
+		}
+	}
+	.alignright{
+		float: right;
+		margin-left: $grid-gutter-width !important;
+		[dir='rtl'] &{
+			float: left;
+			margin-left: 0 !important;
+			margin-right: $grid-gutter-width !important;
+		}
+	}
+}
+.aligncenter,
+.alignnone{
+	clear: both;
+    display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.alignleft,
+.alignright,
+.aligncenter,
+.alignnone{
+	margin-bottom: $grid-gutter-width;
+}
+.wp-caption, 
+.gallery-caption {
+    font-size: 80%;
+    font-style: italic;
+    max-width: 100%;
+}
+.wp-caption-text{
+	text-align: center;
+    background: #eee;
+    padding: 10px;
+}
+.bypostauthor {
+	visibility: visible;
+}
+.required{
+	color: red;
+}

@@ -1,0 +1,37 @@
+// Default
+$btn-acc-color         : $white;
+$btn-acc-bg-color      : $accent_color;
+$btn-acc-border-color  : $accent_color;
+// Hover
+$btn-acc-color-hover   : $accent_color;
+$btn-acc-bg-color-hover: $primary_color;
+$btn-acc-border-color-hover  : $primary_color;
+
+.ef5-btn.accent {
+	&.fill{
+	    color: $btn-acc-color;
+	    background-color: $btn-acc-bg-color;
+	    &:hover{
+	    	background-color: $btn-acc-bg-color-hover;
+	    	color: $btn-acc-color-hover;
+	    }
+	}
+	&.outline{
+		color: $btn-acc-color-hover;
+		border-color: $btn-acc-border-color;
+		background: transparent;
+		&:hover{
+	    	background-color: $btn-acc-bg-color-hover;
+	    	border-color: $btn-acc-border-color-hover;
+	    	color: $btn-acc-color-hover;
+	    }
+	}
+	&.hover-dir{
+    	&:hover{
+	    	background-color: transparent;
+	    }
+    	&:before{
+        	background-color: $btn-acc-bg-color-hover;
+        }
+    }
+}

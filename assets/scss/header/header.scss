@@ -1,0 +1,26 @@
+@import 'header_layout1';
+@import 'header_layout2';
+@import 'header_layout3';
+//@import 'header_layout4';
+//@import 'header_layout5';
+//@import 'header_layout6';
+//@import 'header_layout7';
+//@import 'header_layout8';
+@import 'header_ontop';
+@import 'header_sticky';
+@import 'icons';
+@import 'logo';
+@import 'sidenav';
+
+#ef5-header-wrap{
+	position: relative;
+}
+.ef5-header{
+	@include transition(all 0.5s);
+}
+.main-header{
+	position: relative;
+}
+.ef5-header{
+	background-color: var(--header-bg-color);
+}

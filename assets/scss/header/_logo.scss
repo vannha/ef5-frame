@@ -1,0 +1,27 @@
+.ef5-logo{
+	padding: $grid-gutter-width / 2;
+	@media (max-width: $screen-sm-max){
+		max-width: 140px;
+	}
+	img{
+		vertical-align: middle;
+	}
+}
+.header-default{
+	.ontop-logo,
+	.sticky-logo{
+		display: none;
+	}
+}
+.header-ontop{
+	.main-logo,
+	.sticky-logo{
+		display: none;
+	}
+}
+.header-sticky{
+	.main-logo,
+	.ontop-logo{
+		display: none;
+	}
+}

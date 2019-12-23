@@ -1,0 +1,164 @@
+.wpb_el_type_img{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.img-select ul{
+	display:flex;
+	flex-wrap:wrap;
+}
+.img-select ul li{
+	flex:0 0 calc(33.3333333333% - 30px);
+	max-width:calc(33.3333333333% - 30px);
+	padding:15px;
+	position:relative;
+	opacity: 0.5;
+}
+.img-select ul li:before{
+	position:absolute;
+	content:'';
+	display:block;top:15px;
+	right:15px;
+	bottom:15px;
+	left:15px;
+	border-radius:6px;
+	-webkit-border-radius:6px;
+	-ms-border-radius:6px;
+	box-shadow:0 0 6px rgba(0,0,0,.2);
+	-webkit-box-shadow:0 0 6px rgba(0,0,0,.2);
+	-ms-box-shadow:0 0 6px rgba(0,0,0,.2);
+	transition:all .3s linear 0s;
+	-webkit-transition:all .3s linear 0s;
+	-ms-transition:all .3s linear 0s;
+	cursor:pointer
+}
+.img-select li.active,
+.img-select li:hover{opacity:1}
+.img-select li.active:before,.img-select li:hover:before{
+	box-shadow:0 0 16px rgba(4,115,170,.8);
+	-webkit-box-shadow:0 0 16px rgba(4,115,170,.8);
+	-ms-box-shadow:0 0 16px rgba(4,115,170,.8);
+}
+.img-select img{
+	width:100%;
+	cursor:pointer;
+}
+
+.ef5-select-img-1col ul li{
+	flex: 0 0 calc(100% - 30px);
+    width: calc(10% - 30px);
+    max-width: calc(100% - 30px);
+}
+.ef5-select-img-2col ul li{
+	flex: 0 0 calc(50% - 30px);
+    width: calc(50% - 30px);
+    max-width: calc(50% - 30px);
+}
+
+.vc_autocomplete-group{
+	font-size: 120%;
+	cursor: not-allowed !important;
+}
+.vc_element-icon{
+	&.ef5-icon-quote{
+		background-image: url(quote.png);
+	}
+	&.ef5-icon-newsletter{
+		background-image: url(newsletter.png);
+	}
+}
+.ef5-vc-list-icon .img-select ul li{
+	flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+	img{
+		margin: 10px;
+		display: block;
+		width: auto;
+		max-width: 100%;
+	}
+}
+
+
+// VC Admin Columns
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+$grid-x-columns : (
+	'1\/5' : 20%,
+	'1\/7' : 14.2857142857%,
+	'1\/8' : 12.5%,
+	'1\/9' : 11.1111111111%,
+	'1\/11' : 9.09090909091%,
+	'2\/5' : 40%,
+	'3\/5' : 60%,
+	'4\/5' : 80%,
+
+	'1\/10' : 10%,
+	'3\/10' : 30%,
+	'5\/10' : 50%,
+	'7\/10' : 70%,
+	'9\/10' : 90%,
+	
+	'9\/10' : 90%,
+
+	'4\/96453901'  : 4.96453901%,
+	'7\/09219858'  : 7.09219858%,
+	'25\/5319149' : 25.5319149%,
+	'34\/893617'  : 34.893617%,
+	
+	'35\/6521739' : 35.6521739%,
+	'39\/0625'	  : 39.0625%,
+	'47\/0198675' : 47.0198675%,
+	'52\/9801325' : 52.9801325%,
+	'65\/4166667' : 65.4166667%,
+);
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+	@include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+		@each $column, $column-value in $grid-x-columns{
+			.vc_col#{$infix}-#{$column}{
+				flex: 0 0 $column-value;
+				max-width: $column-value;
+			}
+		}
+		// Offset
+		@each $column, $column-value in $grid-x-columns{
+			.vc_col#{$infix}-offset-#{$column}{
+				margin-left: $column-value;
+			}
+		}
+		// RTL Offset 
+		@each $column, $column-value in $grid-x-columns{
+			.rtl .vc_col#{$infix}-offset-#{$column}{
+				margin-right: $column-value;
+				margin-left: 0;
+			}
+		}
+	}
+}

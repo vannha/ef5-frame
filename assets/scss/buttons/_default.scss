@@ -1,0 +1,40 @@
+.button,
+form button,
+form [type="button"],
+form [type="reset"],
+form [type="submit"],
+.ef5-btn{
+    padding: $btn-inner-space;
+    font-size: $btn-font-size;
+    line-height: $btn-line-height;
+    font-style: $btn-font-style;
+    font-weight: $btn-font-weight;
+    text-transform: $btn-text-style;
+    letter-spacing: $btn-letter-spacing;
+    color: $btn-color;
+    background: $btn-bg-color;
+	display: inline-block;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: $btn-border;
+    text-align: center;
+    white-space: nowrap;
+    @include border-radius(18.5px);
+    &:hover{
+        color: $btn-color-hover;
+        background: $btn-bg-color-hover;
+    }
+
+    &.square {
+        @include border-radius(0);
+    }
+}
+.ef5-btn-wrap [class*="underline-"]{
+    padding-bottom: 5px;
+}

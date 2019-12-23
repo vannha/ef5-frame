@@ -1,0 +1,44 @@
+.ef5-list{
+	margin-bottom: $grid-gutter-width;
+}
+.sticky-post{
+	display: block;
+	margin-bottom: 10px;
+}
+.sticky-post-inner{
+	background: $accent_color;
+	color: $white;
+	padding: 5px 10px;
+	font-size: 50%;
+}
+
+// Archive list
+.ef5-archive{
+	background-color: #f9f9f9;
+	overflow: hidden;
+	@include border-radius(10px);
+}
+.ef5-loop-info{
+	padding: 24px 30px 30px;
+}
+.ef5-before-title{
+	margin-bottom: 20px;
+}
+.ef5-loop-header{
+	margin-bottom: 12px;
+}
+.ef5-excerpt,
+.ef5-loop-footer{
+	margin-bottom: 23px;
+}
+
+.view-all-wrap{
+	margin-top: 75px;
+}
+
+.posts-list{
+	margin: -12.5px 0;
+	.post-list-item{
+		padding: 12.5px 0;
+	}
+}

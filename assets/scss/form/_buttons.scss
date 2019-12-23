@@ -1,0 +1,24 @@
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	box-sizing: border-box;
+	outline: none;
+	text-decoration: none;
+	vertical-align: bottom;
+	&:hover,
+	&:active,
+	&:focus {
+		cursor: pointer;
+	}
+
+	&:visited {
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: none;
+		outline-offset: 0;
+	}
+}

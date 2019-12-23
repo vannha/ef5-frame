@@ -1,0 +1,6 @@
+.rounded{
+	@include border-radius(8px);
+	img{
+		@include border-radius(8px);
+	}
+}

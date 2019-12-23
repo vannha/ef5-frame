@@ -1,0 +1,9 @@
+.ef5-post-footer .ef5-tagged-in{
+	color: $accent_color;
+	a{
+		color: $accent_color;
+		&:hover{
+			color: $primary_color;
+		}
+	}
+}

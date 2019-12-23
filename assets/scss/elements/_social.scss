@@ -1,0 +1,27 @@
+.ef5-social{
+	margin: 0 -10px;
+	> *{
+		padding: 0 10px;
+	}
+	.title-icon {
+		padding-right: 10px;
+		[dir="rtl"] &{
+			padding-right: 0;
+			padding-left: 10px;
+		}
+	}
+	&.size-small{
+		margin: 0 -7.5px;
+		> *{
+			padding: 0 7.5px;
+		}
+	}
+}
+.ef5-social-2 {
+	a{
+		color: $primary_color;
+		&:hover{
+			color: $white;
+		}
+	}
+}

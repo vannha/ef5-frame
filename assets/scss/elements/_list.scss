@@ -1,0 +1,20 @@
+.ef5-list-1{
+	.ef5-el-title{
+		font-size: 20px;
+		line-height: 1.2;
+		font-weight: 600;
+		color: $HeadingColor;
+		padding-bottom: 13px;
+	}
+	.ef5-list-item{
+		padding: 3px 0;
+	}
+	.ef5-list-item-icon{
+		display: inline-block;
+		padding-right: 15px;
+		[dir="rtl"] &{
+			padding-right: 0;
+			padding-left: 15px;
+		}
+	}
+}

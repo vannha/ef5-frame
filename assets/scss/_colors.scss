@@ -1,0 +1,75 @@
+// Text Color
+@each $name, $color in $ef5-colors{
+	@if $color != null and $color != '' {
+		.ef5-text-#{$name}{
+			color: $color!important;
+		}
+		.ef5-text-hover-#{$name}:hover{
+			color: $color;
+		}
+		.ef5-link-#{$name} a,
+		.ef5-link-#{$name}-color a{
+			color: $color;
+			&:hover{
+				color: $accent-color;
+			}
+		}
+		.ef5-link-hover-#{$name} a:hover{
+			color: $color;
+		}
+		.ef5-bg-#{$name}{
+			background: $color;
+		}
+		.ef5-bg-hover-#{$name}:hover{
+			background: $color;
+		}
+		.ef5-border-#{$name}{
+			border-color: $color;
+		}
+		.ef5-border-hover-#{$name}:hover{
+			border-color: $color;
+		}
+	}
+}
+// Custom Colors
+$custom_colors:(
+	'secondary' : $secondary_color,
+	'thirdary' : $thirdary_color,
+	'fourth' : $fourth_color,
+);
+@each $name, $color in $custom_colors{
+	@if $color != null and $color != '' {
+		.ef5-text-#{$name}{
+			color: $color!important;
+		}
+		.ef5-text-hover-#{$name}:hover{
+			color: $color;
+		}
+		.ef5-link-#{$name} a,
+		.ef5-link-#{$name}-color a{
+			color: $color;
+			&:hover{
+				color: $accent-color;
+			}
+		}
+		.ef5-link-hover-#{$name} a:hover{
+			color: $color;
+		}
+		.ef5-bg-#{$name}{
+			background: $color;
+		}
+		.ef5-bg-hover-#{$name}:hover{
+			background: $color;
+		}
+		.ef5-border-#{$name}{
+			border-color: $color;
+		}
+		.ef5-border-hover-#{$name}:hover{
+			border-color: $color;
+		}
+	}
+}
+// svg color
+.ef5-svg path{
+	fill: var(--accent-color);
+}

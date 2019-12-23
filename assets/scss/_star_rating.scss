@@ -1,0 +1,121 @@
+/**
+ * Star ratings
+*/
+$wc_star_font: $FontAwesome;
+$wc_star_font_rated: $FontAwesome;
+$wc_star_color: $accent_color;
+$wc_star_rated_color: $accent_color;
+
+$wc_star : "\f005\f005\f005\f005\f005";
+$wc_star_rated : "\f005\f005\f005\f005\f005";
+
+.star-rating {
+	overflow: hidden;
+	position: relative;
+	height: 18px;
+	width: 72px;
+	line-height: 1;
+	clear: both;
+	font-weight: 400;
+	font-size: 12px;
+	-moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+	letter-spacing: 0.92px;
+	white-space: nowrap;
+	&::before {
+		content: $wc_star;
+		top: 0;
+		left: 0;
+		position: absolute;
+		font-family: $wc_star_font;
+		color: $wc_star_color;
+	}
+
+	span {
+		overflow: hidden;
+		top: 0;
+		left: 0;
+		position: absolute;
+		padding-top: 20px;
+	}
+
+	span::before {
+		content: $wc_star_rated;
+		font-family: $wc_star_font_rated;
+		position: absolute;
+		top: 0;
+		left: 0;
+		color: $wc_star_rated_color;
+		font-weight: 900;
+	}
+	.text-center &{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	+ .price{
+		margin-top: 15px;
+	}
+}
+
+/* Stars Rating */
+$wc_cmt_rate_icon: '\f005';
+$wc_cmt_rate_font: $FontAwesome;
+$wc_cmt_rated_icon: '\f005';
+$wc_cmt_rated_font: $FontAwesome;
+.stars {
+	margin: 0 -2.5px;
+	padding: 0;
+	> span a {
+		position: relative;
+		display: inline-flex;
+		text-decoration: none;
+		font-size: 0;
+		padding: 0 2.5px;
+
+		&::before {
+			display: block;
+			content: $wc_cmt_rate_icon;
+			font-family: $wc_cmt_rate_font;
+			font-size: $BodyFontSize;
+			color: $wc_star_color;
+		}
+
+		&:hover ~ a::before {
+			content: $wc_cmt_rate_icon;
+			font-family: $wc_cmt_rate_font;
+			color: $wc_star_color;
+			font-weight: 300;
+		}
+	}
+
+	>span:hover a::before {
+		color: $wc_star_rated_color;
+		font-weight: 900;
+	}
+
+	&.selected {
+		a:before{
+			color: $wc_star_rated_color;
+		}
+		a.active {
+			&::before {
+				content: $wc_cmt_rated_icon;
+				font-family: $wc_cmt_rated_font;
+				font-weight: 900;
+			}
+
+			~ a::before {
+				content: $wc_cmt_rate_icon;
+				font-family: $wc_cmt_rate_font;
+				color: $wc_star_color;
+				font-weight: 300;
+			}
+		}
+
+		a:not( .active )::before {
+			content: $wc_cmt_rated_icon;
+			font-family: $wc_cmt_rated_font;
+			font-weight: 900;
+		}
+	}
+}

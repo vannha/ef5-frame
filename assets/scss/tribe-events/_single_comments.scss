@@ -1,0 +1,65 @@
+.ef5-single-event-cmt{
+	.commentlist-wrap{
+		border: none;
+		padding: 0;
+		margin-top: 0;
+	}
+	.comment-count{
+		margin-top: 57px;
+    	margin-bottom: 44px;
+	}
+	.commentlist{
+		.comment{
+			border-top: none;
+		}
+		.comment-body{
+			background: #f5f5f5;
+			border-radius: 10px;
+			padding: 18px 20px 15px 20px;
+			margin-bottom: 15px;
+		}
+	}
+	// Respond
+	.comment-respond{
+		margin-top: 50px;
+		padding-top: 46px;
+		border-top: 1px solid #dedede;
+	}
+	.comment-reply-title{
+		font-size: 18px;
+		font-weight: 600;
+		margin-bottom: 22px;
+	}
+	.comment-notes{
+		font-size: 12px;
+		color: #373737;
+		margin-bottom: 15px;
+	}
+	.ef5-form-fields{
+		margin-left: -10px;
+		margin-right: -10px;
+		> div {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+	.comment-form-comment{
+		margin-bottom: 20px;
+	}
+	.comment-form .ef5-form-fields input, .comment-form textarea[name="comment"]{
+		border: 1px solid #c6c6c6;
+		border-radius: 23px;
+		padding: 10px 20px;
+		font-size: 15px;
+		max-height: 85px;
+	}
+	.form-submit{
+		text-align: center;
+	}
+	.gglcptch{
+		text-align: center;
+		.gglcptch_recaptcha{
+			display: inline-block;
+		}
+	}
+}

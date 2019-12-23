@@ -1,0 +1,30 @@
+#ef5-loading{
+  height: 100vh;
+  width: 100vw;
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  @include transition();
+}
+.spinner {
+  width: 70px;
+  height: 70px;
+  position: relative;
+}
+
+@import 'mixins';
+@import 'rotate-plane';
+@import 'double-bounce';
+@import 'wave';
+@import 'double-cube';
+@import 'scale-out';
+@import 'double-dots';
+@import 'three-circle-bounce';
+@import 'circle-loading';
+@import 'cube-grid';
+@import 'fading-circle';
+@import 'folding-cube';

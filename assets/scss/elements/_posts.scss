@@ -1,0 +1,102 @@
+.ef5-posts-1,
+.ef5-posts-1_2,
+.ef5-posts-1_3{
+	.ef5-post-item{
+		//@include box-shadow('0 0 1px #000');
+		border: $MainBorder;
+		margin-bottom: 29px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+		.post-image,
+		.overlay{
+			@include border-radius(10px 0 0 10px);
+			[dir="rtl"] &{
+				@include border-radius(0 10px 10px 0);
+			}
+		}
+		.ef5-featured{
+			margin: -1px 0 -1px -1px;
+			[dir="rtl"] &{
+				margin: -1px -1px -1px 0;
+			}
+		}
+		.ef5-loop-donate-info{
+			padding-top: 4px;
+		}
+	}
+}
+.ef5-posts-1_3{
+	.ef5-post-item{
+		background-color: #f7f7f8;
+		border-color: transparent;
+	}
+	.ef5-bg-overlay{
+		background-color: $fourth_color_07;
+	}
+
+	+ .view-all-wrap{
+		margin-top: 95px;
+	}
+}
+.ef5-posts-2,
+.ef5-posts-2-1{
+	.post-grid-item{
+		border: 1px solid #dcdcdc;
+		.post-image,
+		.overlay {
+			@include border-radius(10px 10px 0 0);
+			margin: -1px -1px 0 -1px;
+		}
+	}
+}
+
+.ef5-posts-7{
+	margin: -5px;
+	.ef5-grid-item-wrap {
+		padding: 5px;
+	}
+}
+
+
+.ef5-post-item-layout-8{
+	.ef5-featured{
+		margin-bottom: 40px;
+	}
+	.ef5-heading{
+		margin-bottom: 10px;
+	}
+	.ef5-excerpt{
+		margin-bottom: 13px;
+	}
+	.separator{
+		height: 1px;
+		background-color: #c2c2c2;
+		margin-bottom: 20px;
+	}
+	.sermon-icon{
+		padding-bottom: 20px;
+		.download{
+			font-size: 18px;
+		}
+	}
+	.sermon-meta .meta-title{
+		min-width: 80px;
+		display: inline-block;
+	}
+}
+
+.ef5-post-item-layout-10{
+	.ef5-readmore-wrap{
+		margin-bottom: -7px;
+	}
+}
+
+.ef5-posts-12{
+	margin-top: -12.5px;
+	margin-bottom: -12.5px;
+	.ef5-grid-item-wrap{
+		padding-top: 12.5px;
+		padding-bottom: 12.5px;
+	}
+}

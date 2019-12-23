@@ -1,0 +1,39 @@
+.tribe-events-day #tribe-events-day{
+	max-width: unset;
+	.tribe-events-day-time-slot-heading{
+		font-size: 18px;
+		font-weight: 600;
+		background: var(--accent-color);
+		border-radius: 10px;
+		padding: 12.5px;
+		margin: 40px 0 50px;
+	}
+	.tribe-events-day-time-slot .type-tribe_events{
+		margin: 0;
+		padding: 25px 0;
+		&:first-of-type{
+			padding-top: 0;
+		}
+		&:last-of-type{
+			padding-bottom: 0;
+		}
+	}
+	&.tribe-events-loop {
+		.tribe-events-event-image {
+			width: unset;
+			float: none;
+			margin: 0;
+		}
+		.ef5-tribe-events-info{
+			> .col-auto {
+				width: 100%;
+				flex: 0 0 100%;
+			}
+		}
+	}
+
+	+ #tribe-events-footer{
+		margin-top: 50px;
+		padding-top: 0;
+	}
+}

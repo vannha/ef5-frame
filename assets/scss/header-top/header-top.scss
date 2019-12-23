@@ -1,0 +1,22 @@
+#ef5-header-top {
+	position: relative;
+	z-index: 3;
+	> p.attachment{
+		display: none !important;
+		position: absolute;
+		z-index: -1;
+		width: 0;
+		height: 0;
+		visibility: hidden;
+		@include opacity(0);
+	}
+	.ef5-el-title{
+		font-size: 12px;
+		.title-icon{
+			font-size: 125%;
+		}
+	}
+	.ef5-social a{
+		font-size: 12px;
+	}
+}

@@ -1,0 +1,53 @@
+.ef5-counter-wraper{
+	> .row {
+		margin: -15px;
+		> .counter-item{
+			padding: 15px;
+		}
+	}
+	.counter-icon{
+		font-size: 90px;
+		line-height: 1;
+		display: inline-block;
+	    overflow: hidden;
+	    vertical-align: top;
+		color: $accent_color;
+	}
+}
+.ef5-counter-1{
+	.ef5-counter{
+		font-size: 54px;
+		line-height: 54px;
+		font-weight: 300;
+		display: inline-block;
+	}
+	.counter-title{
+		font-size: 13px;
+		color: #777;
+		line-height: 30px;
+	}
+	.prefix,
+	.suffix{
+		color: $accent_color;
+		font-size: 27px;
+		line-height: 1;
+		vertical-align: top;
+    	font-weight: 300;
+	}
+}
+.ef5-counter-2{
+	text-align: center;
+	.ef5-counter-wrap{
+		font-size: 60px;
+		line-height: 60px;
+		font-weight: 700;
+		color: $white;
+	}
+	.counter-title{
+		font-size: 22px;
+		color: $white;
+	}
+	.counter-desc{
+		color: $white;
+	}
+}

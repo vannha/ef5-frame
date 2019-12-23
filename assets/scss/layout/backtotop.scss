@@ -1,0 +1,51 @@
+.ef5-btt-btn{
+	position:fixed;
+	opacity:0;
+	z-index:99999999;	
+	bottom:30px;
+	right:30px;
+	@include opacity(0);
+	@include transition(all .5s);
+	[dir="rtl"] &{
+		right: auto;
+		left: 30px;
+	}
+	&.show{
+		@include opacity(1);
+	}
+}
+.ef5-btt-container{
+	width:40px;
+	height:40px
+}
+.ef5-btt-circle{
+	position:relative;
+	top:3px;
+	left:3px;
+	text-align:center;
+	width:34px;
+	height:34px;
+	line-height:34px;
+	background-color:$white;
+	color:$primary_color;
+	cursor:pointer;
+	margin:0;
+	padding:0;
+	@include transition(all .5s);
+	&:hover{
+		background-color:$accent_color;
+		color:$white;
+	}
+	[dir="rtl"] &{
+		right: 3px;
+		left: auto;
+	}
+}
+.ef5-btt-border{
+	position:relative;
+	text-align:center;
+	width:40px;
+	height:40px;
+	background-color:$accent_color;
+	background-image:linear-gradient(91deg,transparent 50%,$primary_color 50%), linear-gradient(90deg,$primary_color 50%,transparent 50%);
+}

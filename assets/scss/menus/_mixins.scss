@@ -1,0 +1,22 @@
+@mixin nav-separator($color : $lv1_color){
+    content: '';
+    display: block;
+    width: 2px;
+    height: 17px;
+    background: rgba($color, 0.25);
+}
+
+@mixin ef5-dropdown-has-child(){
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    > a{
+        @include d-flex-basic();
+    }
+    > .ef5-dropdown{
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+}

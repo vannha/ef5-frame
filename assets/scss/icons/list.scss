@@ -1,0 +1,23 @@
+/**
+ * Icon Sizes variation
+ * structure:  1.size - 2.font-size
+*/
+.ef5-icon{
+	text-align: center;
+}
+.ef5-icons{
+	margin: -5px;
+	visibility: visible;
+	@include d-flex();
+	&:empty{
+		display: none;
+	}
+	.ef5-icon{
+		margin: 5px;
+		padding: 0;
+		flex: 0 0 auto;
+		&:hover{
+			color: $accent_color;
+		}
+	}
+}

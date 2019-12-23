@@ -1,0 +1,18 @@
+button,
+input,
+select,
+textarea{
+	max-width: 100%;
+}
+form {
+	label{
+		color: $HeadingColor;
+		display: inline-block;
+	    max-width: 100%;
+	    margin-bottom: 5px;
+	    font-weight: 700;
+	}
+}
+input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+    border: none;
+}

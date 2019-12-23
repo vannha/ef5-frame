@@ -1,0 +1,33 @@
+/* RSS */
+.widget_rss{
+	li{
+		padding: 15px 0;
+		border-bottom: $MainBorder;
+		> a{
+			font-size: 130%;
+			line-height: 1.1;
+			padding: 0;
+			color: $primary_color;
+		}
+	}
+	.rsswidget{
+		.rss-widget-icon{
+			margin: 9px 10px 0 0;
+			[dir='rtl']{
+				margin-right: 0;
+				margin-left: 10px;
+			}
+		}
+	}
+	.rss-date{
+		display: block;
+		width: 100%;
+		clear: both;
+		padding: 0 0 10px 0;
+		font-style: italic;
+		color: $MetaColor;
+	}
+	cite{
+		color: $primary_color;
+	}
+}

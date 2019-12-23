@@ -1,0 +1,311 @@
+@import 'overlay';
+$hover-dir: (
+	top,
+	right,
+	bottom,
+	left
+);
+$fade-in: (
+	top: slideInDown,
+	right: slideInRight,
+	bottom: slideInUp,
+	left: slideInLeft
+);
+
+$fade-out: (
+	top: slideOutUp,
+	right: slideOutRight,
+	bottom: slideOutDown,
+	left: slideOutLeft
+);
+
+.hoverdir-wrap{
+	position: relative;
+	&:not(.fade-in){
+		overflow: hidden;
+		> *{
+			overflow: hidden;
+		}
+	}
+	.hover-inner{
+		position: relative;
+		overflow: hidden;
+	}
+	.hover-content{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	    padding: 20px;
+	    overflow: hidden;
+	    z-index: 1;
+	    background: rgba(0,0,0,0.5);
+	}
+	.static-content{
+		img{
+			margin-left: auto;
+			margin-right: auto;
+			display: flex;
+		}
+	}
+	.static-content,
+	.hover-content{
+		@include animation(.3s both);
+	}
+	[class*='in-'],
+	[class*='out-']{
+		.hover-content{
+			display: block;
+			&.content-flex{
+				display: flex;
+				flex-wrap: wrap;
+			}
+			&:empty{
+	    		display: none;
+		    	+ .static-content{
+		    		@include css3-prefix('animation-name', none);
+		    	}
+		    }
+		}
+	}
+	@media (max-width: $screen-md-max ){
+		.hover-content{
+			display: block;
+			&.content-flex{
+				display: flex;
+				flex-wrap: wrap;
+			}
+			&:empty{
+	    		display: none;
+		    	+ .static-content{
+		    		@include css3-prefix('animation-name', none);
+		    	}
+		    }
+		}
+	}
+	@media (min-width: $screen-lg-min){
+		.hover-content{
+			display: none;
+		}
+		&.push{
+			// In
+			.in-top {
+				.static-content{
+					@include css3-prefix('animation-name', slideOutDown); 
+				}
+				.hover-content{
+					@include css3-prefix('animation-name', slideInDown); 
+		    	}
+			}
+			.in-right {
+				.static-content{
+					@include css3-prefix('animation-name', slideOutLeft);
+				}
+				.hover-content{
+					@include css3-prefix('animation-name', slideInRight);
+		    	}
+			}
+			.in-bottom {
+				.static-content{
+					@include css3-prefix('animation-name', slideOutUp);
+				}
+				.hover-content{
+					@include css3-prefix('animation-name', slideInUp);
+		    	}
+			}
+			.in-left {
+				.static-content{
+					@include css3-prefix('animation-name', slideOutRight);
+				}
+				.hover-content{
+					@include css3-prefix('animation-name', slideInLeft);
+		    	}
+			}
+			// Out
+			.out-top {
+				.static-content{
+					@include css3-prefix('animation-name', slideInUp);
+				}
+				.hover-content{
+					@include css3-prefix('animation-name', slideOutUp);
+		    	}
+			}
+			.out-right {
+				.static-content{
+					@include css3-prefix('animation-name', slideInLeft);
+				}
+				.hover-content{
+					@include css3-prefix('animation-name', slideOutRight);
+		    	}
+			}
+			.out-bottom {
+				.static-content{
+					@include css3-prefix('animation-name', slideInDown);
+				}
+				.hover-content{
+					@include css3-prefix('animation-name', slideOutDown);
+		    	}
+			}
+			.out-left {
+				.static-content{
+					@include css3-prefix('animation-name', slideInRight);
+				}
+				.hover-content{
+					@include css3-prefix('animation-name', slideOutLeft);
+		    	}
+			}
+		}
+		&.slide{
+			// In
+			.in-bottom {
+				.hover-content{
+					@include css3-prefix('animation-name', slideInUp);
+		    	}
+			}
+			.in-top {
+				.hover-content{
+					@include css3-prefix('animation-name', slideInDown); 
+		    	}
+			}
+			.in-right {
+				.hover-content{
+					@include css3-prefix('animation-name', slideInRight);
+		    	}
+			}
+			.in-left {
+				.hover-content{
+					@include css3-prefix('animation-name',slideInLeft);
+		    	}
+			}
+			// Out
+			.out-bottom {
+				.hover-content{
+					@include css3-prefix('animation-name',slideOutDown);
+		    	}
+			}
+			.out-top {
+				.hover-content{
+					@include css3-prefix('animation-name', slideOutUp);
+		    	}
+			}
+			.out-right {
+				.hover-content{
+					@include css3-prefix('animation-name', slideOutRight);
+		    	}
+			}
+			.out-left {
+				.hover-content{
+		    		@include css3-prefix('animation-name', slideOutLeft);
+		    	}
+			}
+		}
+		&.slide-top{
+			[class*='in-'] {
+				.hover-content{
+			    	@include css3-prefix('animation-name', slideInUp);
+			    }
+			}
+			[class*='out-']{
+				.hover-content{
+		    		@include css3-prefix('animation-name', slideOutDown);
+				}
+			}
+		}
+		&.slide-top2{
+			.hover-content{
+				top: calc(100% - 65px);
+				display: block;
+				@include transition(all 0.3s ease-out 0s);
+			}
+			[class*='in-']{
+				.hover-content{
+					top: 0;
+				}
+			}
+		}
+		&.fade-in{
+			.hover-content{
+		    	> * {
+		    		@include opacity(0);
+		    		@include animation(.3s both);
+		    		@include transition();
+		    		@include animation-delay();
+		    	}
+			}
+			@each $dir , $anim in $fade-in {
+				.in-#{$dir}{
+					.hover-content {
+						@include css3-prefix('animation-name', fadeIn);
+						> *{
+		    				@include opacity(1);
+							@include css3-prefix('animation-name', $anim);
+						}
+					}
+				}
+			} 
+			@each $dir , $anim in $fade-out {			
+				.out-#{$dir}{
+					.hover-content {
+						@include css3-prefix('animation-name', fadeOut);
+						@include css3-prefix('animation-delay', 300ms);
+						> *{
+							@include css3-prefix('animation-name', $anim);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// Image Hover 
+[class*="img-hover-"]{
+	.image-hover{
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		span{
+			display: inline-block;
+			vertical-align: top;
+		}
+		&:hover{
+			.img-static{
+				opacity: 0;
+				visibility: hidden;
+			}
+			.img-hover{
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+	.img-static{
+		transition: all .4s linear;
+	}
+	.img-hover{
+		transition: all .4s linear;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    opacity: 0;
+	    visibility: hidden;
+	}
+}
+$img-hover:(
+	'grow-up' : scale(.8,.8) scale(1,1),
+	'slide-up' : translateY(20px) translateY(0),
+	'slide-down' : translateY(-20px) translateY(0),
+	'fade-in' : ''
+);
+@each $name, $style in $img-hover{
+	.img-hover-#{$name}{
+		.img-hover{
+			transform: nth($style, 1);
+		}
+		.image-hover:hover{
+			.img-hover{
+				transform: nth($style, 2);
+			}
+		}
+	}
+}

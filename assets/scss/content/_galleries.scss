@@ -1,0 +1,43 @@
+.gallery {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	margin: $grid-gutter-width / -2;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	padding: $grid-gutter-width / 2;
+	margin: 0;
+	width: 100%;
+
+	// Loops to enumerate the classes for gallery columns.
+	@for $i from 2 through 9 {
+		.gallery-columns-#{$i} & {
+			max-width: calc((100% - #{$grid-gutter-width/2} * #{ $i - 1 }) / #{ $i });
+		}
+	}
+}
+
+.gallery-caption {
+	display: block;
+	font-size: $BodyFontSizeS;
+}
+
+.gallery-item > div > a {
+	display: block;
+	line-height: 0;
+
+	// Accessibility
+	box-shadow: 0 0 0 0 transparent;
+
+	&:focus {
+		box-shadow: 0 0 0 2px rgba( $accent_color, 1 );
+	}
+}
+
+div[id^="gallery-"]{
+	margin-bottom: 30px;
+}

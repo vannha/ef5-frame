@@ -1,0 +1,51 @@
+/* WooSmart Plugin */
+.woosmart-icon{
+	> a{
+		font-size: 0;
+		border: none;
+		outline: none;
+		background: transparent;
+		cursor: pointer;
+		&:before{
+			font-family: $FontAwesome5;
+			font-size: 16px;
+			font-weight: 300;
+			margin: 0;
+		}
+		&.wooscp-btn{
+			&:before{
+				content: "\f074";
+			}
+			&.wooscp-btn-added:before{
+				content: "\f00c";
+				margin-right: 0;
+			}
+		}
+		&.woosq-btn{
+			&:before{
+				content: "\f06e";
+			}
+		}
+		&.woosw-btn{
+			&:before{
+				content: "\f004";
+			}
+			&.woosw-added:before{
+				font-family: $FontAwesome;
+				margin-right: 0;
+			}
+		}
+
+		&[class*="-adding"]:before{
+			content: '\f110';
+			display: block;
+			@include css3-prefix('animation','spin 1s linear infinite');
+		}
+	}
+}
+// Smart Wishlist 
+.woosw-area.ef5-loading {
+    opacity: 1;
+    visibility: visible;
+    background: rgba(0, 0, 0, 0.7);
+}

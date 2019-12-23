@@ -1,0 +1,167 @@
+$toggle_size: 30px;
+$toggle_inner_size: 10px;
+$toggle_thin: 2px;
+$toggle_currentColor: $accent_color;
+$toggle_currentColorHover: $accent_color;
+
+$direction: (
+	top,
+	right,
+	bottom,
+	left
+);
+
+/* Toggle Variations  */
+@mixin d-toggle(){
+    display: flex;
+    flex-wrap: wrap;
+    > span{
+    	flex: 0 0 auto;
+    	max-width: 100%;
+    }
+    > .sub-menu,
+    > .children,
+    > .ef5-dropdown{
+        flex : 0 0 100%;
+        width: 100%;
+    }
+}
+
+@mixin ef5-chevron(
+	$parent_selector: '.ef5-chevron-wrap', 
+	$selector       : '.ef5-chevron',
+	$selector_inner : '.ef5-chevron-inner',  
+	$direction      : 'bottom',
+	$thin           : $toggle_thin, 
+	$size           : $toggle_size, 
+	$inner_size     : $toggle_inner_size, 
+	$color          : $toggle_currentColor, 
+	$color_hover    : $toggle_currentColorHover
+){
+	#{$parent_selector}{
+		cursor: pointer;
+		position: relative;
+	}
+	#{$selector}{
+		height: $size;
+		width: $size;
+		display: inline-block;
+		#{$selector_inner}{
+			border-style: solid;
+			border-color: $color;
+			height: $inner_size;
+			width: $inner_size;
+			display: block;
+		
+			@if top == $direction {
+				border-width: $thin $thin 0 0;
+				@include transform(rotate(-45deg));
+			}
+			@if right == $direction {
+				border-width: 0 $thin $thin 0;
+				@include transform(rotate(-45deg) translate($inner_size/3, $inner_size));
+			}
+			@if bottom == $direction {
+				border-width: 0 0 $thin $thin;
+				@include transform(rotate(-45deg));
+			}
+			@if left == $direction {
+				border-width: 0 $thin $thin 0;
+				@include transform(rotate(-225deg));
+			}
+		}
+	}
+}
+@mixin overcome_toggle_plus(
+		$parent_selector: '.has-toggle', 
+		$selector       : '.ef5-toggle', 
+		$selector_inner : '.ef5-toggle-inner', 
+		$inner_position : 'right', 
+		$thin           : $toggle_thin, 
+		$size           : $toggle_size, 
+		$inner_size     : $toggle_inner_size,
+		$color          : $toggle_currentColor, 
+		$color_hover    : $toggle_currentColorHover
+	){
+	#{$parent_selector}{
+		@include d-toggle();
+	}
+	#{$selector}{
+		cursor: pointer;
+		position: relative;
+		width: $size;
+		//height: $size;
+		z-index: 1;
+		#{$selector_inner}{
+			height: $inner_size;
+			width: $inner_size;
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include transform(translate(-50%, -50%));
+			&:before,
+			&:after{
+				content: '';
+				display: block;
+				background: $color;
+				position: absolute;
+			}
+			&:before{
+				height: $thin;
+				left: 0;
+				right: 0;
+				top: #{$inner_size/2 - $thin/2};
+			}
+			&:after{
+				width: $thin;
+				top: 0;
+				bottom: 0;
+				left: #{$inner_size/2 - $thin/2};
+			}
+			&.active:after{
+				@include opacity(0);
+			}
+		}
+		#{$parent_selector}:hover &{
+			#{$selector_inner}{
+				border-color: $color_hover;
+			}
+		}
+	}
+}
+//@include overcome_toggle_plus();
+
+.ef5-toggle{
+	width: 22px;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	font-family: $FontAwesome5;
+	font-weight: 900;
+	.ef5-toggle-inner{
+		display: block;
+		&:before{
+			content: "\f0fe";
+			display: block;
+		}
+		&.active:before{
+			content: "\f146";
+		}
+	}
+	&.ef5-toggle-overlay{
+		@include opacity(0);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: unset;
+		height: unset;
+	}
+}
+.clicked .ef5-toggle-overlay{
+	&.ef5-toggle-inner:before{
+		content: "\f119";
+	}
+}

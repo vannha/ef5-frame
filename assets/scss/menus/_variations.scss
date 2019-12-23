@@ -1,0 +1,55 @@
+/* List */
+$list_inner_space: 10px 0;
+
+/* Header Menu Level 1 */
+$lv1_color: $primary_color ;
+$lv1_lineheight: $main_menu_height;
+$lv1_font_size: 15px;
+$lv1_font_weight: 500;
+$lv1_space: 36px;
+
+/* Header Menu Level 2 */
+$lv2_font_size: 15px;
+$lv2_font_weight: 400;
+$lv2_color: $dropdown_regular;
+$lv2_color_hover: $dropdown_hover;
+$lv2_color_active: $dropdown_active;
+
+/* Header Menu Dropdown */
+$dropdown_border: 0px solid #2a2929;
+$dropdown_space: 10px 25px;
+$dropdown_w: 250px;
+
+$dropdown_font_size: $lv2_font_size;
+$dropdown_font_weight: $lv2_font_weight;
+$dropdown_color: $lv2_color;
+$dropdown_color_hover: $lv2_color_hover;
+$dropdown_color_active: $lv2_color_active;
+
+$dropdown_arrow : '';
+$dropdown_arrow_rtl : '';
+
+/**
+ * Side Menu
+ * Used for side Menu Only
+*/
+$side_menu_lv1_color: $primary_color;
+$side_menu_lv1_color_hover: $accent_color;
+$side_menu_border: 1px solid rgba($side_menu_lv1_color, 0.1);
+
+/* Side Sub Menu */
+$side_submenu_font_size: $lv2_font_size;
+$side_submenu_font_weight: $lv2_font_weight;
+$side_submenu_color: $primary_color;
+$side_submenu_color_hover: $accent_color;
+$side_submenu_color_active: $accent_color;
+
+/* Mobile Menu */
+$mobile_border: 1px solid #2a2929;
+$mobile_space: 10px 25px;
+
+$mobile_font_size: $lv2_font_size;
+$mobile_font_weight: $lv2_font_weight;
+$mobile_color: $lv2_color;
+$mobile_color_hover: $lv2_color_hover;
+$mobile_color_active: $lv2_color_active;

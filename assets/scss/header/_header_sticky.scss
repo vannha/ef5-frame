@@ -1,0 +1,23 @@
+.sticky-on{
+	&.header-sticky{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 3;
+		background-color: rgba($black, 0.7);
+ 	}
+ 	&.scrollDown{
+ 		@include transform(translateY(-100px));
+ 	}
+}
+.admin-bar{
+	.header-sticky{
+		top: 32px;
+	}
+	@media (max-width: 782px){
+		.header-sticky{
+			top: 46px;
+		}
+	}
+}

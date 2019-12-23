@@ -1,0 +1,58 @@
+.ef5-masonry-sizer{
+	width: 0;
+	height: 0;
+	float: left;
+}
+.ef5-masonry-gutter{
+	width: 0px;
+	float: left;
+}
+.ef5-masonry-item{
+	float: left;
+	[dir="rtl"] &{
+		float: right;
+	}
+}
+
+.ef5-filters-1{
+	margin: -15px;
+	.filter-item{
+		margin: 15px;
+		font-size: 18px;
+		font-weight: 600;
+		border-bottom: 2px solid transparent;
+		color: #777777;
+		cursor: pointer;
+		@include transition();
+		&:hover,
+		&.active{
+			color: $accent_color;
+			border-bottom-color: $accent_color;
+		}
+	}
+}
+.ef5-filters-2{
+	margin: -22.5px;
+	.filter-item{
+		margin: 22.5px;
+		font-weight: 500;
+		font-size: 18px;
+		border-bottom: 2px solid transparent;
+		color: #777777;
+		cursor: pointer;
+		@include transition();
+		&:hover,
+		&.active{
+			color: $accent_color;
+			border-bottom-color: $accent_color;
+		}
+	}
+}
+
+
+.ef5-posts-masonry-1{
+	margin-top: 67px;
+	.ef5-masonry-item{
+		padding-bottom: 75px;
+	}
+}

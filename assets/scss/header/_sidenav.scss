@@ -1,0 +1,54 @@
+/* Show/Hide Side Nav Menu */
+#ef5-page{
+	@include transition();
+	&.sidenav-open{
+		@include transform(translateX(-370px));
+		[dir='rtl'] &{
+			@include transform(translateX(370px));
+		}
+	}
+
+}
+#ef5-sidenav{
+	position: fixed;
+	top: 0; 
+	right: 0;
+	height: 100vh;
+	width: 100%;
+	max-width: 370px;
+	visibility: hidden;
+	background: $white;
+	padding: 30px 15px;
+	@include opacity(0);
+	@include transform(translateX(100%));
+	@include transition();
+	&.open{
+		visibility: visible;
+		@include opacity(1);
+		@include transform(translateX(0));
+	}
+	@media (min-width: $screen-xl-min){
+		padding: 75px 50px;
+	}
+	[dir='rtl'] &{
+		right: auto;
+		left: 0;
+		@include transform(translateX(-100%));
+		&.open{
+			@include transform(translateX(0));
+		}
+	}
+}
+.logged-in #ef5-sidenav{
+	top: 32px;
+	height: calc(100vh - 32px);
+}
+#ef5-close-sidenav{
+	position: absolute;
+	top: 20px;
+	right: 15px;
+	@media (min-width: $screen-xl-min){
+		top: 45px;
+		right: 50px;
+	}
+}

@@ -1,0 +1,40 @@
+.ef5-owl-nav-button{
+	cursor: pointer;
+	z-index: 1;
+}
+.ef5-owl-nav {
+	&.vertical {
+		.ef5-owl-nav-button{
+			position: absolute;
+			top: 50%;
+			@include transform(translateY(-50%));
+			width: 30px;
+			height: 30px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-color: transparent;
+			&.ef5-owl-prev{
+				background-image: url(../images/arrow-l.png);
+			}
+			&.ef5-owl-next{
+				background-image: url(../images/arrow-r.png);
+			}
+		}
+		&.inside{
+			.ef5-owl-prev{
+				left: 40px;
+			}
+			.ef5-owl-next{
+				right: 40px;
+			}
+		}
+		&.outside{
+			.ef5-owl-prev{
+				left: -40px;
+			}
+			.ef5-owl-next{
+				right: -40px;
+			}
+		}
+	} 
+}

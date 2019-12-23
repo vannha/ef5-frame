@@ -1,0 +1,44 @@
+.ef5-team-1{
+	text-align: center;
+	.team-info{
+		padding-top: 23px;
+	}
+	.team-socials{
+		background-color: $white;
+		font-size: 14px;
+		line-height: 30px;
+		padding-left: 10px;
+		padding-right: 10px;
+		margin-bottom: 30px;
+		a{
+			padding: 0 10px;
+		}
+	}
+	.team-position{
+		color: #777777;
+		padding-top: 2px;
+	}
+}
+.ef5-team-2{
+	.team-image{
+		padding-bottom: 40px;
+	}
+	.team-position{
+		padding-top: 11px;
+	}
+	.team-socials{
+		padding-top: 25px;
+		margin-left: -11px;
+		margin-right: -11px;
+		a{
+			padding: 0 11px;
+			@include overcome_social_color();
+			&[href*="facebook"]{
+				color: $accent_color;
+			}
+			&[href*="linkedin"]{
+				color: $primary_color;
+			}
+		}
+	}
+}

@@ -1,0 +1,37 @@
+/**
+ * Structure of  button size
+ * 1-name -- 2-padding-y -- 3-padding-x -- 4-font-size -- 5-font-weight -- 6-text-style -- 7-letter-spacing -- 8-border-radius -- 9-min-width
+*/
+$btn-sizes: (
+	tn 6.5px 23.5px 13px 500 uppercase unset 16px, 
+	sm 9px 21px '' '' '' '' 18.5px 140px, 
+	md 11.5px 33.5px '' '' '' '' 21px 164px, 
+	xmd 12px 22px 12px '' uppercase 0.5px 25px,
+	df 16px 30px 13px '' uppercase 0.5px 25px, 
+	lg 16px 30px 14px '' uppercase 1px 25px 157px, 
+	xlg 16px 30px 13px '' uppercase 0.5px 4px 179px,
+	donate 15.5px 21px 14px '' '' '' '' ''
+);
+@each $size in $btn-sizes {
+  	.ef5-btn-#{nth($size, 1)} {
+  		padding: nth($size, 2) nth($size, 3)!important;
+  		@if (nth($size, 4) != ''){
+			font-size: nth($size, 4)!important;
+		}
+		@if (nth($size, 5) != ''){
+			font-weight: nth($size, 5)!important;
+		}
+		@if (nth($size, 6) != ''){
+			text-transform: nth($size, 6)!important;
+		}
+		@if (nth($size, 7) != ''){
+			letter-spacing: nth($size, 7)!important;
+		}
+		@if (nth($size, 8) != ''){
+			border-radius: nth($size, 8)!important;
+		}
+		@if (nth($size, 9) != ''){
+			min-width: nth($size, 9)!important;
+		}
+    }
+}

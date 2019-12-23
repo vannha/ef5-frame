@@ -1,0 +1,48 @@
+/* Header Helper Menu */
+.ef5-header-helper{
+    margin-bottom: -12px;
+    padding-top: 31px;
+    position: relative;
+    z-index: 2;
+}
+.ef5-header-helper-menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li{
+        padding:  0 3px;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%;
+        &:hover,
+        &.current-menu-item,
+        &.highlight {
+            a{
+                color: $white;
+                background: $accent_color;
+            }
+        }
+        &.highlight{
+            a{
+                text-transform: uppercase;
+                font-family: $BodyFont;
+                font-style: normal;
+                @include letter-spacing(12,20);
+            }
+        }
+    }
+    a{
+        color: $lv1_color;
+        padding: 3px 7px;
+        display: inline-block;
+        @include border-radius(2px);
+        @include transition();
+    }
+}
+.header-ontop {
+    .ef5-header-helper-menu{
+        a{
+            color: $ontop_regular;
+        }
+    }
+}

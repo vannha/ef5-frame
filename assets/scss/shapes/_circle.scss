@@ -1,0 +1,6 @@
+.circle{
+	@include border-radius(50%);
+	img{
+		@include border-radius(50%);
+	}
+}

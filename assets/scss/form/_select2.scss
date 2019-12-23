@@ -1,0 +1,36 @@
+.select2.select2-container--default {
+	.select2-selection--single{
+		border: $FF_Border;
+		height: 56px;
+		padding: $FF_Spacing;
+		margin: 0;
+		background-color: $FF_Background;
+		@include border-radius($FF_BorderRadius);
+		.select2-selection__rendered{
+			padding: 0;
+		}
+		.select2-selection__arrow{
+			right: 20px;
+			top:50%;
+			@include transform(translateY(-50%));
+			[dir="rtl"] & {
+				right: auto;
+				left: 20px;
+			}
+		}
+	}
+}
+.select2-container.select2-container--open {
+	.select2-dropdown{
+		border-color: $FF_BorderColor;
+		@include border-radius($FF_BorderRadius);
+	}
+	.select2-dropdown--below {
+	    border-top-left-radius: 0;
+	    border-top-right-radius: 0;
+	}
+	.select2-dropdown--above {
+	    border-bottom-left-radius: 0;
+	    border-bottom-right-radius: 0;
+	}
+}

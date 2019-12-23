@@ -1,0 +1,16 @@
+.ef5-owl-dots.ef5-owl-dots-default{
+	.ef5-owl-dot{
+		width: 18px;
+		height: 5px;
+		@include border-radius(2.5px);
+	}
+	&.ef5-owl-dots-color-white-primary{
+		.ef5-owl-dot{
+			background: $white;
+			&:hover,
+			&.active{
+				background: $primary_color;
+			}
+		}
+	}
+}

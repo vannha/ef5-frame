@@ -1,0 +1,28 @@
+.ef5-meta{
+	margin: 0 -10px;
+	font-size: 14px;
+	line-height: 20px;
+	> * {
+		padding: 0 10px;
+	}
+	a:not(.author-url){
+		color: $MetaColor;
+		&:hover{
+			color: $MetaColorHover;
+		}
+	}
+	.avatar{
+		margin-right: 10px;
+		[dir="rtl"] & {
+			margin-right: 0;
+			margin-left: 10px;
+		}
+	}
+	.meta-icon{
+		color: $MetaColor;
+	}
+}
+
+.ef5-date a{
+	color: inherit!important;
+}

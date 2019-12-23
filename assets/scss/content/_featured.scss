@@ -1,0 +1,126 @@
+.ef5-featured{
+	position: relative;
+	&:empty{
+		display: none;
+	}
+	.post-author{
+		padding: 10px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		background: rgba($white, 0.8);
+	    display: flex;
+	    align-items: center;
+	}
+	
+	.post-category{
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		z-index: 2;
+		[dir="rtl"] &{
+			right: auto;
+			left: 20px;
+		}
+		&:empty{
+			display: none;
+		}
+	}
+
+	.wp-video{
+		width: 100% !important; /* do not remove this, it for fix shortcode video width */
+	}
+	.ef5-posted-in,
+	.ef5-shares,
+	.ef5-posted-on{
+		//position: absolute;
+	}
+	.ef5-posted-in{
+		//top: 20px;
+		//left: 20px;
+		[dir="rtl"] &{
+			//left: auto;
+			//right: 20px;
+		}
+	}
+	.ef5-shares{
+		//bottom: 15px;
+		//left: 0;
+		//right: 0;
+		//z-index: 1;
+	}
+	.ef5-posted-on{
+		//bottom: -5px;
+		//left: 30px;
+		[dir="rtl"] &{
+			//left: auto;
+			//right: 30px;
+		}
+	}
+}
+.ef5-quote{
+	.quote-wrap{
+		position: relative;
+		&.has-bg{
+			padding: 50px 30px;
+			color: $white;
+			background-attachment: fixed;
+			background-size: cover;
+			blockquote{
+				color: $white;
+			}
+			&:before{
+				content: '';
+				display: block;
+				background: rgba(0,0,0,0.5);
+				@include overlay-pos();
+			}
+			> * {
+				position: relative;
+				z-index: 1;
+			}
+		}
+		blockquote{
+			margin: 0;
+		}
+	}
+}
+.post-image{
+	&.thumbnai-is-bg {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		> img{
+			visibility: hidden;
+			@include opacity(0);
+		}
+	}
+}
+.link-wrap[style]{
+	padding: $grid-gutter-width*3 $grid-gutter-width;
+	text-align: center;
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    &:before{
+		content: '';
+		display: block;
+		background: rgba(0,0,0,0.5);
+		@include overlay-pos();
+	}
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+}
+.link-wrap:not(.has-bg){
+	background-color: $accent_color;
+	padding: 60px;
+	@media (max-width: $screen-md-max){
+		padding: 60px 15px;
+	}
+}
